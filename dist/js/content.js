@@ -2825,10 +2825,6 @@ class Config {
         'Janaan AI',
     ];
     static AITagsLower = Config.AITags.map((tag) => tag.toLowerCase());
-    /**始终保持显示的选项 */
-    static optionWhiteList = [
-        2, 4, 13, 17, 26, 28, 32, 36, 44, 50, 51, 57, 64, 37, 81, 99, 100, 101, 106,
-    ];
 }
 
 
@@ -5322,7 +5318,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const iconScaleMap = {
     wiki: { scale: 1.1 },
-    link: { scale: 1.1 },
+    link: { scale: 1.2 },
 };
 function getUseHref(use) {
     const href = use.getAttribute('href') || use.getAttribute('xlink:href') || '';
@@ -33835,22 +33831,6 @@ Note: After enabling this setting, the downloader will overwrite your current na
 <br>
 Обратите внимание: после включения этой настройки загрузчик перезапишет ваше текущее правило именования предустановленными правилами. После этого вы можете изменить их по своему усмотрению, например задать разные правила для страницы поиска и страницы профиля автора.`,
     ],
-    _显示高级设置: [
-        '显示<span class="key">高级</span>设置',
-        '顯示<span class="key">進階</span>設定',
-        'Show <span class="key">advanced</span> settings',
-        '<span class="key">詳細</span>設定を表示する',
-        '<span class="key">고급</span> 설정 보기',
-        'Показать <span class="key">расширенные</span> настройки',
-    ],
-    _显示高级设置说明: [
-        `下载器默认隐藏了一些设置。点击以显示所有设置。<br>被隐藏的设置依然会生效。`,
-        `下載器預設隱藏了一些設定。點選以顯示所有設定。<br>被隱藏的設定依然會生效。`,
-        `The Downloader hides some settings by default. Click to show all settings. <br>Hidden settings will still work.`,
-        `ダウンローダーはデフォルトで一部の設定を非表示にしています。クリックするとすべての設定が表示されます。<br>非表示の設定も引き続き機能します。`,
-        `다운로더는 기본적으로 일부 설정을 숨깁니다. 모든 설정을 표시하려면 클릭하세요. <br>숨겨진 설정도 계속 작동합니다.`,
-        `Загрузчик скрывает некоторые настройки по умолчанию. Щелкните, чтобы показать все настройки. <br>Скрытые настройки будут работать.`,
-    ],
     _状态码为0的错误提示: [
         '下载时发生错误，状态码为 0，请求未成功。可能的原因：<br><br>1. 系统磁盘的剩余空间可能不足（通常是 C 盘）（建议剩余空间大于 4GB）。请尝试清理系统磁盘空间，然后重新启动浏览器，继续未完成的下载。<br><br>2. 网络错误。可能是网络代理导致的问题。如果你使用 Nginx 或者 Apache 反代理访问 pixiv，请换成梯子。<br><br>3. 可以尝试重启浏览器，或者禁用此扩展然后重新启用，并刷新这个标签页。',
         '下載時發生錯誤，狀態碼為 0，請求未成功。可能的原因：<br><br>1. 系統磁碟的剩餘空間可能不足（通常是 C 盤）（建議剩餘空間大於 4GB）。請嘗試清理系統磁碟空間，然後重新啟動瀏覽器，繼續未完成的下載。<br><br>2. 網路錯誤。可能是網路代理導致的問題。<br><br>3. 可以嘗試重啟瀏覽器，或者禁用此擴充套件然後重新啟用，並重新整理這個標籤頁。',
@@ -34383,12 +34363,12 @@ Naming rule when merging a novel series" in "More"-"Naming".`,
         `{} не сохранено, код: {}.`,
     ],
     _FILE_FAILED_tip: [
-        '可能是文件名太长，或是其他原因导致文件保存失败。你可以尝试启用高级设置里的“文件名长度限制”。',
-        '可能是檔名太長，或是其他原因導致檔案儲存失敗。你可以嘗試啟用高階設定裡的“檔案名稱長度限制”。',
-        'Maybe the file name is too long, or other reasons cause the file to fail to save. You can try enabling "File name length limit" in advanced settings.',
-        'ファイル名が長すぎるか、他の理由でファイルの保存に失敗した可能性があります。 詳細設定で「ファイル名の長さ制限」を有効にしてみてください。',
-        '파일명이 너무 길거나 다른 이유로 저장에 실패한 것 같습니다. 고급 설정에서 "파일명 길이 제한"을 사용하도록 설정할 수 있습니다.',
-        'Возможно, имя файла слишком длинное, или по другим причинам файл не удается сохранить. Вы можете попробовать включить "Ограничение длины имени файла". в расширенных настройках.',
+        '可能是文件名太长，或是其他原因导致文件保存失败。你可以尝试启用“命名”设置里的“文件名长度限制”。',
+        '可能是檔名太長，或是其他原因導致檔案儲存失敗。你可以嘗試啟用“命名”設定裡的“檔案名稱長度限制”。',
+        'Maybe the file name is too long, or other reasons cause the file to fail to save. You can try enabling "File name length limit" in the "Naming" settings.',
+        'ファイル名が長すぎるか、他の理由でファイルの保存に失敗した可能性があります。 「命名」設定で「ファイル名の長さ制限」を有効にしてみてください。',
+        '파일명이 너무 길거나 다른 이유로 저장에 실패한 것 같습니다. "명명" 설정에서 "파일명 길이 제한"을 사용하도록 설정할 수 있습니다.',
+        'Возможно, имя файла слишком длинное, или по другим причинам файл не удается сохранить. Вы можете попробовать включить "Ограничение длины имени файла" в настройках "Именование".',
     ],
     _显示摘要信息: [
         '显示摘要信息',
@@ -34431,12 +34411,12 @@ Naming rule when merging a novel series" in "More"-"Naming".`,
         'По умолчанию не работает.',
     ],
     _你可以在更多选项卡的xx分类里找到它: [
-        '你可以在“更多”选项卡 → “{}”分类里找到它。（需要先启用“显示高级设置”）',
-        '你可以在“更多”選項卡 → “{}”分類裡找到它。（需要先啟用“顯示進階設定”）',
-        'You can find it in the "More" tab → "{}" category. ("Show advanced settings" needs to be enabled first)',
-        '[もっと]タブ→[{}]カテゴリにあります。（最初に「詳細設定を表示」を有効にする必要があります）',
-        '"더보기" 탭 → "{}" 카테고리에서 찾을 수 있습니다. ("고급 설정 보기"를 먼저 활성화해야 합니다.)',
-        'Вы можете найти его в разделе "Еще". вкладка → "{}" категория. ("Показать расширенные настройки" необходимо сначала включить)',
+        '你可以在“更多”选项卡 → “{}”分类里找到它。',
+        '你可以在“更多”選項卡 → “{}”分類裡找到它。',
+        'You can find it in the "More" tab → "{}" category.',
+        '[もっと]タブ→[{}]カテゴリにあります。',
+        '"더보기" 탭 → "{}" 카테고리에서 찾을 수 있습니다.',
+        'Вы можете найти его в разделе "Еще". вкладка → "{}" категория.',
     ],
     _你可以在xx选项卡里找到它: [
         '你可以在“{}”选项卡里找到它。',
@@ -34445,14 +34425,6 @@ Naming rule when merging a novel series" in "More"-"Naming".`,
         '「{}」タブにあります。',
         '"{}" 탭에서 찾을 수 있습니다.',
         'Вы можете найти его на вкладке "{}".',
-    ],
-    _你可以在xx选项卡里找到它并需要启用高级设置: [
-        '你可以在“{}”选项卡里找到它。（需要先启用“显示高级设置”）',
-        '你可以在“{}”選項卡裡找到它。（需要先啟用“顯示進階設定”）',
-        'You can find it in the "{}" tab. ("Show advanced settings" needs to be enabled first)',
-        '「{}」タブにあります。（最初に「詳細設定を表示」を有効にする必要があります）',
-        '"{}" 탭에서 찾을 수 있습니다. ("고급 설정 보기"를 먼저 활성화해야 합니다.)',
-        'Вы можете найти его на вкладке "{}". ("Показать расширенные настройки" необходимо сначала включить)',
     ],
     _使用鼠标滚轮切换作品里的图片: [
         '使用鼠标滚轮切换多图作品里的图片',
@@ -38237,12 +38209,12 @@ The conditions "only crawl the first/last few images" and "do not crawl the firs
         `Закрепить сверху`,
     ],
     _提示可以置顶选项: [
-        `你可以置顶自己常用的选项，它们会显示在选项卡的顶部，并且即使未启用“显示高级设置”也会始终显示。方法 1: 把鼠标指针放到选项上，然后点击左侧的置顶图标。方法 2: 长按选项名称 0.5 秒。`,
-        `你可以置頂自己常用的選項，它們會顯示在選項卡的頂部，並且即使未啟用「顯示高級設定」也會始終顯示。方法 1: 把滑鼠指標放到選項上，然後點擊左側的置頂圖示。方法 2: 長按選項名稱 0.5 秒。`,
-        `You can pin your frequently used options to the top. They will appear at the top of the options tab and will always be displayed even if "Show advanced settings" is not enabled. Method 1: Hover the mouse pointer over the option, then click the pin icon on the left. Method 2: Long press the option name for 0.5 seconds.`,
-        `よく使うオプションをトップに固定できます。これらは設定タブの最上部に表示され、「高度な設定を表示」が有効になっていなくても常に表示されます。方法 1: マウスカーソルをオプションに合わせ、左側のピンアイコンをクリックします。方法 2: オプション名を0.5秒長押しします。`,
-        `자주 사용하는 옵션을 상단에 고정할 수 있습니다. 이 옵션들은 옵션 탭의 맨 위에 표시되며, "고급 설정 표시"가 활성화되지 않았더라도 항상 표시됩니다. 방법 1: 마우스 포인터를 옵션 위에 올린 후 왼쪽의 고정 아이콘을 클릭하세요. 방법 2: 옵션 이름을 0.5초 동안 길게 누르세요.`,
-        `Вы можете закрепить часто используемые параметры сверху. Они будут отображаться в верхней части вкладки параметров и всегда будут видны, даже если «Показывать расширенные настройки» не включено. Способ 1: Наведите указатель мыши на параметр, затем нажмите на иконку закрепления слева. Способ 2: Долгое нажатие на название параметра в течение 0.5 секунды.`,
+        `你可以置顶自己常用的选项，它们会集中显示在“首页”里。在设置的卡片上长按 0.5 秒即可使其置顶或取消置顶。`,
+        `你可以置頂自己常用的選項，它們會集中顯示在 "首頁" 裡。在設定卡片上長按 0.5 秒即可將其置頂或取消置頂。`,
+        `You can pin the options you use often, and they will be shown together on the "Home" page. Press and hold a setting card for 0.5 seconds to pin or unpin it.`,
+        `よく使うオプションはピン留めできます。ピン留めした項目は "ホーム" にまとめて表示されます。設定カードを 0.5 秒長押しすると、ピン留めまたはピン留め解除できます。`,
+        `자주 사용하는 옵션을 고정할 수 있으며, 고정한 옵션은 "홈" 에 모아서 표시됩니다. 설정 카드에서 0.5초 동안 길게 누르면 고정하거나 고정을 해제할 수 있습니다.`,
+        `Вы можете закрепить часто используемые параметры, и они будут собраны на странице "Главная". Нажмите и удерживайте карточку настройки 0.5 секунды, чтобы закрепить или открепить ее.`,
     ],
     _已置顶: [`已置顶`, `已置頂`, `Pinned`, `固定済み`, `고정됨`, `Закреплено`],
     _取消置顶: [
@@ -41807,7 +41779,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NamingRuleConfig__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NamingRuleConfig */ "./src/ts/setting/NamingRuleConfig.ts");
 
 
-// 设置项编号从 0 开始，现在最大是 107
+// 设置项编号从 0 开始，现在最大是 107。有些编号空缺，之后可以优先使用空缺的编号。 71 号空缺，下一个设置可以使用它，这样编号就没有空缺了。
 // 帮助按钮上的文字有两种：
 // - 如果帮助文字使用 MsgBox 显示，则使用“_帮助”
 // - 如果帮助文字直接在设置面板上显示，则使用“_提示”
@@ -41948,16 +41920,6 @@ const formHtml = `
       <input type="checkbox" name="downMultiImg" id="setDownMultiImg" class="need_beautify checkbox_common" checked>
       <span class="beautify_checkbox" tabindex="0"></span>
       <label for="setDownMultiImg" data-xztext="_多图作品"></label>
-    </div>
-
-    <span class="optionAnchor" data-for-no="51" aria-hidden="true"></span>
-    <div class="option" data-no="51">
-      <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_显示高级设置说明">
-        <span data-xztext="_显示高级设置"></span>
-        <span class="gray1"> ? </span>
-      </a>
-      <input type="checkbox" name="showAdvancedSettings" class="need_beautify checkbox_switch">
-      <span class="beautify_switch" tabindex="0"></span>
     </div>
 
     <span class="optionAnchor" data-for-no="99" aria-hidden="true"></span>
@@ -42356,16 +42318,6 @@ const formHtml = `
     </div>
 
     <div class="pinnedOptionTarget"></div>
-
-    <span class="optionAnchor" data-for-no="57" aria-hidden="true"></span>
-    <div class="option" data-no="57">
-      <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_显示高级设置说明">
-        <span data-xztext="_显示高级设置"></span>
-        <span class="gray1"> ? </span>
-      </a>
-      <input type="checkbox" name="showAdvancedSettings" class="need_beautify checkbox_switch">
-      <span class="beautify_switch" tabindex="0"></span>
-    </div>
 
     <div class="option settingCategoryName" data-no="59">
       <span data-xztext="_抓取"></span>
@@ -43790,7 +43742,6 @@ class FormSettings {
             'saveMetaFormatTXT',
             'saveMetaFormatJSON',
             'setNameRuleForEachPageType',
-            'showAdvancedSettings',
             'showNotificationAfterDownloadComplete',
             'boldKeywords',
             'autoExportResult',
@@ -44016,8 +43967,6 @@ class FormSettings {
     }
     // 处理复选框： click 时保存 checked
     saveCheckBox(name) {
-        // 由于表单里存在两个 showAdvancedSettings 设置，会获取到 NodeListOf<HTMLInputElement>
-        // 其他设置只有一个，是 HTMLInputElement
         const el = this.form[name];
         let elArray = [];
         if (el.length !== undefined) {
@@ -44044,8 +43993,6 @@ class FormSettings {
     // 恢复值为 Boolean 的设置项
     restoreBoolean(name) {
         if (_Settings__WEBPACK_IMPORTED_MODULE_1__.settings[name] !== undefined) {
-            // 由于表单里存在两个 showAdvancedSettings 设置，会获取到 NodeListOf<HTMLInputElement>
-            // 其他设置只有一个，是 HTMLInputElement
             const el = this.form[name];
             let elArray = [];
             if (el.length !== undefined) {
@@ -44476,14 +44423,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Config */ "./src/ts/Config.ts");
 /* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
 /* harmony import */ var _PageType__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../PageType */ "./src/ts/PageType.ts");
-/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
-/* harmony import */ var _Tools__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Tools */ "./src/ts/Tools.ts");
-/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
-/* harmony import */ var _PinOptions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./PinOptions */ "./src/ts/setting/PinOptions.ts");
-/* harmony import */ var _ShowNewIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ShowNewIcon */ "./src/ts/setting/ShowNewIcon.ts");
-/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/Utils */ "./src/ts/utils/Utils.ts");
-
-
+/* harmony import */ var _Tools__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Tools */ "./src/ts/Tools.ts");
+/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
+/* harmony import */ var _PinOptions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PinOptions */ "./src/ts/setting/PinOptions.ts");
+/* harmony import */ var _ShowNewIcon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ShowNewIcon */ "./src/ts/setting/ShowNewIcon.ts");
 
 
 
@@ -44496,8 +44439,8 @@ class Options {
     init(allOption) {
         this.allOption = allOption;
         this.bindEvents();
-        _PinOptions__WEBPACK_IMPORTED_MODULE_6__.pinOption.init(allOption);
-        _ShowNewIcon__WEBPACK_IMPORTED_MODULE_7__.showNewIcon.init(allOption);
+        _PinOptions__WEBPACK_IMPORTED_MODULE_5__.pinOption.init(allOption);
+        _ShowNewIcon__WEBPACK_IMPORTED_MODULE_6__.showNewIcon.init(allOption);
     }
     allOption;
     /** 定制的设置项，不在公开版本里显示 */
@@ -44509,7 +44452,7 @@ class Options {
     hideOnPixivision = [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 19, 21, 22, 23,
         24, 26, 27, 28, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 43, 44, 46, 47, 48,
-        49, 50, 51, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+        49, 50, 54, 55, 56, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
         70, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
         90, 91, 92, 94, 95, 96, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107,
     ];
@@ -44518,13 +44461,13 @@ class Options {
             this.display();
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.settingChange, (ev) => {
-            if (!_store_States__WEBPACK_IMPORTED_MODULE_5__.states.settingInitialized) {
+            if (!_store_States__WEBPACK_IMPORTED_MODULE_4__.states.settingInitialized) {
                 return;
             }
             const data = ev.detail.data;
-            if (data.name === 'showAdvancedSettings') {
-                this.display();
-            }
+            // if (data.name === 'showAdvancedSettings') {
+            //   this.display()
+            // }
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.pageSwitch, () => {
             window.setTimeout(() => {
@@ -44532,9 +44475,8 @@ class Options {
             }, 0);
         });
     }
-    /**根据显示/隐藏高级设置来处理每个选项的显示与隐藏 */
+    /** 处理每个选项的显示与隐藏 */
     display() {
-        const isPixiv = _utils_Utils__WEBPACK_IMPORTED_MODULE_8__.Utils.isPixiv();
         for (const option of this.allOption) {
             if (option.dataset.no === undefined) {
                 continue;
@@ -44546,27 +44488,7 @@ class Options {
                 this.hideOption([no]);
                 continue;
             }
-            // 然后处理需要始终显示的选项
-            if (isPixiv) {
-                // 显示白名单里的选项、置顶的选项
-                if (_Config__WEBPACK_IMPORTED_MODULE_0__.Config.optionWhiteList.includes(no) ||
-                    _Settings__WEBPACK_IMPORTED_MODULE_3__.settings.pinnedOptions.includes(no)) {
-                    this.showOption([no]);
-                    continue;
-                }
-            }
-            // 剩余的选项都是高级设置，它们默认是显示的
-            // 在 pixivision 上，不处理高级设置，所以剩余的选项都会显示
-            if (!isPixiv) {
-                continue;
-            }
-            // 在 Pixiv 上，显示或隐藏高级设置
-            if (!_Settings__WEBPACK_IMPORTED_MODULE_3__.settings.showAdvancedSettings) {
-                this.hideOption([no]);
-            }
-            else {
-                this.showOption([no]);
-            }
+            this.showOption([no]);
         }
     }
     /** 判断是否需要隐藏某个设置 */
@@ -44601,7 +44523,7 @@ class Options {
             if (number === 0 || number === 1) {
                 continue;
             }
-            const option = _Tools__WEBPACK_IMPORTED_MODULE_4__.Tools.getOption(this.allOption, number);
+            const option = _Tools__WEBPACK_IMPORTED_MODULE_3__.Tools.getOption(this.allOption, number);
             if (option) {
                 option.style.display = display;
             }
@@ -44625,15 +44547,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   pinOption: () => (/* binding */ pinOption)
 /* harmony export */ });
-/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Config */ "./src/ts/Config.ts");
-/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
-/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
-/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Toast */ "./src/ts/Toast.ts");
-/* harmony import */ var _Tools__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Tools */ "./src/ts/Tools.ts");
-/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/Utils */ "./src/ts/utils/Utils.ts");
-/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
-
+/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
+/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
+/* harmony import */ var _store_States__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/States */ "./src/ts/store/States.ts");
+/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Toast */ "./src/ts/Toast.ts");
+/* harmony import */ var _Tools__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Tools */ "./src/ts/Tools.ts");
+/* harmony import */ var _utils_Utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/Utils */ "./src/ts/utils/Utils.ts");
+/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
 
 
 
@@ -44645,7 +44565,7 @@ __webpack_require__.r(__webpack_exports__);
 class PinOptions {
     init(allOption) {
         // 不在 pixivision 上启用
-        if (!_utils_Utils__WEBPACK_IMPORTED_MODULE_6__.Utils.isPixiv()) {
+        if (!_utils_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils.isPixiv()) {
             return;
         }
         this.allOption = allOption;
@@ -44657,24 +44577,24 @@ class PinOptions {
     list;
     bindEvents() {
         // 在设置初始化之后，第一次执行 display
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.settingInitialized, () => {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.settingInitialized, () => {
             this.addPinButton();
             this.display();
-            this.list = _Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.slice();
+            this.list = _Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.slice();
         });
         // 初始化之后，如果用户修改了置顶选项列表，则再次执行 display
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.settingChange, (ev) => {
-            if (!_store_States__WEBPACK_IMPORTED_MODULE_3__.states.settingInitialized) {
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.settingChange, (ev) => {
+            if (!_store_States__WEBPACK_IMPORTED_MODULE_2__.states.settingInitialized) {
                 return;
             }
             const data = ev.detail.data;
             if (data.name === 'pinnedOptions') {
                 // 对比新旧列表，找出有哪些选项被取消了置顶
-                const removed = this.list.filter((no) => !_Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.includes(no));
+                const removed = this.list.filter((no) => !_Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.includes(no));
                 // 传入被取消置顶的选项
                 this.display(removed);
                 // 保存新的列表
-                this.list = _Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.slice();
+                this.list = _Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.slice();
             }
         });
     }
@@ -44692,7 +44612,7 @@ class PinOptions {
             }
             const noNum = Number.parseInt(no);
             // 已置顶的选项，直接显示置顶按钮
-            if (_Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.includes(noNum)) {
+            if (_Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.includes(noNum)) {
                 option.classList.add(this.pinnedClassName);
                 this.bindTogglePinEvent(option, noNum);
             }
@@ -44710,7 +44630,7 @@ class PinOptions {
         btn.classList.add('pinButton');
         btn.textContent = '📌';
         btn.dataset.title = '_置顶';
-        _Language__WEBPACK_IMPORTED_MODULE_2__.lang.register(btn);
+        _Language__WEBPACK_IMPORTED_MODULE_1__.lang.register(btn);
         option.insertAdjacentElement('afterbegin', btn);
         return btn;
     }
@@ -44726,37 +44646,37 @@ class PinOptions {
         });
         const a = option.querySelector('a.settingNameStyle');
         if (a) {
-            _utils_Utils__WEBPACK_IMPORTED_MODULE_6__.Utils.longPress(a, () => {
+            _utils_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils.longPress(a, () => {
                 this.tooglePinOption(noNum);
             });
         }
     }
     /** 切换该选项的置顶状态 */
     tooglePinOption(noNum) {
-        if (_Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.includes(noNum)) {
+        if (_Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.includes(noNum)) {
             // 已置顶，取消置顶
-            _Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions = _Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.filter((no) => no !== noNum);
-            _Toast__WEBPACK_IMPORTED_MODULE_4__.toast.warning(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_取消置顶'));
+            _Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions = _Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.filter((no) => no !== noNum);
+            _Toast__WEBPACK_IMPORTED_MODULE_3__.toast.warning(_Language__WEBPACK_IMPORTED_MODULE_1__.lang.transl('_取消置顶'));
         }
         else {
             // 未置顶，添加置顶
-            _Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.push(noNum);
-            _Toast__WEBPACK_IMPORTED_MODULE_4__.toast.success(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_已置顶'));
+            _Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.push(noNum);
+            _Toast__WEBPACK_IMPORTED_MODULE_3__.toast.success(_Language__WEBPACK_IMPORTED_MODULE_1__.lang.transl('_已置顶'));
         }
         // 保存设置
-        (0,_Settings__WEBPACK_IMPORTED_MODULE_7__.setSetting)('pinnedOptions', _Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions);
+        (0,_Settings__WEBPACK_IMPORTED_MODULE_6__.setSetting)('pinnedOptions', _Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions);
     }
     /** 设置选项的显示与隐藏 */
     display(removed = []) {
         // 倒序遍历，把置顶的选项显示在顶部
         // 如果正序遍历的话，前面的选项（先置顶的选项）会被后置顶的选项挤下去，导致显示的顺序与添加的顺序相反
-        for (const no of _Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.slice().reverse()) {
-            const option = _Tools__WEBPACK_IMPORTED_MODULE_5__.Tools.getOption(this.allOption, no);
+        for (const no of _Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.slice().reverse()) {
+            const option = _Tools__WEBPACK_IMPORTED_MODULE_4__.Tools.getOption(this.allOption, no);
             if (!option) {
                 continue;
             }
             option.classList.add(this.pinnedClassName);
-            // 总是显示置顶的选项，即使用户没有启用“不显示高级设置”，也依然会显示
+            // 总是显示置顶的选项
             // 但是不处理“抓取多少作品”和“抓取多少页面”，因为它们是根据页面类型来显示或隐藏的，不在这里处理
             if (no !== 0 && no !== 1) {
                 option.style.display = 'flex';
@@ -44767,18 +44687,13 @@ class PinOptions {
         }
         // 处理被取消置顶的选项
         for (const no of removed) {
-            const option = _Tools__WEBPACK_IMPORTED_MODULE_5__.Tools.getOption(this.allOption, no);
+            const option = _Tools__WEBPACK_IMPORTED_MODULE_4__.Tools.getOption(this.allOption, no);
             if (!option) {
                 continue;
             }
-            if (!_Settings__WEBPACK_IMPORTED_MODULE_7__.settings.pinnedOptions.includes(no)) {
+            if (!_Settings__WEBPACK_IMPORTED_MODULE_6__.settings.pinnedOptions.includes(no)) {
                 // 移除类名
                 option.classList.remove(this.pinnedClassName);
-                // 如果它不在始终显示的选项里，并且未启用“显示高级设置”，则隐藏它
-                if (!_Config__WEBPACK_IMPORTED_MODULE_0__.Config.optionWhiteList.includes(no) &&
-                    !_Settings__WEBPACK_IMPORTED_MODULE_7__.settings.showAdvancedSettings) {
-                    option.style.display = 'none';
-                }
                 // 查找锚点，并把它移动回原来的位置
                 const anchor = document.querySelector(`.centerWrap_con .optionAnchor[data-for-no="${no}"]`);
                 if (anchor) {
@@ -45559,7 +45474,7 @@ __webpack_require__.r(__webpack_exports__);
 // 示例：
 // window.addEventListener(EVT.list.settingChange, (ev: CustomEventInit) => {
 //   const data = ev.detail.data as any
-//   if (data.name === 'showAdvancedSettings') { }
+//   if (data.name === 'abc') { }
 //   if (data.value) { }
 // })
 // EVT.list.settingInitialized
@@ -46006,7 +45921,6 @@ class Settings {
             [_PageType__WEBPACK_IMPORTED_MODULE_9__.PageName.Contest]: _Config__WEBPACK_IMPORTED_MODULE_5__.Config.defaultNameRuleForNovel,
             [_PageType__WEBPACK_IMPORTED_MODULE_9__.PageName.SearchUsers]: _Config__WEBPACK_IMPORTED_MODULE_5__.Config.defaultNameRuleForNovel,
         },
-        showAdvancedSettings: false,
         showNotificationAfterDownloadComplete: false,
         boldKeywords: true,
         autoExportResult: false,
@@ -47047,14 +46961,13 @@ class Wiki {
     /**储存每个分类里包含哪些设置项/按钮 */
     // 设置项的 ID 是数字，按钮的 ID 是字符串
     // 特殊处理：
-    // - “更多”分类里的“显示高级设置”（57）放到了 More-Crawl 分类里
     // - 隐藏设置虽然有自己的分类，但是在 Wiki 里统一归纳到了“隐藏设置”页面里，所以它们的 ID 也放到了 More-Hidden 分类里
     groupConfig = {
         Crawl: [
-            0, 1, 2, 44, 81, 6, 23, 21, 51, 5, 7, 8, 9, 10, 11, 12, 94, 95, 96, 99,
+            0, 1, 2, 44, 81, 6, 23, 21, 5, 7, 8, 9, 10, 11, 12, 94, 95, 96, 99,
         ],
         Download: [13, 50, 64, 16, 17, 33, 106],
-        'More-Crawl': [57, 59, 75, 3, 47, 69, 35, 39, 74, 54, 85, 103, 104],
+        'More-Crawl': [59, 75, 3, 47, 69, 35, 39, 74, 54, 85, 103, 104],
         'More-Naming': [
             65, 19, 42, 43, 38, 22, 46, 29, 83, 67, 66, 97, 98, 91, 107,
         ],

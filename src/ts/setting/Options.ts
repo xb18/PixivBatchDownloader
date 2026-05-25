@@ -1,12 +1,10 @@
 import { Config } from '../Config'
 import { EVT } from '../EVT'
 import { pageType } from '../PageType'
-import { settings } from './Settings'
 import { Tools } from '../Tools'
 import { states } from '../store/States'
 import { pinOption } from './PinOptions'
 import { showNewIcon } from './ShowNewIcon'
-import { Utils } from '../utils/Utils'
 
 /**控制每个设置的隐藏和显示 */
 class Options {
@@ -31,7 +29,7 @@ class Options {
   private hideOnPixivision = [
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 19, 21, 22, 23,
     24, 26, 27, 28, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 43, 44, 46, 47, 48,
-    49, 50, 51, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+    49, 50, 54, 55, 56, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
     70, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
     90, 91, 92, 94, 95, 96, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107,
   ]
@@ -46,9 +44,9 @@ class Options {
         return
       }
       const data = ev.detail.data as any
-      if (data.name === 'showAdvancedSettings') {
-        this.display()
-      }
+      // if (data.name === 'showAdvancedSettings') {
+      //   this.display()
+      // }
     })
 
     window.addEventListener(EVT.list.pageSwitch, () => {
@@ -58,9 +56,8 @@ class Options {
     })
   }
 
-  /**根据显示/隐藏高级设置来处理每个选项的显示与隐藏 */
+  /** 处理每个选项的显示与隐藏 */
   private display() {
-    const isPixiv = Utils.isPixiv()
     for (const option of this.allOption) {
       if (option.dataset.no === undefined) {
         continue
@@ -75,30 +72,7 @@ class Options {
         continue
       }
 
-      // 然后处理需要始终显示的选项
-      if (isPixiv) {
-        // 显示白名单里的选项、置顶的选项
-        if (
-          Config.optionWhiteList.includes(no) ||
-          settings.pinnedOptions.includes(no)
-        ) {
-          this.showOption([no])
-          continue
-        }
-      }
-
-      // 剩余的选项都是高级设置，它们默认是显示的
-      // 在 pixivision 上，不处理高级设置，所以剩余的选项都会显示
-      if (!isPixiv) {
-        continue
-      }
-
-      // 在 Pixiv 上，显示或隐藏高级设置
-      if (!settings.showAdvancedSettings) {
-        this.hideOption([no])
-      } else {
-        this.showOption([no])
-      }
+      this.showOption([no])
     }
   }
 

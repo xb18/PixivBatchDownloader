@@ -1,4 +1,3 @@
-import { Config } from '../Config'
 import { EVT } from '../EVT'
 import { lang } from '../Language'
 import { states } from '../store/States'
@@ -138,7 +137,7 @@ class PinOptions {
         continue
       }
       option.classList.add(this.pinnedClassName)
-      // 总是显示置顶的选项，即使用户没有启用“不显示高级设置”，也依然会显示
+      // 总是显示置顶的选项
       // 但是不处理“抓取多少作品”和“抓取多少页面”，因为它们是根据页面类型来显示或隐藏的，不在这里处理
       if (no !== 0 && no !== 1) {
         option.style.display = 'flex'
@@ -159,13 +158,6 @@ class PinOptions {
       if (!settings.pinnedOptions.includes(no)) {
         // 移除类名
         option.classList.remove(this.pinnedClassName)
-        // 如果它不在始终显示的选项里，并且未启用“显示高级设置”，则隐藏它
-        if (
-          !Config.optionWhiteList.includes(no) &&
-          !settings.showAdvancedSettings
-        ) {
-          option.style.display = 'none'
-        }
         // 查找锚点，并把它移动回原来的位置
         const anchor = document.querySelector(
           `.centerWrap_con .optionAnchor[data-for-no="${no}"]`

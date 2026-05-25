@@ -21,7 +21,7 @@
 // 示例：
 // window.addEventListener(EVT.list.settingChange, (ev: CustomEventInit) => {
 //   const data = ev.detail.data as any
-//   if (data.name === 'showAdvancedSettings') { }
+//   if (data.name === 'abc') { }
 //   if (data.value) { }
 // })
 
@@ -234,7 +234,6 @@ interface XzSetting {
   // 这里应该使用 Map 结构，但是 JSON.stringify 不能处理 Map 类型，所以简化成了 Object
   nameRuleForEachPageType: { [key in PageName]: string }
   nameRuleForEachPageTypeForNovel: { [key in PageName]: string }
-  showAdvancedSettings: boolean
   showNotificationAfterDownloadComplete: boolean
   boldKeywords: boolean
   autoExportResult: boolean
@@ -803,7 +802,6 @@ class Settings {
       [PageName.Contest]: Config.defaultNameRuleForNovel,
       [PageName.SearchUsers]: Config.defaultNameRuleForNovel,
     },
-    showAdvancedSettings: false,
     showNotificationAfterDownloadComplete: false,
     boldKeywords: true,
     autoExportResult: false,

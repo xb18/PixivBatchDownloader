@@ -1,7 +1,7 @@
 import { Config } from '../Config'
 import { namingRuleConfig } from './NamingRuleConfig'
 
-// 设置项编号从 0 开始，现在最大是 107
+// 设置项编号从 0 开始，现在最大是 107。有些编号空缺，之后可以优先使用空缺的编号。 71 号空缺，下一个设置可以使用它，这样编号就没有空缺了。
 // 帮助按钮上的文字有两种：
 // - 如果帮助文字使用 MsgBox 显示，则使用“_帮助”
 // - 如果帮助文字直接在设置面板上显示，则使用“_提示”
@@ -142,16 +142,6 @@ export const formHtml = `
       <input type="checkbox" name="downMultiImg" id="setDownMultiImg" class="need_beautify checkbox_common" checked>
       <span class="beautify_checkbox" tabindex="0"></span>
       <label for="setDownMultiImg" data-xztext="_多图作品"></label>
-    </div>
-
-    <span class="optionAnchor" data-for-no="51" aria-hidden="true"></span>
-    <div class="option" data-no="51">
-      <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_显示高级设置说明">
-        <span data-xztext="_显示高级设置"></span>
-        <span class="gray1"> ? </span>
-      </a>
-      <input type="checkbox" name="showAdvancedSettings" class="need_beautify checkbox_switch">
-      <span class="beautify_switch" tabindex="0"></span>
     </div>
 
     <span class="optionAnchor" data-for-no="99" aria-hidden="true"></span>
@@ -550,16 +540,6 @@ export const formHtml = `
     </div>
 
     <div class="pinnedOptionTarget"></div>
-
-    <span class="optionAnchor" data-for-no="57" aria-hidden="true"></span>
-    <div class="option" data-no="57">
-      <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_显示高级设置说明">
-        <span data-xztext="_显示高级设置"></span>
-        <span class="gray1"> ? </span>
-      </a>
-      <input type="checkbox" name="showAdvancedSettings" class="need_beautify checkbox_switch">
-      <span class="beautify_switch" tabindex="0"></span>
-    </div>
 
     <div class="option settingCategoryName" data-no="59">
       <span data-xztext="_抓取"></span>

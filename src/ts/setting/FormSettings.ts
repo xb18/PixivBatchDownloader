@@ -79,7 +79,6 @@ class FormSettings {
       'saveMetaFormatTXT',
       'saveMetaFormatJSON',
       'setNameRuleForEachPageType',
-      'showAdvancedSettings',
       'showNotificationAfterDownloadComplete',
       'boldKeywords',
       'autoExportResult',
@@ -320,8 +319,6 @@ class FormSettings {
 
   // 处理复选框： click 时保存 checked
   private saveCheckBox(name: SettingKeys) {
-    // 由于表单里存在两个 showAdvancedSettings 设置，会获取到 NodeListOf<HTMLInputElement>
-    // 其他设置只有一个，是 HTMLInputElement
     const el = this.form[name] as
       | HTMLInputElement
       | NodeListOf<HTMLInputElement>
@@ -351,8 +348,6 @@ class FormSettings {
   // 恢复值为 Boolean 的设置项
   private restoreBoolean(name: SettingKeys) {
     if (settings[name] !== undefined) {
-      // 由于表单里存在两个 showAdvancedSettings 设置，会获取到 NodeListOf<HTMLInputElement>
-      // 其他设置只有一个，是 HTMLInputElement
       const el = this.form[name] as
         | HTMLInputElement
         | NodeListOf<HTMLInputElement>

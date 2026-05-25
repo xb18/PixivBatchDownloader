@@ -106,7 +106,6 @@ export interface SettingsForm extends HTMLFormElement {
   saveMetaFormatTXT: HTMLInputElement
   saveMetaFormatJSON: HTMLInputElement
   setNameRuleForEachPageType: HTMLInputElement
-  showAdvancedSettings: HTMLInputElement
   showNotificationAfterDownloadComplete: HTMLInputElement
   boldKeywords: HTMLInputElement
   autoExportResult: HTMLInputElement
