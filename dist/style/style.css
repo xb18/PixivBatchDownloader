@@ -1617,6 +1617,11 @@ body.mobile #quickCrawlBtn {
   color: #199df5;
   background: #eef7ff;
 }
+.centerWrap.settingsV2 .centerWrap_top_btn.centerWrap_close_pc:hover,
+.centerWrap.settingsV2 .centerWrap_top_btn.centerWrap_close_pc:active {
+  color: #f33939;
+  background: #fcdddd;
+}
 .centerWrap.settingsV2 .centerWrap_top_btn .icon {
   font-size: 24px;
 }
@@ -1649,7 +1654,7 @@ body.mobile #quickCrawlBtn {
   min-width: 0;
   border: none;
   background: transparent;
-  color: #666;
+  color: #444;
   font-size: 15px;
   outline: none;
 }
@@ -1662,9 +1667,9 @@ body.mobile #quickCrawlBtn {
   flex: none;
 }
 .centerWrap.settingsV2 .settingsPanel_clearSearch {
-  width: 20px;
-  height: 20px;
-  padding: 0;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
   border-radius: 50%;
   color: #999;
   display: none;
@@ -1673,6 +1678,7 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.settingsV2 .settingsPanel_clearSearch.visible {
   display: inline-flex;
+  color: #666;
 }
 .centerWrap.settingsV2 .settingsPanel_clearSearch:hover {
   color: #199df5;
@@ -1680,15 +1686,14 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.settingsV2 .settingsPanel_expandAll {
   position: relative;
+  transform: rotate(180deg);
+  transition: transform 0.2s, color 0.2s, background-color 0.2s;
 }
-.centerWrap.settingsV2 .settingsPanel_expandAll .settingsPanel_expandIconUp {
-  display: none;
+.centerWrap.settingsV2 .settingsPanel_expandAll.partial {
+  transform: rotate(90deg);
 }
-.centerWrap.settingsV2 .settingsPanel_expandAll.expanded .settingsPanel_expandIconDown {
-  display: none;
-}
-.centerWrap.settingsV2 .settingsPanel_expandAll.expanded .settingsPanel_expandIconUp {
-  display: inline-block;
+.centerWrap.settingsV2 .settingsPanel_expandAll.expanded {
+  transform: rotate(0deg);
 }
 .centerWrap.settingsV2 .centerWrap_con {
   display: flex;
@@ -1934,6 +1939,10 @@ body.mobile #quickCrawlBtn {
 .centerWrap.settingsV2 .settingsPanel_titleSection.expanded .settingsPanel_sectionArrow {
   transform: rotate(180deg);
 }
+.centerWrap.settingsV2 .settingsPanel_titleSection:hover .settingsPanel_sectionTitle,
+.centerWrap.settingsV2 .settingsPanel_panelSection:hover .settingsPanel_sectionTitle {
+  color: #199df5;
+}
 .centerWrap.settingsV2 .settingsPanel_titleContent,
 .centerWrap.settingsV2 .settingsPanel_panelContent {
   display: block;
@@ -2092,7 +2101,7 @@ body.mobile #quickCrawlBtn {
   line-height: 26px;
 }
 .centerWrap.settingsV2 .settingsPanel_searchMark {
-  background: #ffff00;
+  background: #ffe74b;
   color: inherit;
   padding: 0 2px;
 }

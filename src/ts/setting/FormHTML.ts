@@ -1030,7 +1030,7 @@ export const formHtml = `
   </div>
 
   <div class="option" data-no="100">
-    <a href="" target="_blank" class="settingNameStyle" data-xztext="_在已下载的作品上显示边框"></a>
+    <a href="" target="_blank" class="settingNameStyle" data-xztext="_在下载过的作品上显示边框"></a>
     <input type="checkbox" name="showBorderOnDownloadedWorks" class="need_beautify checkbox_switch">
     <span class="beautify_switch" tabindex="0"></span>
     <span class="subOptionWrap noGrow" data-show="showBorderOnDownloadedWorks">

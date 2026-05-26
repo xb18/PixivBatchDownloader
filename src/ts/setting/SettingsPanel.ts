@@ -383,16 +383,16 @@ class SettingsPanel {
       iconId: string
       extraClass?: string
     }[] = [
-      { id: 'wiki', textKey: '_使用手册', iconId: 'wiki' },
-      { id: 'faq', textKey: '_常见问题', iconId: 'help' },
-      { id: 'getHelp', textKey: '_获取帮助', iconId: 'get-help' },
-      { id: 'recentUpdates', textKey: '_最近更新', iconId: 'new-2' },
-      { id: 'github', textKey: '_github', iconId: 'github' },
-      { id: 'fanbox', textKey: '_fanboxDownloader', iconId: 'F' },
-      { id: 'airport', textKey: '_机场推荐', iconId: 'paper-airplane' },
-      { id: 'sponsorship', textKey: '_赞助我', iconId: 'heart-line' },
-      { id: 'thirdParty', textKey: '_第三方库', iconId: 'list' },
-    ]
+        { id: 'wiki', textKey: '_使用手册', iconId: 'wiki' },
+        { id: 'faq', textKey: '_常见问题', iconId: 'help' },
+        { id: 'getHelp', textKey: '_获取帮助', iconId: 'get-help' },
+        { id: 'recentUpdates', textKey: '_最近更新', iconId: 'new-2' },
+        { id: 'github', textKey: '_github', iconId: 'github' },
+        { id: 'fanbox', textKey: '_fanboxDownloader', iconId: 'F' },
+        { id: 'airport', textKey: '_机场推荐', iconId: 'paper-airplane' },
+        { id: 'sponsorship', textKey: '_赞助我', iconId: 'heart-line' },
+        { id: 'thirdParty', textKey: '_第三方库', iconId: 'list' },
+      ]
 
     actions.forEach((action) => {
       const button = document.createElement('button')
@@ -607,29 +607,29 @@ class SettingsPanel {
         this.updateDownloadSummary()
       }, 0)
     })
-    ;[
-      EVT.list.crawlStart,
-      EVT.list.crawlComplete,
-      EVT.list.resultChange,
-      EVT.list.resume,
-      EVT.list.downloadStart,
-      EVT.list.downloadPause,
-      EVT.list.downloadStop,
-      EVT.list.downloadComplete,
-      EVT.list.downloadSuccess,
-      EVT.list.skipDownload,
-    ].forEach((eventName) => {
-      window.addEventListener(eventName, () => {
-        this.updateDownloadSummary()
-      })
-    })
-    ;[EVT.list.crawlComplete, EVT.list.resume, EVT.list.downloadStart].forEach(
-      (eventName) => {
+      ;[
+        EVT.list.crawlStart,
+        EVT.list.crawlComplete,
+        EVT.list.resultChange,
+        EVT.list.resume,
+        EVT.list.downloadStart,
+        EVT.list.downloadPause,
+        EVT.list.downloadStop,
+        EVT.list.downloadComplete,
+        EVT.list.downloadSuccess,
+        EVT.list.skipDownload,
+      ].forEach((eventName) => {
         window.addEventListener(eventName, () => {
-          this.expandHomeDownloadSection()
+          this.updateDownloadSummary()
         })
-      }
-    )
+      })
+      ;[EVT.list.crawlComplete, EVT.list.resume, EVT.list.downloadStart].forEach(
+        (eventName) => {
+          window.addEventListener(eventName, () => {
+            this.expandHomeDownloadSection()
+          })
+        }
+      )
 
     window.addEventListener(EVT.list.hasNewVer, () => {
       this.helpActionEls.get('recentUpdates')?.classList.add('hasUpdate')
@@ -714,9 +714,9 @@ class SettingsPanel {
 
     if (groupOrder.length === 0) {
       this.searchSummary.dataset.xztext =
-        '_没有找到符合条件的设置你可以尝试搜索更简短的关键词'
+        '_没有找到符合条件的设置的提示'
       this.searchSummary.innerHTML = lang.transl(
-        '_没有找到符合条件的设置你可以尝试搜索更简短的关键词'
+        '_没有找到符合条件的设置的提示'
       )
     } else {
       this.searchSummary.innerHTML = lang.transl(
@@ -782,9 +782,9 @@ class SettingsPanel {
         showPinnedOnHome && settings.pinnedOptions.includes(option.no)
           ? this.homePinnedContent
           : this.getCanonicalContainer(
-              option.categoryLevel1,
-              option.categoryLevel2
-            )
+            option.categoryLevel1,
+            option.categoryLevel2
+          )
       target.append(element)
     }
 
@@ -1030,26 +1030,40 @@ class SettingsPanel {
   }
 
   private areAllSectionsExpanded() {
+    return this.getExpandAllState() === 'expanded'
+  }
+
+  private updateExpandAllButton() {
+    const state = this.getExpandAllState()
+    this.expandAllBtn.classList.toggle('expanded', state === 'expanded')
+    this.expandAllBtn.classList.toggle('partial', state === 'partial')
+  }
+
+  private getExpandAllState(): 'collapsed' | 'partial' | 'expanded' {
+    let total = 0
+    let expanded = 0
+
     for (const section of this.foldableSections.values()) {
-      if (!this.getExpandedState(section)) {
-        return false
+      total++
+      if (this.getExpandedState(section)) {
+        expanded++
       }
     }
 
     for (const section of this.searchSections.values()) {
-      if (!this.getExpandedState(section)) {
-        return false
+      total++
+      if (this.getExpandedState(section)) {
+        expanded++
       }
     }
 
-    return true
-  }
-
-  private updateExpandAllButton() {
-    this.expandAllBtn.classList.toggle(
-      'expanded',
-      this.areAllSectionsExpanded()
-    )
+    if (total === 0 || expanded === 0) {
+      return 'collapsed'
+    }
+    if (expanded === total) {
+      return 'expanded'
+    }
+    return 'partial'
   }
 
   private refreshStickyHeader() {

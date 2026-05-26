@@ -558,7 +558,7 @@ class OptionConfigs {
       categoryLevel1: 'crawl',
       categoryLevel2: 'strategy',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_已下载'],
       searchWords: [],
     },
     {
@@ -649,7 +649,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: 'names',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_文件名'],
       searchWords: [],
     },
     {
@@ -915,12 +915,12 @@ class OptionConfigs {
     },
     {
       no: 100,
-      nameKey: '_在已下载的作品上显示边框',
+      nameKey: '_在下载过的作品上显示边框',
       name: '',
       categoryLevel1: 'download',
       categoryLevel2: 'record',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_已下载'],
       searchWords: [],
     },
     {

@@ -63,10 +63,7 @@ class CenterPanel {
               </label>
 
               <button class="textButton centerWrap_top_btn settingsPanel_expandAll" id="settingsPanelToggleExpand" type="button" data-xztitle="_展开/折叠所有区域">
-                <svg class="icon settingsPanel_expandIcon settingsPanel_expandIconDown" aria-hidden="true">
-                  <use xlink:href="#arrow-down"></use>
-                </svg>
-                <svg class="icon settingsPanel_expandIcon settingsPanel_expandIconUp" aria-hidden="true">
+                <svg class="icon settingsPanel_expandIcon" aria-hidden="true">
                   <use xlink:href="#arrow-up"></use>
                 </svg>
               </button>

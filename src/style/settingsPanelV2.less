@@ -22,7 +22,10 @@
   overflow: hidden;
   font-family: @pixivFontFamily;
 
-  p,div,span,button,
+  p,
+  div,
+  span,
+  button,
   .centerWrap_head,
   .centerWrap_con,
   .settingForm,
@@ -100,9 +103,17 @@
       background: #eef7ff;
     }
 
+    // 关闭按钮的特殊样式，使用红色背景以表示危险操作
+    &.centerWrap_close_pc:hover,
+    &.centerWrap_close_pc:active {
+      color: #f33939;
+      background: #fcdddd;
+    }
+
     .icon {
       font-size: 24px;
     }
+
   }
 
   .settingsPanel_sponsorBtn:hover {
@@ -137,7 +148,7 @@
       min-width: 0;
       border: none;
       background: transparent;
-      color: #666;
+      color: #444;
       font-size: 15px;
       outline: none;
     }
@@ -154,9 +165,9 @@
   }
 
   .settingsPanel_clearSearch {
-    width: 20px;
-    height: 20px;
-    padding: 0;
+    width: 24px;
+    height: 24px;
+    padding: 4px;
     border-radius: 50%;
     color: #999;
     display: none;
@@ -165,6 +176,7 @@
 
     &.visible {
       display: inline-flex;
+      color: #666;
     }
 
     &:hover {
@@ -175,19 +187,18 @@
 
   .settingsPanel_expandAll {
     position: relative;
+    transform: rotate(180deg);
+    transition:
+      transform 0.2s,
+      color 0.2s,
+      background-color 0.2s;
 
-    .settingsPanel_expandIconUp {
-      display: none;
+    &.partial {
+      transform: rotate(90deg);
     }
 
     &.expanded {
-      .settingsPanel_expandIconDown {
-        display: none;
-      }
-
-      .settingsPanel_expandIconUp {
-        display: inline-block;
-      }
+      transform: rotate(0deg);
     }
   }
 
@@ -391,6 +402,7 @@
     border: none;
     border-radius: 8px;
     background: #fff;
+    // 黏性定位的标题不一定是当前鼠标所在区域的标题，可能是更上方的区域的标题，所以不把它高亮显示。
     color: #444;
     box-shadow: 0 0 15px #ddd;
     position: sticky;
@@ -423,7 +435,7 @@
     text-align: left;
 
     // 鼠标经过时，让右侧的箭头图标变色
-    &:hover svg{
+    &:hover svg {
       color: @themeBlue;
     }
   }
@@ -491,6 +503,14 @@
   .settingsPanel_titleSection.expanded {
     .settingsPanel_sectionArrow {
       transform: rotate(180deg);
+    }
+  }
+
+  // 鼠标进入设置列表或首页区域后，把标题高亮显示作为反馈
+  .settingsPanel_titleSection:hover,
+  .settingsPanel_panelSection:hover {
+    .settingsPanel_sectionTitle {
+      color: @themeBlue;
     }
   }
 
@@ -688,8 +708,9 @@
     line-height: 26px;
   }
 
+  // 匹配到搜索词时的高亮效果
   .settingsPanel_searchMark {
-    background: #ffff00;
+    background: #ffe74b;
     color: inherit;
     padding: 0 2px;
   }

@@ -2359,10 +2359,7 @@ class CenterPanel {
               </label>
 
               <button class="textButton centerWrap_top_btn settingsPanel_expandAll" id="settingsPanelToggleExpand" type="button" data-xztitle="_展开/折叠所有区域">
-                <svg class="icon settingsPanel_expandIcon settingsPanel_expandIconDown" aria-hidden="true">
-                  <use xlink:href="#arrow-down"></use>
-                </svg>
-                <svg class="icon settingsPanel_expandIcon settingsPanel_expandIconUp" aria-hidden="true">
+                <svg class="icon settingsPanel_expandIcon" aria-hidden="true">
                   <use xlink:href="#arrow-up"></use>
                 </svg>
               </button>
@@ -48776,20 +48773,35 @@ class SettingsPanel {
         this.refreshStickyHeader();
     }
     areAllSectionsExpanded() {
+        return this.getExpandAllState() === 'expanded';
+    }
+    updateExpandAllButton() {
+        const state = this.getExpandAllState();
+        this.expandAllBtn.classList.toggle('expanded', state === 'expanded');
+        this.expandAllBtn.classList.toggle('partial', state === 'partial');
+    }
+    getExpandAllState() {
+        let total = 0;
+        let expanded = 0;
         for (const section of this.foldableSections.values()) {
-            if (!this.getExpandedState(section)) {
-                return false;
+            total++;
+            if (this.getExpandedState(section)) {
+                expanded++;
             }
         }
         for (const section of this.searchSections.values()) {
-            if (!this.getExpandedState(section)) {
-                return false;
+            total++;
+            if (this.getExpandedState(section)) {
+                expanded++;
             }
         }
-        return true;
-    }
-    updateExpandAllButton() {
-        this.expandAllBtn.classList.toggle('expanded', this.areAllSectionsExpanded());
+        if (total === 0 || expanded === 0) {
+            return 'collapsed';
+        }
+        if (expanded === total) {
+            return 'expanded';
+        }
+        return 'partial';
     }
     refreshStickyHeader() {
         const sticky = this.stickyEls.get(this.activePage);
