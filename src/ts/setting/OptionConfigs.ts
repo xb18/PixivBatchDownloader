@@ -82,7 +82,7 @@ class OptionConfigs {
       if (option.searchWordKeys.length > 0) {
         option.searchWords = []
         option.searchWords = option.searchWordKeys.map((key) =>
-          lang.transl(key)
+          lang.transl(key).replace(/<\/?.+?>/g, '')
         )
       }
     }
@@ -203,7 +203,7 @@ class OptionConfigs {
       categoryLevel1: 'crawl',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_书签'],
       searchWords: [],
     },
     {
@@ -263,7 +263,7 @@ class OptionConfigs {
       categoryLevel1: 'crawl',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_分辨率'],
       searchWords: [],
     },
     {
@@ -273,7 +273,7 @@ class OptionConfigs {
       categoryLevel1: 'crawl',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_纵横比'],
       searchWords: [],
     },
     {
@@ -293,7 +293,7 @@ class OptionConfigs {
       categoryLevel1: 'crawl',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_发布时间'],
       searchWords: [],
     },
     {
@@ -303,7 +303,7 @@ class OptionConfigs {
       categoryLevel1: 'crawl',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_标签'],
       searchWords: [],
     },
     {
@@ -313,7 +313,7 @@ class OptionConfigs {
       categoryLevel1: 'crawl',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_标签'],
       searchWords: [],
     },
     {
@@ -413,12 +413,12 @@ class OptionConfigs {
       categoryLevel1: 'crawl',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_黑名单'],
       searchWords: [],
     },
     {
       no: 39,
-      nameKey: '_针对特定用户屏蔽tag',
+      nameKey: '_针对特定用户屏蔽标签',
       name: '',
       categoryLevel1: 'crawl',
       categoryLevel2: '',
@@ -464,7 +464,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_文件名'],
       searchWords: [],
     },
     {
@@ -474,7 +474,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_文件名'],
       searchWords: [],
     },
     {
@@ -494,7 +494,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_文件夹'],
       searchWords: [],
     },
     {
@@ -504,7 +504,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_文件夹'],
       searchWords: [],
     },
     {
@@ -514,7 +514,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_文件夹'],
       searchWords: [],
     },
     {
@@ -524,7 +524,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_文件夹'],
       searchWords: [],
     },
     {
@@ -584,7 +584,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_路径长度'],
       searchWords: [],
     },
     {
@@ -604,7 +604,7 @@ class OptionConfigs {
       categoryLevel1: 'naming',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_表情符号'],
       searchWords: [],
     },
     {
@@ -655,7 +655,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_并发'],
       searchWords: [],
     },
     {
@@ -675,7 +675,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_书签'],
       searchWords: [],
     },
     {
@@ -695,7 +695,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_去重'],
       searchWords: [],
     },
     {
@@ -725,7 +725,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_书签'],
       searchWords: [],
     },
     {
@@ -755,7 +755,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_并发', '_动图_动态图像'],
       searchWords: [],
     },
     {
@@ -775,7 +775,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_连载'],
       searchWords: [],
     },
     {
@@ -785,7 +785,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_连载'],
       searchWords: [],
     },
     {
@@ -815,7 +815,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_插图'],
       searchWords: [],
     },
     {
@@ -825,7 +825,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_元信息'],
       searchWords: [],
     },
     {
@@ -835,7 +835,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_介绍'],
       searchWords: [],
     },
     {
@@ -845,7 +845,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_分辨率'],
       searchWords: [],
     },
     {
@@ -855,7 +855,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_上限'],
       searchWords: [],
     },
     {
@@ -865,7 +865,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_排序'],
       searchWords: [],
     },
     {
@@ -875,7 +875,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_路径'],
       searchWords: [],
     },
     {
@@ -885,7 +885,7 @@ class OptionConfigs {
       categoryLevel1: 'download',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_提醒'],
       searchWords: [],
     },
     // 增强
@@ -936,7 +936,7 @@ class OptionConfigs {
       categoryLevel1: 'enhance',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_预览图片'],
       searchWords: [],
     },
     {
@@ -946,7 +946,7 @@ class OptionConfigs {
       categoryLevel1: 'enhance',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_原图'],
       searchWords: [],
     },
     {
@@ -966,7 +966,7 @@ class OptionConfigs {
       categoryLevel1: 'enhance',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_放大镜'],
       searchWords: [],
     },
     {
@@ -1016,7 +1016,7 @@ class OptionConfigs {
       categoryLevel1: 'enhance',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_快速搜索'],
       searchWords: [],
     },
     {
@@ -1056,7 +1056,7 @@ class OptionConfigs {
       categoryLevel1: 'enhance',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_书签'],
       searchWords: [],
     },
     // 通用
@@ -1078,7 +1078,7 @@ class OptionConfigs {
       categoryLevel1: 'general',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_保存日志'],
       searchWords: [],
     },
     {
@@ -1088,7 +1088,7 @@ class OptionConfigs {
       categoryLevel1: 'general',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_深色模式'],
       searchWords: [],
     },
     {
@@ -1098,7 +1098,7 @@ class OptionConfigs {
       categoryLevel1: 'general',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_壁纸', '_皮肤'],
       searchWords: [],
     },
     {
@@ -1118,17 +1118,26 @@ class OptionConfigs {
       categoryLevel1: 'general',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_关键词'],
       searchWords: [],
     },
     {
       no: 32,
-      nameKey: '_自动检测',
+      nameKey: '_Language',
       name: '',
       categoryLevel1: 'general',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: [
+        '_语言',
+        '_中文_简体和繁体_搜索用',
+        '_简体中文_搜索用',
+        '_正體中文_搜索用',
+        '_英语_搜索用',
+        '_日语_搜索用',
+        '_韩语_搜索用',
+        '_俄语_搜索用',
+      ],
       searchWords: [],
     },
     {
@@ -1138,7 +1147,7 @@ class OptionConfigs {
       categoryLevel1: 'general',
       categoryLevel2: '',
       pinned: false,
-      searchWordKeys: [],
+      searchWordKeys: ['_导入设置', '_导出设置', '_重置设置'],
       searchWords: [],
     },
   ]

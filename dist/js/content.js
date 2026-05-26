@@ -27691,7 +27691,7 @@ class Filter {
         // 检查针对特定用户屏蔽的 tags
         if (!this.checkBlockTagsForSpecificUser(option.userId, option.tags)) {
             _Log__WEBPACK_IMPORTED_MODULE_1__.log.warning(_Language__WEBPACK_IMPORTED_MODULE_0__.lang.transl('_下载器排除了一些作品原因') +
-                _Language__WEBPACK_IMPORTED_MODULE_0__.lang.transl('_针对特定用户屏蔽tag'), 'excludeWorkByBlockTagsForSpecificUser');
+                _Language__WEBPACK_IMPORTED_MODULE_0__.lang.transl('_针对特定用户屏蔽标签'), 'excludeWorkByBlockTagsForSpecificUser');
             return false;
         }
         // 检查投稿时间设置
@@ -29145,8 +29145,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./src/ts/Config.ts");
 
 // 储存下载器使用的多语言文本
-// 在属性名前面添加下划线
-// 目前每条语句有 6 种翻译，按顺序排列，依次是：简体中文、繁体中文、英语、日语、韩语、俄语
+// 目前每个 key 有 6 条文本，按照固定的顺序排列，依次是：简体中文、繁体中文、英语、日语、韩语、俄语
+// 备注：
+// 属性名前面需要添加下划线
 // {} 是占位符
 // <br> 和 \n 是换行
 const langText = {
@@ -29836,6 +29837,14 @@ And so on.
         'うごイラ',
         '움직이는 일러스트',
         'Ugoira(гиф)',
+    ],
+    _动图_动态图像: [
+        '动图',
+        '動圖',
+        'Animated image',
+        'アニメーション画像',
+        '움직이는 이미지',
+        'Анимированное изображение',
     ],
     _小说: ['小说', '小說', 'Novels', '小説', '소설', 'Новеллы'],
     _动图保存格式: [
@@ -32813,6 +32822,14 @@ This setting is also used when you use the Downloader to bookmark works in batch
         '<span class="key">테마</span>',
         'Цветовая <span class="key">тема</span>',
     ],
+    _深色模式: [
+        '深色模式',
+        '深色模式',
+        'Dark mode',
+        'ダークモード',
+        '다크 모드',
+        'Темный режим',
+    ],
     _管理设置: [
         '管理<span class="key">设置</span>',
         '管理<span class="key">設定</span>',
@@ -33158,7 +33175,7 @@ How it works: When the downloader generates file names for multi-image works, it
         '최대 페이지 번호 초과:',
         'Превышен максимальный номер страницы:',
     ],
-    _针对特定用户屏蔽tag: [
+    _针对特定用户屏蔽标签: [
         '针对特定用户屏蔽<span class="key">标签</span>',
         '針對特定使用者排除<span class="key">標籤</span>',
         'Block <span class="key">tags</span> for specific users',
@@ -33338,6 +33355,7 @@ Note: This setting will add the same folder name for both R-18 and R-18G works. 
         '썸네일에 <span class="key">확대</span> 버튼 표시',
         'Показать кнопку <span class="key">увеличить</span> на миниатюре',
     ],
+    _放大镜: ['放大镜', '放大鏡', 'Magnifying glass', '拡大鏡', '돋보기', 'Лупа'],
     _在作品缩略图上显示下载按钮: [
         '在作品缩略图上显示<span class="key">下载</span>按钮',
         '在作品縮圖上顯示<span class="key">下載</span>按鈕',
@@ -35123,6 +35141,14 @@ If the number of works shown on the page is greater than 0, it may be that Pixiv
         '<span class="key">로그</span> 내보내기',
         'Экспорт <span class="key">журнала</span>',
     ],
+    _保存日志: [
+        '保存日志',
+        '保存日誌',
+        'Save log',
+        'ログを保存',
+        '로그 저장',
+        'Сохранить журнал',
+    ],
     _导出日志成功: [
         '导出日志',
         '匯出日誌',
@@ -35911,6 +35937,7 @@ When viewing the preview image, you can use the following shortcut keys:<br>
         '작품 <span class="key">설명</span> 저장',
         'Сохранить <span class="key">описание</span> работы',
     ],
+    _介绍: ['介绍', '介紹', 'Introduction', '紹介', '소개', 'Введение'],
     _保存作品的简介2: [
         '保存作品简介',
         '儲存作品說明',
@@ -38538,6 +38565,106 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
         `이미지를 <span class="key">회색조</span>로 표시`,
         `Показывать изображения в <span class="key">оттенках серого</span>`,
     ],
+    _书签: [`书签`, `書籤`, `Bookmark`, `ブックマーク`, `북마크`, `Закладка`],
+    _分辨率: [`分辨率`, `解析度`, `Resolution`, `解像度`, `해상도`, `Разрешение`],
+    _纵横比: [
+        `纵横比`,
+        `縱橫比`,
+        `Aspect ratio`,
+        `縦横比`,
+        `가로세로 비율`,
+        `Соотношение сторон`,
+    ],
+    _发布时间: [
+        `发布时间`,
+        `發佈時間`,
+        `Publish time`,
+        `投稿日`,
+        `게시 시간`,
+        `Время публикации`,
+    ],
+    _黑名单: [
+        `黑名单`,
+        `黑名單`,
+        `Blacklist`,
+        `ブラックリスト`,
+        `블랙리스트`,
+        `Черный список`,
+    ],
+    _文件名: [
+        `文件名`,
+        `檔名`,
+        `File name`,
+        `ファイル名`,
+        `파일 이름`,
+        `Имя файла`,
+    ],
+    _文件夹: [`文件夹`, `資料夾`, `Folder`, `フォルダー`, `폴더`, `Папка`],
+    _路径: [`路径`, `路徑`, `Path`, `パス`, `경로`, `Путь`],
+    _路径长度: [
+        `路径长度`,
+        `路徑長度`,
+        `Path length`,
+        `パスの長さ`,
+        `경로 길이`,
+        `Длина пути`,
+    ],
+    _表情符号: [`表情符号`, `表情符號`, `Emoji`, `絵文字`, `이모지`, `Эмодзи`],
+    _并发: [`并发`, `並發`, `Concurrency`, `並列`, `동시 실행`, `Параллелизм`],
+    _下载记录: [
+        `下载记录`,
+        `下載記錄`,
+        `Download records`,
+        `ダウンロード履歴`,
+        `다운로드 기록`,
+        `История загрузок`,
+    ],
+    _去重: [
+        `去重`,
+        `去重`,
+        `Deduplication`,
+        `重複排除`,
+        `중복 제거`,
+        `Удаление дубликатов`,
+    ],
+    _连载: [`连载`, `連載`, `Serial`, `連載`, `연재`, `Сериал`],
+    _插图: [`插图`, `插圖`, `Illustration`, `挿絵`, `삽화`, `Иллюстрация`],
+    _元信息: [
+        `元信息`,
+        `元資訊`,
+        `Metadata`,
+        `メタデータ`,
+        `메타데이터`,
+        `Метаданные`,
+    ],
+    _排序: [`排序`, `排序`, `Sort order`, `並び順`, `정렬`, `Сортировка`],
+    _提醒: [`提醒`, `提醒`, `Reminder`, `リマインダー`, `알림`, `Напоминание`],
+    _灰度: [
+        `灰度`,
+        `灰階`,
+        `Grayscale`,
+        `グレースケール`,
+        `회색조`,
+        `Оттенки серого`,
+    ],
+    _快速搜索: [
+        `快速搜索`,
+        `快速搜尋`,
+        `Quick search`,
+        `クイック検索`,
+        `빠른 검색`,
+        `Быстрый поиск`,
+    ],
+    _皮肤: [`皮肤`, `皮膚`, `Skin`, `スキン`, `스킨`, `Скин`],
+    _壁纸: [`壁纸`, `桌布`, `Wallpaper`, `壁紙`, `배경화면`, `Обои`],
+    _关键词: [
+        `关键词`,
+        `關鍵詞`,
+        `Keyword`,
+        `キーワード`,
+        `키워드`,
+        `Ключевое слово`,
+    ],
     _占位符: [
         `占位符`,
         `占位符`,
@@ -38547,6 +38674,58 @@ Additionally, if you have enabled "Create folder using the first matching tag", 
         `Заполнитель`,
     ],
     _通用: [`通用`, `通用`, `General`, `一般的な`, `일반적인`, `Общий`],
+    _预览图片: [
+        `预览图片`,
+        `預覽圖片`,
+        `Preview image`,
+        `プレビュー画像`,
+        `미리보기 이미지`,
+        `Предпросмотр изображения`,
+    ],
+    _Language: [
+        'Language',
+        'Language',
+        'Language',
+        'Language',
+        'Language',
+        'Language',
+    ],
+    _语言: [`语言`, `語言`, `Language`, `言語`, `언어`, `Язык`],
+    _中文_简体和繁体_搜索用: [`中文`, `中文`, `中文`, `中文`, `中文`, `中文`],
+    _简体中文_搜索用: [
+        `简体中文`,
+        `简体中文`,
+        `简体中文`,
+        `简体中文`,
+        `简体中文`,
+        `简体中文`,
+    ],
+    _正體中文_搜索用: [
+        `正體中文`,
+        `正體中文`,
+        `正體中文`,
+        `正體中文`,
+        `正體中文`,
+        `正體中文`,
+    ],
+    _英语_搜索用: [
+        `English`,
+        `English`,
+        `English`,
+        `English`,
+        `English`,
+        `English`,
+    ],
+    _日语_搜索用: [`日本語`, `日本語`, `日本語`, `日本語`, `日本語`, `日本語`],
+    _韩语_搜索用: [`한국어`, `한국어`, `한국어`, `한국어`, `한국어`, `한국어`],
+    _俄语_搜索用: [
+        `Русский`,
+        `Русский`,
+        `Русский`,
+        `Русский`,
+        `Русский`,
+        `Русский`,
+    ],
 };
 
 
@@ -42299,7 +42478,7 @@ const formHtml = `
     <span class="optionAnchor" data-for-no="39" aria-hidden="true"></span>
     <div class="option" data-no="39">
       <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_针对特定用户屏蔽tag的提示">
-        <span data-xztext="_针对特定用户屏蔽tag"></span>
+        <span data-xztext="_针对特定用户屏蔽标签"></span>
         <span class="gray1"> ? </span>
       </a>
       <input type="checkbox" name="blockTagsForSpecificUser" class="need_beautify checkbox_switch">

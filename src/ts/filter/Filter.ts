@@ -227,7 +227,7 @@ class Filter {
     if (!this.checkBlockTagsForSpecificUser(option.userId, option.tags)) {
       log.warning(
         lang.transl('_下载器排除了一些作品原因') +
-          lang.transl('_针对特定用户屏蔽tag'),
+          lang.transl('_针对特定用户屏蔽标签'),
         'excludeWorkByBlockTagsForSpecificUser'
       )
       return false

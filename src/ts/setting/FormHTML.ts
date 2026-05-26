@@ -512,7 +512,7 @@ export const formHtml = `
     <span class="optionAnchor" data-for-no="39" aria-hidden="true"></span>
     <div class="option" data-no="39">
       <a href="" target="_blank" class="has_tip settingNameStyle" data-xztip="_针对特定用户屏蔽tag的提示">
-        <span data-xztext="_针对特定用户屏蔽tag"></span>
+        <span data-xztext="_针对特定用户屏蔽标签"></span>
         <span class="gray1"> ? </span>
       </a>
       <input type="checkbox" name="blockTagsForSpecificUser" class="need_beautify checkbox_switch">
