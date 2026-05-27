@@ -48224,6 +48224,7 @@ class SettingsPanel {
     summaryStateIconUse;
     helpActionsWrap;
     otherBtnsVisibilityObserver;
+    downloadSummaryState = 'start';
     debouncedSearch = _utils_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils.debounce(() => this.updateSearchResult(), 200);
     cacheShellElements() {
         this.searchInput = this.centerPanel.querySelector('#settingsPanelSearchInput');
@@ -48619,6 +48620,30 @@ class SettingsPanel {
             window.addEventListener(eventName, () => {
                 this.updateDownloadSummary();
             });
+        });
+        [
+            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlStart,
+            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlComplete,
+            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resultChange,
+            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resume,
+            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.readyDownload,
+            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadCancel,
+        ].forEach((eventName) => {
+            window.addEventListener(eventName, () => {
+                this.setDownloadSummaryState('start');
+            });
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStart, () => {
+            this.setDownloadSummaryState('loading');
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadPause, () => {
+            this.setDownloadSummaryState('pause');
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStop, () => {
+            this.setDownloadSummaryState('stop');
+        });
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadComplete, () => {
+            this.setDownloadSummaryState('complete');
         });
         [_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlComplete, _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resume, _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStart].forEach((eventName) => {
             window.addEventListener(eventName, () => {
@@ -49087,30 +49112,35 @@ class SettingsPanel {
         this.summaryProgress.textContent = `${downloaded} / ${total}`;
         this.summaryWrap.style.display = total > 0 ? 'block' : 'none';
         if (total === 0) {
-            this.setSummaryState('_未开始下载', 'start');
+            this.setDownloadSummaryState('start');
             return;
         }
         if (downloaded >= total) {
-            this.setSummaryState('_下载完毕', 'complete');
+            this.setDownloadSummaryState('complete');
             return;
         }
-        const statusText = this.form.querySelector('.down_status')?.textContent?.trim() || '';
-        switch (statusText) {
-            case _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_正在下载中'):
+        if (this.downloadSummaryState === 'complete') {
+            this.setDownloadSummaryState('start');
+        }
+    }
+    setDownloadSummaryState(state) {
+        this.downloadSummaryState = state;
+        switch (state) {
+            case 'loading':
                 this.setSummaryState('_正在下载中', 'loading');
-                break;
-            case _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_下载已暂停'):
+                return;
+            case 'pause':
                 this.setSummaryState('_下载已暂停', 'pause');
-                break;
-            case _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_下载已停止'):
+                return;
+            case 'stop':
                 this.setSummaryState('_下载已停止', 'stop');
-                break;
-            case _Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_下载完毕'):
+                return;
+            case 'complete':
                 this.setSummaryState('_下载完毕', 'complete');
-                break;
+                return;
             default:
                 this.setSummaryState('_未开始下载', 'start');
-                break;
+                return;
         }
     }
     setSummaryState(textKey, iconId) {

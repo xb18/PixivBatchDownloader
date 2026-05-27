@@ -29,6 +29,8 @@ type SearchMatch = {
   matchedByName: boolean
 }
 
+type DownloadSummaryState = 'start' | 'loading' | 'pause' | 'stop' | 'complete'
+
 const pageIds: PageId[] = [
   'home',
   'crawl',
@@ -102,6 +104,7 @@ class SettingsPanel {
   private summaryStateIconUse!: SVGUseElement
   private helpActionsWrap!: HTMLDivElement
   private otherBtnsVisibilityObserver?: MutationObserver
+  private downloadSummaryState: DownloadSummaryState = 'start'
   private debouncedSearch = Utils.debounce(() => this.updateSearchResult(), 200)
 
   private cacheShellElements() {
@@ -630,6 +633,30 @@ class SettingsPanel {
       window.addEventListener(eventName, () => {
         this.updateDownloadSummary()
       })
+    })
+    ;[
+      EVT.list.crawlStart,
+      EVT.list.crawlComplete,
+      EVT.list.resultChange,
+      EVT.list.resume,
+      EVT.list.readyDownload,
+      EVT.list.downloadCancel,
+    ].forEach((eventName) => {
+      window.addEventListener(eventName, () => {
+        this.setDownloadSummaryState('start')
+      })
+    })
+    window.addEventListener(EVT.list.downloadStart, () => {
+      this.setDownloadSummaryState('loading')
+    })
+    window.addEventListener(EVT.list.downloadPause, () => {
+      this.setDownloadSummaryState('pause')
+    })
+    window.addEventListener(EVT.list.downloadStop, () => {
+      this.setDownloadSummaryState('stop')
+    })
+    window.addEventListener(EVT.list.downloadComplete, () => {
+      this.setDownloadSummaryState('complete')
     })
     ;[EVT.list.crawlComplete, EVT.list.resume, EVT.list.downloadStart].forEach(
       (eventName) => {
@@ -1252,38 +1279,38 @@ class SettingsPanel {
     this.summaryWrap.style.display = total > 0 ? 'block' : 'none'
 
     if (total === 0) {
-      this.setSummaryState('_未开始下载', 'start')
+      this.setDownloadSummaryState('start')
       return
     }
 
     if (downloaded >= total) {
-      this.setSummaryState('_下载完毕', 'complete')
+      this.setDownloadSummaryState('complete')
       return
     }
 
-    const statusText =
-      this.form.querySelector('.down_status')?.textContent?.trim() || ''
+    if (this.downloadSummaryState === 'complete') {
+      this.setDownloadSummaryState('start')
+    }
+  }
 
-    switch (statusText) {
-      case lang.transl('_正在下载中'):
+  private setDownloadSummaryState(state: DownloadSummaryState) {
+    this.downloadSummaryState = state
+    switch (state) {
+      case 'loading':
         this.setSummaryState('_正在下载中', 'loading')
-        break
-
-      case lang.transl('_下载已暂停'):
+        return
+      case 'pause':
         this.setSummaryState('_下载已暂停', 'pause')
-        break
-
-      case lang.transl('_下载已停止'):
+        return
+      case 'stop':
         this.setSummaryState('_下载已停止', 'stop')
-        break
-
-      case lang.transl('_下载完毕'):
+        return
+      case 'complete':
         this.setSummaryState('_下载完毕', 'complete')
-        break
-
+        return
       default:
         this.setSummaryState('_未开始下载', 'start')
-        break
+        return
     }
   }
 

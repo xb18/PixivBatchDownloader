@@ -330,7 +330,7 @@
   .settingsPanel_downloadSummary {
     display: none;
     margin-top: auto;
-    padding: 20px 0 20px 10px;
+    padding: 14px 0 0px 4px;
     border-top: 1px solid #ccc;
   }
 
@@ -344,13 +344,15 @@
   .settingsPanel_downloadSummaryStatus {
     gap: 10px;
     color: #666;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 
     .settingsPanel_downloadSummaryStateIcon {
       position: relative;
       top: 2px;
       font-size: 24px;
       transform-origin: center;
+      // 因为这个按钮只显示状态，不可点击，为了与下面可点击的按钮区分开，所以让它看起来更灰一些。
+      opacity: 0.4;
 
       &.is-loading {
         animation: settingsPanelSummarySpin 1s linear infinite;
@@ -359,7 +361,7 @@
   }
 
   .settingsPanel_downloadSummaryActions {
-    gap: 20px;
+    gap: 12px;
   }
 
   .settingsPanel_downloadSummaryBtn {
@@ -368,7 +370,7 @@
     padding: 0;
     border-radius: 50%;
     font-size: 24px;
-    color: #666;
+    color: #888;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -378,7 +380,6 @@
 
     &:hover {
       color: @themeBlue;
-      background: #e9f5ff;
     }
   }
 

@@ -1102,7 +1102,7 @@ body.mobile #quickCrawlBtn {
   background: #6792a2;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progress {
-  background: #0eb3f3;
+  background: #00b1ff;
   transition: 0.15s;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressTip {
@@ -1790,7 +1790,7 @@ body.mobile #quickCrawlBtn {
 .centerWrap.settingsV2 .settingsPanel_downloadSummary {
   display: none;
   margin-top: auto;
-  padding: 20px 0 20px 10px;
+  padding: 14px 0 0px 4px;
   border-top: 1px solid #ccc;
 }
 .centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus,
@@ -1802,19 +1802,20 @@ body.mobile #quickCrawlBtn {
 .centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus {
   gap: 10px;
   color: #666;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 .centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus .settingsPanel_downloadSummaryStateIcon {
   position: relative;
   top: 2px;
   font-size: 24px;
   transform-origin: center;
+  opacity: 0.4;
 }
 .centerWrap.settingsV2 .settingsPanel_downloadSummaryStatus .settingsPanel_downloadSummaryStateIcon.is-loading {
   animation: settingsPanelSummarySpin 1s linear infinite;
 }
 .centerWrap.settingsV2 .settingsPanel_downloadSummaryActions {
-  gap: 20px;
+  gap: 12px;
 }
 .centerWrap.settingsV2 .settingsPanel_downloadSummaryBtn {
   width: 1em;
@@ -1822,7 +1823,7 @@ body.mobile #quickCrawlBtn {
   padding: 0;
   border-radius: 50%;
   font-size: 24px;
-  color: #666;
+  color: #888;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1830,7 +1831,6 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.settingsV2 .settingsPanel_downloadSummaryBtn:hover {
   color: #199df5;
-  background: #e9f5ff;
 }
 .centerWrap.settingsV2 .settingsPanel_main {
   flex: 1;
