@@ -6953,10 +6953,10 @@ const novelThumbnail = new NovelThumbnail();
 
 /***/ }),
 
-/***/ "./src/ts/OpenCenterPanel.ts":
-/*!***********************************!*\
-  !*** ./src/ts/OpenCenterPanel.ts ***!
-  \***********************************/
+/***/ "./src/ts/OpenSettingsPanel.ts":
+/*!*************************************!*\
+  !*** ./src/ts/OpenSettingsPanel.ts ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6965,8 +6965,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Language */ "./src/ts/Language.ts");
 
 
-// 页面右侧的按钮，点击可以打开中间面板
-class OpenCenterPanel {
+// 页面右侧的按钮，点击可以打开设置面板
+class OpenSettingsPanel {
     constructor() {
         this.addBtn();
         this.show();
@@ -7004,7 +7004,7 @@ class OpenCenterPanel {
         this.btn.style.display = 'none';
     }
 }
-new OpenCenterPanel();
+new OpenSettingsPanel();
 
 
 /***/ }),
@@ -48052,7 +48052,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../ShowOneTimeMsg */ "./src/ts/ShowOneTimeMsg.ts");
 /* harmony import */ var _OptionConfigs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./OptionConfigs */ "./src/ts/setting/OptionConfigs.ts");
 /* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
-/* harmony import */ var _OpenCenterPanel__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../OpenCenterPanel */ "./src/ts/OpenCenterPanel.ts");
+/* harmony import */ var _OpenSettingsPanel__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../OpenSettingsPanel */ "./src/ts/OpenSettingsPanel.ts");
 
 
 
@@ -48079,20 +48079,38 @@ const pageIds = [
     'help',
     'search',
 ];
-class SettingsPanelShell {
-    constructor() {
-        this.addShell();
-        _Theme__WEBPACK_IMPORTED_MODULE_8__.theme.register(this.centerPanel);
-        _Language__WEBPACK_IMPORTED_MODULE_3__.lang.register(this.centerPanel);
-        _BG__WEBPACK_IMPORTED_MODULE_10__.bg.useBG(this.centerPanel);
-        new _BoldKeywords__WEBPACK_IMPORTED_MODULE_11__.BoldKeywords(this.centerPanel);
-        this.allLangFlag = _Language__WEBPACK_IMPORTED_MODULE_3__.lang.langTypes.map((type) => 'lang_' + type);
-        this.setLangFlag();
+class SettingsPanel {
+    constructor(form) {
+        SettingsPanel.initShell();
+        this.form = form;
+        this.centerPanel = SettingsPanel.getShell();
+        this.main = this.centerPanel.querySelector('.settingsPanel_main');
+        if (!this.centerPanel || !this.main) {
+            throw new Error('SettingsPanel shell not found');
+        }
+        for (const option of this.form.querySelectorAll('.option')) {
+            const no = Number.parseInt(option.dataset.no || '-1');
+            if (no > -1) {
+                this.optionElements.set(no, option);
+            }
+        }
+        this.cacheShellElements();
+        this.buildLayout();
         this.bindEvents();
+        this.renderHelpActionVisibility();
+        this.switchPage('home');
+        this.updateSearchResult();
+        this.updateDownloadSummary();
     }
+    form;
     centerPanel;
-    allLangFlag = [];
-    addShell() {
+    main;
+    static shell;
+    static allLangFlag = [];
+    static initShell() {
+        if (this.shell) {
+            return this.shell;
+        }
         const centerPanelHTML = `
       <div class="centerWrap settingsV2 ${'lang_' + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.type}">
         <div class="centerWrap_head">
@@ -48190,13 +48208,27 @@ class SettingsPanelShell {
       </div>
     `;
         document.body.insertAdjacentHTML('afterbegin', centerPanelHTML);
-        this.centerPanel = document.querySelector('.centerWrap.settingsV2');
+        this.shell = document.querySelector('.centerWrap.settingsV2');
+        if (!this.shell) {
+            throw new Error('SettingsPanel shell not found');
+        }
         if (_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
             document.body.classList.add('mobile');
-            this.centerPanel.classList.add('mobile');
+            this.shell.classList.add('mobile');
         }
+        _Theme__WEBPACK_IMPORTED_MODULE_8__.theme.register(this.shell);
+        _Language__WEBPACK_IMPORTED_MODULE_3__.lang.register(this.shell);
+        _BG__WEBPACK_IMPORTED_MODULE_10__.bg.useBG(this.shell);
+        new _BoldKeywords__WEBPACK_IMPORTED_MODULE_11__.BoldKeywords(this.shell);
+        this.allLangFlag = _Language__WEBPACK_IMPORTED_MODULE_3__.lang.langTypes.map((type) => 'lang_' + type);
+        this.setLangFlag();
+        this.bindShellEvents();
+        return this.shell;
     }
-    createNavItem(page, textKey, lineIcon, fillIcon, hidden = false) {
+    static getShell() {
+        return this.initShell();
+    }
+    static createNavItem(page, textKey, lineIcon, fillIcon, hidden = false) {
         return `
     <button class="settingsPanel_navItem hasRippleAnimation" data-page="${page}" type="button" ${hidden ? 'hidden' : ''}>
       <span class="settingsPanel_navIconWrap" aria-hidden="true">
@@ -48212,16 +48244,18 @@ class SettingsPanelShell {
     </button>
     `;
     }
-    setLangFlag() {
+    static setLangFlag() {
+        const shell = this.getShell();
         this.allLangFlag.forEach((flag) => {
-            this.centerPanel.classList.remove(flag);
+            shell.classList.remove(flag);
         });
-        this.centerPanel.classList.add('lang_' + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.type);
+        shell.classList.add('lang_' + _Language__WEBPACK_IMPORTED_MODULE_3__.lang.type);
     }
-    bindEvents() {
+    static bindShellEvents() {
+        const shell = this.getShell();
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().runtime.onMessage.addListener((msg) => {
             if (msg.msg === 'click_icon') {
-                this.toggle();
+                this.toggleShell();
             }
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.settingInitialized, () => {
@@ -48229,16 +48263,16 @@ class SettingsPanelShell {
         });
         window.addEventListener('keydown', (ev) => {
             if (ev.altKey && ev.code === 'KeyX') {
-                this.toggle();
+                this.toggleShell();
             }
         }, false);
-        this.centerPanel.querySelectorAll('.centerWrap_close').forEach((button) => button.addEventListener('click', () => {
+        shell.querySelectorAll('.centerWrap_close').forEach((button) => button.addEventListener('click', () => {
             _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
             if (!_Config__WEBPACK_IMPORTED_MODULE_1__.Config.mobile) {
                 _ShowOneTimeMsg__WEBPACK_IMPORTED_MODULE_12__.showOneTimeMsg.show('tipAltXToShowControlPanel', _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_快捷键ALTX显示隐藏控制面板'));
             }
         }));
-        this.centerPanel
+        shell
             .querySelector('#settingsPanelSponsor')
             ?.addEventListener('click', () => _MsgBox__WEBPACK_IMPORTED_MODULE_4__.msgBox.show(_Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_赞助方式提示'), {
             title: _Language__WEBPACK_IMPORTED_MODULE_3__.lang.transl('_赞助我'),
@@ -48249,39 +48283,40 @@ class SettingsPanelShell {
         for (const ev of [_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.crawlComplete, _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.resume]) {
             window.addEventListener(ev, () => {
                 if (!_store_States__WEBPACK_IMPORTED_MODULE_9__.states.quickCrawl && _store_Store__WEBPACK_IMPORTED_MODULE_5__.store.result.length > 0) {
-                    this.show();
+                    this.showShell();
                 }
             });
         }
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.openCenterPanel, () => {
-            this.show();
+            this.showShell();
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.closeCenterPanel, () => {
-            this.close();
+            this.closeShell();
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.list.langChange, () => {
             this.setLangFlag();
         });
-        this.centerPanel.addEventListener('click', (e) => {
+        shell.addEventListener('click', (e) => {
             e.stopPropagation();
         });
         document.addEventListener('click', () => {
-            if (getComputedStyle(this.centerPanel).display !== 'none') {
+            if (getComputedStyle(shell).display !== 'none') {
                 _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
             }
         });
     }
-    show() {
-        this.centerPanel.style.display = 'block';
+    static showShell() {
+        this.getShell().style.display = 'block';
         _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('centerPanelOpened');
     }
-    close() {
-        this.centerPanel.style.display = 'none';
+    static closeShell() {
+        this.getShell().style.display = 'none';
         _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('centerPanelClosed');
     }
-    toggle() {
-        const nowDisplay = this.centerPanel.style.display;
-        nowDisplay === 'block' ? this.close() : this.show();
+    static toggleShell() {
+        const shell = this.getShell();
+        const nowDisplay = shell.style.display;
+        nowDisplay === 'block' ? this.closeShell() : this.showShell();
         if (nowDisplay === 'block') {
             _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('closeCenterPanel');
         }
@@ -48289,32 +48324,6 @@ class SettingsPanelShell {
             _EVT__WEBPACK_IMPORTED_MODULE_2__.EVT.fire('openCenterPanel');
         }
     }
-}
-class SettingsPanel {
-    constructor(form) {
-        this.form = form;
-        this.centerPanel = document.querySelector('.centerWrap.settingsV2');
-        this.main = this.centerPanel.querySelector('.settingsPanel_main');
-        if (!this.centerPanel || !this.main) {
-            throw new Error('SettingsPanel shell not found');
-        }
-        for (const option of this.form.querySelectorAll('.option')) {
-            const no = Number.parseInt(option.dataset.no || '-1');
-            if (no > -1) {
-                this.optionElements.set(no, option);
-            }
-        }
-        this.cacheShellElements();
-        this.buildLayout();
-        this.bindEvents();
-        this.renderHelpActionVisibility();
-        this.switchPage('home');
-        this.updateSearchResult();
-        this.updateDownloadSummary();
-    }
-    form;
-    centerPanel;
-    main;
     activePage = 'home';
     lastNonSearchPage = 'home';
     searchKeyword = '';
@@ -49344,7 +49353,7 @@ class SettingsPanel {
         return expandedCards[page];
     }
 }
-new SettingsPanelShell();
+SettingsPanel.initShell();
 
 
 

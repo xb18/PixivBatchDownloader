@@ -1,8 +1,8 @@
 import { EVT } from './EVT'
 import { lang } from './Language'
 
-// 页面右侧的按钮，点击可以打开中间面板
-class OpenCenterPanel {
+// 页面右侧的按钮，点击可以打开设置面板
+class OpenSettingsPanel {
   constructor() {
     this.addBtn()
     this.show()
@@ -48,4 +48,4 @@ class OpenCenterPanel {
   }
 }
 
-new OpenCenterPanel()
+new OpenSettingsPanel()

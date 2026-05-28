@@ -15,7 +15,7 @@ import { showOneTimeMsg } from '../ShowOneTimeMsg'
 import { optionConfigs } from './OptionConfigs'
 import { OptionCategoryLevel1, settings, setSetting } from './Settings'
 import { SettingsForm } from './SettingsForm'
-import '../OpenCenterPanel'
+import '../OpenSettingsPanel'
 
 type PageId = 'home' | OptionCategoryLevel1 | 'help' | 'search'
 type PersistedPageId = 'home' | OptionCategoryLevel1
@@ -51,24 +51,47 @@ const pageIds: PageId[] = [
   'search',
 ]
 
-class SettingsPanelShell {
-  constructor() {
-    this.addShell()
-    theme.register(this.centerPanel)
-    lang.register(this.centerPanel)
+class SettingsPanel {
+  constructor(form: SettingsForm) {
+    SettingsPanel.initShell()
+    this.form = form
+    this.centerPanel = SettingsPanel.getShell()
+    this.main = this.centerPanel.querySelector(
+      '.settingsPanel_main'
+    ) as HTMLDivElement
 
-    bg.useBG(this.centerPanel)
-    new BoldKeywords(this.centerPanel)
+    if (!this.centerPanel || !this.main) {
+      throw new Error('SettingsPanel shell not found')
+    }
 
-    this.allLangFlag = lang.langTypes.map((type) => 'lang_' + type)
-    this.setLangFlag()
+    for (const option of this.form.querySelectorAll('.option')) {
+      const no = Number.parseInt((option as HTMLElement).dataset.no || '-1')
+      if (no > -1) {
+        this.optionElements.set(no, option as HTMLElement)
+      }
+    }
+
+    this.cacheShellElements()
+    this.buildLayout()
     this.bindEvents()
+    this.renderHelpActionVisibility()
+    this.switchPage('home')
+    this.updateSearchResult()
+    this.updateDownloadSummary()
   }
 
-  private centerPanel!: HTMLDivElement
-  private allLangFlag: string[] = []
+  private form: SettingsForm
+  private centerPanel: HTMLDivElement
+  private main: HTMLDivElement
 
-  private addShell() {
+  private static shell?: HTMLDivElement
+  private static allLangFlag: string[] = []
+
+  public static initShell() {
+    if (this.shell) {
+      return this.shell
+    }
+
     const centerPanelHTML = `
       <div class="centerWrap settingsV2 ${'lang_' + lang.type}">
         <div class="centerWrap_head">
@@ -167,17 +190,34 @@ class SettingsPanelShell {
     `
 
     document.body.insertAdjacentHTML('afterbegin', centerPanelHTML)
-    this.centerPanel = document.querySelector(
+    this.shell = document.querySelector(
       '.centerWrap.settingsV2'
     ) as HTMLDivElement
+    if (!this.shell) {
+      throw new Error('SettingsPanel shell not found')
+    }
 
     if (Config.mobile) {
       document.body.classList.add('mobile')
-      this.centerPanel.classList.add('mobile')
+      this.shell.classList.add('mobile')
     }
+
+    theme.register(this.shell)
+    lang.register(this.shell)
+    bg.useBG(this.shell)
+    new BoldKeywords(this.shell)
+
+    this.allLangFlag = lang.langTypes.map((type) => 'lang_' + type)
+    this.setLangFlag()
+    this.bindShellEvents()
+    return this.shell
   }
 
-  private createNavItem(
+  private static getShell() {
+    return this.initShell()
+  }
+
+  private static createNavItem(
     page: string,
     textKey: string,
     lineIcon: string,
@@ -202,17 +242,20 @@ class SettingsPanelShell {
     `
   }
 
-  private setLangFlag() {
+  private static setLangFlag() {
+    const shell = this.getShell()
     this.allLangFlag.forEach((flag) => {
-      this.centerPanel.classList.remove(flag)
+      shell.classList.remove(flag)
     })
-    this.centerPanel.classList.add('lang_' + lang.type)
+    shell.classList.add('lang_' + lang.type)
   }
 
-  private bindEvents() {
+  private static bindShellEvents() {
+    const shell = this.getShell()
+
     browser.runtime.onMessage.addListener((msg: any) => {
       if (msg.msg === 'click_icon') {
-        this.toggle()
+        this.toggleShell()
       }
     })
 
@@ -227,13 +270,13 @@ class SettingsPanelShell {
       'keydown',
       (ev) => {
         if (ev.altKey && ev.code === 'KeyX') {
-          this.toggle()
+          this.toggleShell()
         }
       },
       false
     )
 
-    this.centerPanel.querySelectorAll('.centerWrap_close').forEach((button) =>
+    shell.querySelectorAll('.centerWrap_close').forEach((button) =>
       button.addEventListener('click', () => {
         EVT.fire('closeCenterPanel')
         if (!Config.mobile) {
@@ -245,7 +288,7 @@ class SettingsPanelShell {
       })
     )
 
-    this.centerPanel
+    shell
       .querySelector('#settingsPanelSponsor')
       ?.addEventListener('click', () =>
         msgBox.show(lang.transl('_赞助方式提示'), {
@@ -260,88 +303,54 @@ class SettingsPanelShell {
     for (const ev of [EVT.list.crawlComplete, EVT.list.resume]) {
       window.addEventListener(ev, () => {
         if (!states.quickCrawl && store.result.length > 0) {
-          this.show()
+          this.showShell()
         }
       })
     }
 
     window.addEventListener(EVT.list.openCenterPanel, () => {
-      this.show()
+      this.showShell()
     })
 
     window.addEventListener(EVT.list.closeCenterPanel, () => {
-      this.close()
+      this.closeShell()
     })
 
     window.addEventListener(EVT.list.langChange, () => {
       this.setLangFlag()
     })
 
-    this.centerPanel.addEventListener('click', (e) => {
+    shell.addEventListener('click', (e) => {
       e.stopPropagation()
     })
 
     document.addEventListener('click', () => {
-      if (getComputedStyle(this.centerPanel).display !== 'none') {
+      if (getComputedStyle(shell).display !== 'none') {
         EVT.fire('closeCenterPanel')
       }
     })
   }
 
-  private show() {
-    this.centerPanel.style.display = 'block'
+  private static showShell() {
+    this.getShell().style.display = 'block'
     EVT.fire('centerPanelOpened')
   }
 
-  private close() {
-    this.centerPanel.style.display = 'none'
+  private static closeShell() {
+    this.getShell().style.display = 'none'
     EVT.fire('centerPanelClosed')
   }
 
-  private toggle() {
-    const nowDisplay = this.centerPanel.style.display
-    nowDisplay === 'block' ? this.close() : this.show()
+  private static toggleShell() {
+    const shell = this.getShell()
+    const nowDisplay = shell.style.display
+    nowDisplay === 'block' ? this.closeShell() : this.showShell()
     if (nowDisplay === 'block') {
       EVT.fire('closeCenterPanel')
     } else {
       EVT.fire('openCenterPanel')
     }
   }
-}
-
-class SettingsPanel {
-  constructor(form: SettingsForm) {
-    this.form = form
-    this.centerPanel = document.querySelector(
-      '.centerWrap.settingsV2'
-    ) as HTMLDivElement
-    this.main = this.centerPanel.querySelector(
-      '.settingsPanel_main'
-    ) as HTMLDivElement
-
-    if (!this.centerPanel || !this.main) {
-      throw new Error('SettingsPanel shell not found')
-    }
-
-    for (const option of this.form.querySelectorAll('.option')) {
-      const no = Number.parseInt((option as HTMLElement).dataset.no || '-1')
-      if (no > -1) {
-        this.optionElements.set(no, option as HTMLElement)
-      }
-    }
-
-    this.cacheShellElements()
-    this.buildLayout()
-    this.bindEvents()
-    this.renderHelpActionVisibility()
-    this.switchPage('home')
-    this.updateSearchResult()
-    this.updateDownloadSummary()
-  }
-
-  private form: SettingsForm
-  private centerPanel: HTMLDivElement
-  private main: HTMLDivElement
 
   private activePage: PageId = 'home'
   private lastNonSearchPage: Exclude<PageId, 'search'> = 'home'
@@ -1695,6 +1704,6 @@ class SettingsPanel {
   }
 }
 
-new SettingsPanelShell()
+SettingsPanel.initShell()
 
 export { SettingsPanel }
