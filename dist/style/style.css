@@ -1912,13 +1912,49 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.settingsV2 .settingsPanel_titleContent,
 .centerWrap.settingsV2 .settingsPanel_panelContent {
-  display: block;
+  box-sizing: border-box;
+  min-height: 0;
+  overflow: hidden;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.16s ease, transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .centerWrap.settingsV2 .settingsPanel_panelContent {
   padding: 15px 20px;
 }
 .centerWrap.settingsV2 .settingsPanel_titleContent {
   padding-top: 0;
+}
+.centerWrap.settingsV2 .settingsPanel_sectionContentShell {
+  display: grid;
+  grid-template-rows: 1fr;
+  min-height: 0;
+  transition: grid-template-rows 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.centerWrap.settingsV2 .settingsPanel_sectionContentWrap {
+  min-height: 0;
+  overflow: hidden;
+}
+.centerWrap.settingsV2 .settingsPanel_titleSection.collapsed .settingsPanel_sectionContentShell,
+.centerWrap.settingsV2 .settingsPanel_panelSection.collapsed .settingsPanel_sectionContentShell {
+  grid-template-rows: 0fr;
+}
+.centerWrap.settingsV2 .settingsPanel_titleSection.collapsed .settingsPanel_titleContent,
+.centerWrap.settingsV2 .settingsPanel_panelSection.collapsed .settingsPanel_titleContent,
+.centerWrap.settingsV2 .settingsPanel_titleSection.collapsed .settingsPanel_panelContent,
+.centerWrap.settingsV2 .settingsPanel_panelSection.collapsed .settingsPanel_panelContent {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition-delay: 0s;
+  pointer-events: none;
+}
+.centerWrap.settingsV2 .settingsPanel_titleSection.expanded .settingsPanel_titleContent,
+.centerWrap.settingsV2 .settingsPanel_panelSection.expanded .settingsPanel_titleContent,
+.centerWrap.settingsV2 .settingsPanel_titleSection.expanded .settingsPanel_panelContent,
+.centerWrap.settingsV2 .settingsPanel_panelSection.expanded .settingsPanel_panelContent {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s;
 }
 .centerWrap.settingsV2 .settingsPanel_optionCard.option {
   width: calc(100% - 20px);

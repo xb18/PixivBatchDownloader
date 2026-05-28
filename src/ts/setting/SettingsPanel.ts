@@ -20,6 +20,8 @@ type FoldableSection = {
   stickyEligible: boolean
   root: HTMLDivElement
   header: HTMLButtonElement
+  contentShell: HTMLDivElement
+  contentWrap: HTMLDivElement
   content: HTMLDivElement
   title: HTMLSpanElement
   iconUse?: SVGUseElement
@@ -497,12 +499,23 @@ class SettingsPanel {
     arrow.append(arrowUse)
     header.append(arrow)
 
+    const contentShell = document.createElement('div')
+    contentShell.className =
+      type === 'panel'
+        ? 'settingsPanel_sectionContentShell settingsPanel_panelContentShell'
+        : 'settingsPanel_sectionContentShell settingsPanel_titleContentShell'
+    root.append(contentShell)
+
+    const contentWrap = document.createElement('div')
+    contentWrap.className = 'settingsPanel_sectionContentWrap'
+    contentShell.append(contentWrap)
+
     const content = document.createElement('div')
     content.className =
       type === 'panel'
         ? 'settingsPanel_panelContent'
         : 'settingsPanel_titleContent'
-    root.append(content)
+    contentWrap.append(content)
 
     const section: FoldableSection = {
       page,
@@ -511,6 +524,8 @@ class SettingsPanel {
       stickyEligible,
       root,
       header,
+      contentShell,
+      contentWrap,
       content,
       title,
       iconUse,
@@ -963,9 +978,18 @@ class SettingsPanel {
     `
     root.append(header)
 
+    const contentShell = document.createElement('div')
+    contentShell.className =
+      'settingsPanel_sectionContentShell settingsPanel_titleContentShell'
+    root.append(contentShell)
+
+    const contentWrap = document.createElement('div')
+    contentWrap.className = 'settingsPanel_sectionContentWrap'
+    contentShell.append(contentWrap)
+
     const content = document.createElement('div')
     content.className = 'settingsPanel_titleContent'
-    root.append(content)
+    contentWrap.append(content)
 
     const section: FoldableSection = {
       page: 'search',
@@ -974,6 +998,8 @@ class SettingsPanel {
       stickyEligible: true,
       root,
       header,
+      contentShell,
+      contentWrap,
       content,
       title: header.querySelector(
         '.settingsPanel_sectionTitle'
@@ -1043,8 +1069,9 @@ class SettingsPanel {
   private applyExpandedState(section: FoldableSection, expanded: boolean) {
     section.root.classList.toggle('expanded', expanded)
     section.root.classList.toggle('collapsed', !expanded)
-    section.content.style.display = expanded ? 'block' : 'none'
     section.header.setAttribute('aria-expanded', expanded ? 'true' : 'false')
+    section.contentWrap.toggleAttribute('inert', !expanded)
+    section.contentWrap.setAttribute('aria-hidden', expanded ? 'false' : 'true')
   }
 
   private refreshPersistedSectionStates() {

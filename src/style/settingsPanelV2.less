@@ -537,7 +537,14 @@
 
   .settingsPanel_titleContent,
   .settingsPanel_panelContent {
-    display: block;
+    box-sizing: border-box;
+    min-height: 0;
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.16s ease,
+      transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .settingsPanel_panelContent {
@@ -546,6 +553,43 @@
 
   .settingsPanel_titleContent {
     padding-top: 0;
+  }
+
+  .settingsPanel_sectionContentShell {
+    display: grid;
+    grid-template-rows: 1fr;
+    min-height: 0;
+    transition: grid-template-rows 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .settingsPanel_sectionContentWrap {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .settingsPanel_titleSection.collapsed,
+  .settingsPanel_panelSection.collapsed {
+    .settingsPanel_sectionContentShell {
+      grid-template-rows: 0fr;
+    }
+
+    .settingsPanel_titleContent,
+    .settingsPanel_panelContent {
+      opacity: 0;
+      transform: translateY(-6px);
+      transition-delay: 0s;
+      pointer-events: none;
+    }
+  }
+
+  .settingsPanel_titleSection.expanded,
+  .settingsPanel_panelSection.expanded {
+    .settingsPanel_titleContent,
+    .settingsPanel_panelContent {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.08s;
+    }
   }
 
   .settingsPanel_optionCard.option {

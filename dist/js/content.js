@@ -48646,12 +48646,21 @@ class SettingsPanel {
         arrowUse.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#arrow-down-2');
         arrow.append(arrowUse);
         header.append(arrow);
+        const contentShell = document.createElement('div');
+        contentShell.className =
+            type === 'panel'
+                ? 'settingsPanel_sectionContentShell settingsPanel_panelContentShell'
+                : 'settingsPanel_sectionContentShell settingsPanel_titleContentShell';
+        root.append(contentShell);
+        const contentWrap = document.createElement('div');
+        contentWrap.className = 'settingsPanel_sectionContentWrap';
+        contentShell.append(contentWrap);
         const content = document.createElement('div');
         content.className =
             type === 'panel'
                 ? 'settingsPanel_panelContent'
                 : 'settingsPanel_titleContent';
-        root.append(content);
+        contentWrap.append(content);
         const section = {
             page,
             id,
@@ -48659,6 +48668,8 @@ class SettingsPanel {
             stickyEligible,
             root,
             header,
+            contentShell,
+            contentWrap,
             content,
             title,
             iconUse,
@@ -49012,9 +49023,16 @@ class SettingsPanel {
       </svg>
     `;
         root.append(header);
+        const contentShell = document.createElement('div');
+        contentShell.className =
+            'settingsPanel_sectionContentShell settingsPanel_titleContentShell';
+        root.append(contentShell);
+        const contentWrap = document.createElement('div');
+        contentWrap.className = 'settingsPanel_sectionContentWrap';
+        contentShell.append(contentWrap);
         const content = document.createElement('div');
         content.className = 'settingsPanel_titleContent';
-        root.append(content);
+        contentWrap.append(content);
         const section = {
             page: 'search',
             id: `${level1}__${level2}`,
@@ -49022,6 +49040,8 @@ class SettingsPanel {
             stickyEligible: true,
             root,
             header,
+            contentShell,
+            contentWrap,
             content,
             title: header.querySelector('.settingsPanel_sectionTitle'),
         };
@@ -49069,8 +49089,9 @@ class SettingsPanel {
     applyExpandedState(section, expanded) {
         section.root.classList.toggle('expanded', expanded);
         section.root.classList.toggle('collapsed', !expanded);
-        section.content.style.display = expanded ? 'block' : 'none';
         section.header.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        section.contentWrap.toggleAttribute('inert', !expanded);
+        section.contentWrap.setAttribute('aria-hidden', expanded ? 'false' : 'true');
     }
     refreshPersistedSectionStates() {
         this.foldableSections.forEach((section) => {
