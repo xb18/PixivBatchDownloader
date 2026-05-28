@@ -1804,9 +1804,8 @@
     }
   }
 
-  // 鼠标进入设置卡片列表或首页里的内容区域后，把标题高亮显示作为反馈
-  .settingsPanel_titleSection:hover,
-  .settingsPanel_panelSection:hover {
+  // 鼠标进入设置卡片的标题时，把标题高亮显示作为反馈
+  .settingsPanel_sectionHeader:hover{
     .settingsPanel_sectionTitle,
     .settingsPanel_sectionArrow {
       color: @themeBlue;
@@ -1986,11 +1985,14 @@
 
   .settingsPanel_helpActions {
     margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 15px;
   }
 
   .settingsPanel_helpAction {
-    width: calc(25% - 12px);
+    width: 100%;
+    min-width: 0;
     min-height: 46px;
     padding: 12px 14px;
     border: none;

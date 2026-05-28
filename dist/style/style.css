@@ -1889,10 +1889,8 @@ body.mobile #quickCrawlBtn {
 .centerWrap.settingsV2 .settingsPanel_titleSection.expanded .settingsPanel_sectionArrow {
   transform: rotate(180deg);
 }
-.centerWrap.settingsV2 .settingsPanel_titleSection:hover .settingsPanel_sectionTitle,
-.centerWrap.settingsV2 .settingsPanel_panelSection:hover .settingsPanel_sectionTitle,
-.centerWrap.settingsV2 .settingsPanel_titleSection:hover .settingsPanel_sectionArrow,
-.centerWrap.settingsV2 .settingsPanel_panelSection:hover .settingsPanel_sectionArrow {
+.centerWrap.settingsV2 .settingsPanel_sectionHeader:hover .settingsPanel_sectionTitle,
+.centerWrap.settingsV2 .settingsPanel_sectionHeader:hover .settingsPanel_sectionArrow {
   color: #199df5;
 }
 .centerWrap.settingsV2 .settingsPanel_titleContent,
@@ -2034,10 +2032,13 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.settingsV2 .settingsPanel_helpActions {
   margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px;
 }
 .centerWrap.settingsV2 .settingsPanel_helpAction {
-  width: calc(25% - 12px);
+  width: 100%;
+  min-width: 0;
   min-height: 46px;
   padding: 12px 14px;
   border: none;
