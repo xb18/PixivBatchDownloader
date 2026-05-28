@@ -52,7 +52,8 @@ class SettingsPanel {
         this.searchPanel?.getExpandStats() ?? { total: 0, expanded: 0 },
       setSearchAllExpanded: (shouldExpand) =>
         this.searchPanel?.setAllExpanded(shouldExpand),
-      getSearchStickySections: () => this.searchPanel?.getStickySections() ?? [],
+      getSearchStickySections: () =>
+        this.searchPanel?.getStickySections() ?? [],
     })
 
     for (const option of this.form.querySelectorAll('.option')) {
@@ -78,11 +79,13 @@ class SettingsPanel {
       form: this.form,
       centerPanel: this.centerPanel,
       optionElements: this.optionElements,
-      getExpandedState: (section) => this.sectionController.getExpandedState(section),
+      getExpandedState: (section) =>
+        this.sectionController.getExpandedState(section),
       applyExpandedState: (section, expanded) =>
         this.sectionController.applyExpandedState(section, expanded),
       toggleSection: (section) => this.sectionController.toggleSection(section),
-      makeSectionKey: (page, id) => this.sectionController.makeSectionKey(page, id),
+      makeSectionKey: (page, id) =>
+        this.sectionController.makeSectionKey(page, id),
       makeCanonicalKey: (level1, level2) =>
         this.makeCanonicalKey(level1, level2),
     }).build()
@@ -125,7 +128,8 @@ class SettingsPanel {
       canonicalContainers: this.canonicalContainers,
       homePinnedContent: this.homePinnedContent,
       foldableSections: this.foldableSections,
-      makeSectionKey: (page, id) => this.sectionController.makeSectionKey(page, id),
+      makeSectionKey: (page, id) =>
+        this.sectionController.makeSectionKey(page, id),
       resetSearchHighlight: () => this.searchPanel.resetOptionHighlight(),
     })
     this.navigationController = new SettingsPanelNavigation({
@@ -138,7 +142,9 @@ class SettingsPanel {
       },
       renderSearchPage: () => this.searchPanel.renderPage(),
       renderDefaultPage: (showPinnedOnHome) =>
-        this.placementController.placeOptionsToDefaultContainers(showPinnedOnHome),
+        this.placementController.placeOptionsToDefaultContainers(
+          showPinnedOnHome
+        ),
       afterRender: () => {
         this.placementController.updatePinnedSectionVisibility()
         this.sectionController.updateExpandAllButton()

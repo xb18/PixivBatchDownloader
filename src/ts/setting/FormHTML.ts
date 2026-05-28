@@ -1533,8 +1533,8 @@ export const formHtml = `
     <input type="checkbox" name="bgDisplay" class="need_beautify checkbox_switch">
     <span class="beautify_switch" tabindex="0"></span>
     <span class="subOptionWrap" data-show="bgDisplay">
-      <button type="button" class="textButton" id="selectBG" data-xztext="_选择文件"></button>
-      <button type="button" class="textButton" id="clearBG" data-xztext="_清除"></button>
+      <button type="button" class="textButton fireEvent" data-event="selectBG" id="selectBG" data-xztext="_选择文件"></button>
+      <button type="button" class="textButton fireEvent" data-event="clearBG" id="clearBG" data-xztext="_清除"></button>
       &nbsp;
       <span data-xztext="_对齐方式"></span>&nbsp;
       <input type="radio" name="bgPositionY" id="bgPosition1" class="need_beautify radio" value="center" checked>
@@ -1648,10 +1648,10 @@ export const formHtml = `
       <span data-xztext="_管理设置"></span>
       <span class="gray1"> ? </span>
     </a>
-    <button type="button" class="textButton" id="exportSettings" data-xztext="_导出设置"></button>
-    <button type="button" class="textButton" id="importSettings" data-xztext="_导入设置"></button>
-    <button type="button" class="textButton" id="resetSettings" data-xztext="_重置设置"></button>
-    <button type="button" class="textButton" id="resetHelpTip" data-xztext="_重新显示帮助"></button>
+    <button type="button" class="textButton fireEvent" data-event="exportSettings" id="exportSettings" data-xztext="_导出设置"></button>
+    <button type="button" class="textButton fireEvent" data-event="importSettings" id="importSettings" data-xztext="_导入设置"></button>
+    <button type="button" class="textButton fireEvent" data-event="resetSettings" id="resetSettings" data-xztext="_重置设置"></button>
+    <button type="button" class="textButton fireEvent" data-event="resetHelpTip" id="resetHelpTip" data-xztext="_重新显示帮助"></button>
   </div>
 
 </form>`

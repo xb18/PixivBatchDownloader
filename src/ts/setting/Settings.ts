@@ -1044,7 +1044,10 @@ class Settings {
     })
 
     window.addEventListener(EVT.list.resetSettings, () => {
-      this.reset()
+      const result = window.confirm(lang.transl('_是否重置设置'))
+      if (result) {
+        this.reset()
+      }
     })
 
     window.addEventListener(EVT.list.exportSettings, () => {

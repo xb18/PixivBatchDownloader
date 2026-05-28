@@ -100,68 +100,18 @@ class Form {
 
   /** 为表单上的一些功能按钮绑定事件 */
   private bindFunctionBtn() {
-    // 选择背景图片
-    {
-      const el = this.form.querySelector('#selectBG')
-      if (el) {
-        el.addEventListener('click', () => {
-          EVT.fire('selectBG')
+    // 点击 .fireEvent 按钮时会触发特定事件
+    const eventBtns = document.querySelectorAll(
+      '.fireEvent'
+    ) as NodeListOf<HTMLButtonElement>
+    eventBtns.forEach((btn) => {
+      const eventName = btn.dataset.event
+      if (eventName) {
+        btn.addEventListener('click', () => {
+          EVT.fire(eventName as any)
         })
       }
-    }
-
-    // 清除背景图片
-    {
-      const el = this.form.querySelector('#clearBG')
-      if (el) {
-        el.addEventListener('click', () => {
-          EVT.fire('clearBG')
-        })
-      }
-    }
-
-    // 重置设置
-    {
-      const el = this.form.querySelector('#resetSettings')
-      if (el) {
-        el.addEventListener('click', () => {
-          const result = window.confirm(lang.transl('_是否重置设置'))
-          if (result) {
-            EVT.fire('resetSettings')
-          }
-        })
-      }
-    }
-
-    // 导出设置
-    {
-      const el = this.form.querySelector('#exportSettings')
-      if (el) {
-        el.addEventListener('click', () => {
-          EVT.fire('exportSettings')
-        })
-      }
-    }
-
-    // 导入设置
-    {
-      const el = this.form.querySelector('#importSettings')
-      if (el) {
-        el.addEventListener('click', () => {
-          EVT.fire('importSettings')
-        })
-      }
-    }
-
-    // 重新显示帮助
-    {
-      const el = this.form.querySelector('#resetHelpTip')
-      if (el) {
-        el.addEventListener('click', () => {
-          EVT.fire('resetHelpTip')
-        })
-      }
-    }
+    })
   }
 
   /** 点击命名规则帮助区域里的标记名字时，复制到剪贴板 */

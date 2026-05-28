@@ -42022,63 +42022,16 @@ class Form {
     }
     /** 为表单上的一些功能按钮绑定事件 */
     bindFunctionBtn() {
-        // 选择背景图片
-        {
-            const el = this.form.querySelector('#selectBG');
-            if (el) {
-                el.addEventListener('click', () => {
-                    _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.fire('selectBG');
+        // 点击 .fireEvent 按钮时会触发特定事件
+        const eventBtns = document.querySelectorAll('.fireEvent');
+        eventBtns.forEach((btn) => {
+            const eventName = btn.dataset.event;
+            if (eventName) {
+                btn.addEventListener('click', () => {
+                    _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.fire(eventName);
                 });
             }
-        }
-        // 清除背景图片
-        {
-            const el = this.form.querySelector('#clearBG');
-            if (el) {
-                el.addEventListener('click', () => {
-                    _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.fire('clearBG');
-                });
-            }
-        }
-        // 重置设置
-        {
-            const el = this.form.querySelector('#resetSettings');
-            if (el) {
-                el.addEventListener('click', () => {
-                    const result = window.confirm(_Language__WEBPACK_IMPORTED_MODULE_2__.lang.transl('_是否重置设置'));
-                    if (result) {
-                        _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.fire('resetSettings');
-                    }
-                });
-            }
-        }
-        // 导出设置
-        {
-            const el = this.form.querySelector('#exportSettings');
-            if (el) {
-                el.addEventListener('click', () => {
-                    _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.fire('exportSettings');
-                });
-            }
-        }
-        // 导入设置
-        {
-            const el = this.form.querySelector('#importSettings');
-            if (el) {
-                el.addEventListener('click', () => {
-                    _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.fire('importSettings');
-                });
-            }
-        }
-        // 重新显示帮助
-        {
-            const el = this.form.querySelector('#resetHelpTip');
-            if (el) {
-                el.addEventListener('click', () => {
-                    _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.fire('resetHelpTip');
-                });
-            }
-        }
+        });
     }
     /** 点击命名规则帮助区域里的标记名字时，复制到剪贴板 */
     bindCopyEvent() {
@@ -43740,8 +43693,8 @@ const formHtml = `
     <input type="checkbox" name="bgDisplay" class="need_beautify checkbox_switch">
     <span class="beautify_switch" tabindex="0"></span>
     <span class="subOptionWrap" data-show="bgDisplay">
-      <button type="button" class="textButton" id="selectBG" data-xztext="_选择文件"></button>
-      <button type="button" class="textButton" id="clearBG" data-xztext="_清除"></button>
+      <button type="button" class="textButton fireEvent" data-event="selectBG" id="selectBG" data-xztext="_选择文件"></button>
+      <button type="button" class="textButton fireEvent" data-event="clearBG" id="clearBG" data-xztext="_清除"></button>
       &nbsp;
       <span data-xztext="_对齐方式"></span>&nbsp;
       <input type="radio" name="bgPositionY" id="bgPosition1" class="need_beautify radio" value="center" checked>
@@ -43855,10 +43808,10 @@ const formHtml = `
       <span data-xztext="_管理设置"></span>
       <span class="gray1"> ? </span>
     </a>
-    <button type="button" class="textButton" id="exportSettings" data-xztext="_导出设置"></button>
-    <button type="button" class="textButton" id="importSettings" data-xztext="_导入设置"></button>
-    <button type="button" class="textButton" id="resetSettings" data-xztext="_重置设置"></button>
-    <button type="button" class="textButton" id="resetHelpTip" data-xztext="_重新显示帮助"></button>
+    <button type="button" class="textButton fireEvent" data-event="exportSettings" id="exportSettings" data-xztext="_导出设置"></button>
+    <button type="button" class="textButton fireEvent" data-event="importSettings" id="importSettings" data-xztext="_导入设置"></button>
+    <button type="button" class="textButton fireEvent" data-event="resetSettings" id="resetSettings" data-xztext="_重置设置"></button>
+    <button type="button" class="textButton fireEvent" data-event="resetHelpTip" id="resetHelpTip" data-xztext="_重新显示帮助"></button>
   </div>
 
 </form>`;
@@ -47697,7 +47650,10 @@ class Settings {
             this.store();
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resetSettings, () => {
-            this.reset();
+            const result = window.confirm(_Language__WEBPACK_IMPORTED_MODULE_8__.lang.transl('_是否重置设置'));
+            if (result) {
+                this.reset();
+            }
         });
         window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.exportSettings, () => {
             this.exportSettings();
@@ -49012,6 +48968,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Settings */ "./src/ts/setting/Settings.ts");
 
 
+// - 负责选项卡片回填：当前激活的页面不是搜索页时，把每个设置卡片重新放回它正常所属的位置。
+// - 负责 pinnedOptions 区域的放置与显隐
+// - 负责 canonical container 查找
 class SettingsPanelPlacement {
     constructor({ optionElements, canonicalContainers, homePinnedContent, foldableSections, makeSectionKey, resetSearchHighlight, }) {
         this.optionElements = optionElements;

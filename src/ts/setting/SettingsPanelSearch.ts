@@ -265,8 +265,10 @@ class SettingsPanelSearch {
         continue
       }
 
-      this.getCanonicalContainer(option.categoryLevel1, option.categoryLevel2)
-        .append(element)
+      this.getCanonicalContainer(
+        option.categoryLevel1,
+        option.categoryLevel2
+      ).append(element)
     }
   }
 
@@ -302,7 +304,9 @@ class SettingsPanelSearch {
       return direct
     }
 
-    const nameLink = option.querySelector('.settingNameStyle') as HTMLElement | null
+    const nameLink = option.querySelector(
+      '.settingNameStyle'
+    ) as HTMLElement | null
     if (!nameLink) {
       return null
     }
@@ -354,9 +358,7 @@ class SettingsPanelSearch {
     const group = optionConfigs.categorySchema[level1].level2[level2]
     const title = `${lang.transl(
       optionConfigs.categorySchema[level1].nameKey
-    )} / ${lang.transl(
-      group.nameKey
-    )}`
+    )} / ${lang.transl(group.nameKey)}`
 
     const root = document.createElement('div')
     root.className = 'settingsPanel_titleSection'

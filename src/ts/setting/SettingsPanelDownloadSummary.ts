@@ -63,7 +63,6 @@ class SettingsPanelDownloadSummary {
     window.addEventListener(EVT.list.langChange, () => {
       this.setState(this.state)
     })
-
     ;[
       EVT.list.crawlStart,
       EVT.list.crawlComplete,
@@ -80,7 +79,6 @@ class SettingsPanelDownloadSummary {
         this.update()
       })
     })
-
     ;[
       EVT.list.crawlStart,
       EVT.list.crawlComplete,
@@ -106,7 +104,6 @@ class SettingsPanelDownloadSummary {
     window.addEventListener(EVT.list.downloadComplete, () => {
       this.setState('complete')
     })
-
     ;[EVT.list.crawlComplete, EVT.list.resume, EVT.list.downloadStart].forEach(
       (eventName) => {
         window.addEventListener(eventName, () => {

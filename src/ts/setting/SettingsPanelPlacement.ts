@@ -46,7 +46,10 @@ class SettingsPanelPlacement {
       const target =
         showPinnedOnHome && settings.pinnedOptions.includes(option.no)
           ? this.homePinnedContent
-          : this.getCanonicalContainer(option.categoryLevel1, option.categoryLevel2)
+          : this.getCanonicalContainer(
+              option.categoryLevel1,
+              option.categoryLevel2
+            )
       target.append(element)
     }
 
