@@ -225,11 +225,11 @@ class InitUserPage extends InitPageBase {
     }
     let idList = await API.getUserWorksByType(userId, type)
 
-    // 判断是否全都是小说，如果是，把每页的作品个数设置为 24 个
+    // 判断是否全都是小说，如果是，把每页的作品个数设置为 30 个
     const allWorkIsNovels = idList.every((data) => {
       return data.type === 'novels'
     })
-    allWorkIsNovels && (this.onceNumber = 24)
+    allWorkIsNovels && (this.onceNumber = 30)
 
     // 计算偏移量和需要保留的作品个数
     const offset = this.getOffset()

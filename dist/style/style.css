@@ -630,7 +630,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-download-summary-btn-hover-color: #fff;
   --settings-panel-download-summary-btn-hover-bg: rgba(255, 255, 255, 0.3);
   --settings-panel-surface-bg: rgba(255, 255, 255, 0.1);
-  --settings-panel-sticky-bg: #fff;
+  --settings-panel-sticky-bg: rgba(255, 255, 255, 0.4);
   --settings-panel-surface-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   --settings-panel-surface-text: #fff;
   --settings-panel-surface-border: rgba(255, 255, 255, 0.08);

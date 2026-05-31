@@ -19450,11 +19450,11 @@ class InitUserPage extends _crawl_InitPageBase__WEBPACK_IMPORTED_MODULE_0__.Init
                 break;
         }
         let idList = await _API__WEBPACK_IMPORTED_MODULE_3__.API.getUserWorksByType(userId, type);
-        // 判断是否全都是小说，如果是，把每页的作品个数设置为 24 个
+        // 判断是否全都是小说，如果是，把每页的作品个数设置为 30 个
         const allWorkIsNovels = idList.every((data) => {
             return data.type === 'novels';
         });
-        allWorkIsNovels && (this.onceNumber = 24);
+        allWorkIsNovels && (this.onceNumber = 30);
         // 计算偏移量和需要保留的作品个数
         const offset = this.getOffset();
         const requsetNumber = this.getRequsetNumber();
