@@ -2383,7 +2383,7 @@ var Colors;
     Colors["textWarning"] = "#d27e00";
     Colors["textError"] = "#f00";
     // 背景颜色
-    // 稍暗，适合在颜色区域的面积较大时使用
+    // 稍暗，适合在颜色区域的面积较大时使用。之前用作主要按钮的背景颜色，但现在已经不直接使用这几个颜色了，而是使用 CSS 变量来定义按钮的背景颜色，这样更灵活一些。
     Colors["bgBlue"] = "#0ea8ef";
     Colors["bgGreen"] = "#14ad27";
     Colors["bgYellow"] = "#e49d00";
@@ -48029,7 +48029,7 @@ class SettingsPanelShell {
               <span class="settingsPanel_brandName">${_Config__WEBPACK_IMPORTED_MODULE_3__.Config.appName}</span>
             </div>
 
-            <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_mobile" type="button" data-xztitle="_关闭">
+            <button class="centerWrap_top_btn centerWrap_close centerWrap_close_mobile" type="button" data-xztitle="_关闭">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#close"></use>
               </svg>
@@ -48043,14 +48043,14 @@ class SettingsPanelShell {
                   <use xlink:href="#search-in-searchbar"></use>
                 </svg>
                 <input id="settingsPanelSearchInput" type="text" data-xzplaceholder="_搜索设置">
-                <button class="textButton settingsPanel_clearSearch" id="settingsPanelClearSearch" type="button" data-xztitle="_清除">
+                <button class="settingsPanel_clearSearch" id="settingsPanelClearSearch" type="button" data-xztitle="_清除">
                   <svg class="icon" aria-hidden="true">
                     <use xlink:href="#close"></use>
                   </svg>
                 </button>
               </label>
 
-              <button class="textButton centerWrap_top_btn settingsPanel_expandAll" id="settingsPanelToggleExpand" type="button" data-xztitle="_展开/折叠所有区域">
+              <button class="centerWrap_top_btn settingsPanel_expandAll" id="settingsPanelToggleExpand" type="button" data-xztitle="_展开/折叠所有区域">
                 <svg class="icon settingsPanel_expandIcon" aria-hidden="true">
                   <use xlink:href="#arrow-up"></use>
                 </svg>
@@ -48058,7 +48058,7 @@ class SettingsPanelShell {
             </div>
 
             <div class="settingsPanel_headerMinor">
-              <button class="textButton centerWrap_top_btn settingsPanel_sponsorBtn" id="settingsPanelSponsor" type="button" data-xztitle="_赞助我">
+              <button class="centerWrap_top_btn settingsPanel_sponsorBtn" id="settingsPanelSponsor" type="button" data-xztitle="_赞助我">
                 <svg class="icon" aria-hidden="true">
                   <use xlink:href="#heart-line"></use>
                 </svg>
@@ -48066,7 +48066,7 @@ class SettingsPanelShell {
             </div>
 
             <div class="settingsPanel_headerClose">
-              <button class="textButton centerWrap_top_btn centerWrap_close centerWrap_close_pc" type="button" data-xztitle="_关闭">
+              <button class="centerWrap_top_btn centerWrap_close centerWrap_close_pc" type="button" data-xztitle="_关闭">
                 <svg class="icon" aria-hidden="true">
                   <use xlink:href="#close"></use>
                 </svg>
@@ -48097,13 +48097,13 @@ class SettingsPanelShell {
               </div>
 
               <div class="settingsPanel_downloadSummaryActions">
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStart" type="button" data-xztitle="_开始下载">
+                <button class="settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStart" type="button" data-xztitle="_开始下载">
                   <svg class="icon" aria-hidden="true"><use xlink:href="#start"></use></svg>
                 </button>
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryPause" type="button" data-xztitle="_暂停下载">
+                <button class="settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryPause" type="button" data-xztitle="_暂停下载">
                   <svg class="icon" aria-hidden="true"><use xlink:href="#pause"></use></svg>
                 </button>
-                <button class="textButton settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStop" type="button" data-xztitle="_停止下载">
+                <button class="settingsPanel_downloadSummaryBtn" id="settingsPanelSummaryStop" type="button" data-xztitle="_停止下载">
                   <svg class="icon" aria-hidden="true"><use xlink:href="#stop"></use></svg>
                 </button>
               </div>

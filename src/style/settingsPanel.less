@@ -107,6 +107,17 @@
   --settings-panel-help-action-hover-bg: #09a0f4;
   --settings-panel-help-action-hover-text: #fff;
   --settings-panel-help-action-update-dot: #ff4060;
+  --settings-panel-naming-list-bg: #fff;
+  --settings-panel-naming-list-border: #d8e8f2;
+  --settings-panel-naming-list-shadow: 0 8px 24px rgba(15, 53, 86, 0.12);
+  --settings-panel-naming-list-text: #556571;
+  --settings-panel-naming-list-rule: #4c5f6d;
+  --settings-panel-naming-list-hover-bg: #eef7ff;
+  --settings-panel-naming-list-divider: #edf2f6;
+  --settings-panel-naming-list-delete: #9aa9b5;
+  --settings-panel-naming-list-delete-hover-bg: rgba(243, 57, 57, 0.1);
+  --settings-panel-naming-list-delete-hover-color: #f33939;
+  --settings-panel-naming-list-empty: #93a1ac;
   --settings-panel-search-summary: #444;
   --settings-panel-search-mark-bg: #ffe74b;
 
@@ -262,6 +273,8 @@
         user-select: none;
         display: inline-block;
         vertical-align: baseline;
+        background: none;
+        border: none;
 
         .icon {
           vertical-align: initial;
@@ -318,6 +331,8 @@
     transition:
       color 0.2s,
       background-color 0.2s;
+    background: none;
+    border: none;
 
     &:hover {
       color: var(--settings-panel-top-btn-hover-color);
@@ -378,6 +393,11 @@
 
     input::placeholder {
       color: var(--settings-panel-search-placeholder);
+    }
+
+    button {
+      background: none;
+      border: none;
     }
   }
 
@@ -1241,27 +1261,36 @@
 
       .namingRuleList {
         position: absolute;
-        right: 0px;
-        top: 25px;
+        right: 0;
+        top: 36px;
         z-index: 1002;
-        background: #fff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: var(--box-shadow-blue) 0px 0px 10px;
+        min-width: 380px;
+        max-width: min(560px, calc(100vw - 80px));
+        max-height: 260px;
+        padding: 6px;
+        margin: 0;
+        border: 1px solid var(--settings-panel-naming-list-border);
+        border-radius: var(--settings-panel-card-radius);
+        background: var(--settings-panel-naming-list-bg);
+        overflow: auto;
+        box-shadow: var(--settings-panel-naming-list-shadow);
         display: none;
+        list-style: none;
 
-        --li-height: 30px;
+        --li-height: 38px;
 
         li {
-          padding: 2px 0 2px 0;
-          color: #555;
+          padding: 0;
+          color: var(--settings-panel-naming-list-text);
           cursor: pointer;
-          transition: all 0.2s;
+          transition:
+            background-color 0.2s,
+            color 0.2s;
           display: flex;
           justify-content: space-between;
-          justify-items: center;
           align-items: center;
-          min-width: 500px;
+          min-width: 0;
+          border-radius: calc(var(--settings-panel-control-radius) - 2px);
 
           & > * {
             min-height: var(--li-height);
@@ -1269,31 +1298,60 @@
           }
         }
 
-        li:hover {
-          background: #e3f5ff;
+        li + li {
+          border-top: 1px solid var(--settings-panel-naming-list-divider);
         }
 
         .rule {
           flex: 1;
           line-height: var(--li-height) !important;
-          padding-left: 20px;
+          min-width: 0;
+          padding: 0 14px;
+          color: var(--settings-panel-naming-list-rule);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        li:hover {
+          background: var(--settings-panel-naming-list-hover-bg);
         }
 
         li:first-child {
-          padding-top: 5px;
+          margin-top: 0;
         }
 
         li:last-child {
-          padding-bottom: 5px;
+          margin-bottom: 0;
         }
 
         .delete {
-          padding: 0 15px;
-          margin-left: 5px;
-          margin-right: 5px;
-          font-size: 1.3em;
-          color: #999;
-          font-weight: lighter;
+          width: 28px;
+          min-width: 28px;
+          margin-right: 6px;
+          padding: 0;
+          border-radius: 999px;
+          font-size: 20px;
+          color: var(--settings-panel-naming-list-delete);
+          font-weight: 300;
+          transition:
+            background-color 0.2s,
+            color 0.2s;
+        }
+
+        .delete:hover,
+        .delete:focus {
+          background: var(--settings-panel-naming-list-delete-hover-bg);
+          color: var(
+            --settings-panel-naming-list-delete-hover-color
+          ) !important;
+        }
+
+        i {
+          display: block;
+          padding: 8px 14px;
+          color: var(--settings-panel-naming-list-empty);
+          font-style: normal;
         }
       }
 
@@ -1469,6 +1527,8 @@
       transition:
         color 0.2s,
         background-color 0.2s;
+      background: none;
+      border: none;
 
       &:hover {
         color: var(--settings-panel-download-summary-btn-hover-color);
@@ -1877,6 +1937,7 @@
       background: var(--settings-panel-search-mark-bg);
       color: inherit;
       padding: 0 2px;
+      border-radius: 4px;
     }
 
     .download_area {
@@ -1991,16 +2052,7 @@
     }
 
     .namingRuleList {
-      background: var(--settings-panel-bg-dark);
-      box-shadow: var(--dark-box-shadow);
-
-      li {
-        color: #fff;
-      }
-
-      li:hover {
-        background: #333;
-      }
+      text-shadow: none;
     }
   }
 }
@@ -2094,7 +2146,6 @@
 
     .namingRuleList {
       text-shadow: none;
-      opacity: 0.9 !important;
     }
   }
 }

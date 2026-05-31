@@ -587,6 +587,17 @@ body.mobile #quickCrawlBtn {
   --settings-panel-help-action-hover-bg: #09a0f4;
   --settings-panel-help-action-hover-text: #fff;
   --settings-panel-help-action-update-dot: #ff4060;
+  --settings-panel-naming-list-bg: #fff;
+  --settings-panel-naming-list-border: #d8e8f2;
+  --settings-panel-naming-list-shadow: 0 8px 24px rgba(15, 53, 86, 0.12);
+  --settings-panel-naming-list-text: #556571;
+  --settings-panel-naming-list-rule: #4c5f6d;
+  --settings-panel-naming-list-hover-bg: #eef7ff;
+  --settings-panel-naming-list-divider: #edf2f6;
+  --settings-panel-naming-list-delete: #9aa9b5;
+  --settings-panel-naming-list-delete-hover-bg: rgba(243, 57, 57, 0.1);
+  --settings-panel-naming-list-delete-hover-color: #f33939;
+  --settings-panel-naming-list-empty: #93a1ac;
   --settings-panel-search-summary: #444;
   --settings-panel-search-mark-bg: #ffe74b;
 }
@@ -681,6 +692,17 @@ body.mobile #quickCrawlBtn {
   --settings-panel-help-action-shadow: var(--settings-panel-card-shadow);
   --settings-panel-help-action-hover-bg: #1a85cc;
   --settings-panel-help-action-hover-text: #fff;
+  --settings-panel-naming-list-bg: rgba(24, 31, 41, 0.98);
+  --settings-panel-naming-list-border: rgba(255, 255, 255, 0.1);
+  --settings-panel-naming-list-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  --settings-panel-naming-list-text: #d5dee6;
+  --settings-panel-naming-list-rule: #f1f5f8;
+  --settings-panel-naming-list-hover-bg: rgba(66, 195, 255, 0.12);
+  --settings-panel-naming-list-divider: rgba(255, 255, 255, 0.08);
+  --settings-panel-naming-list-delete: rgba(223, 231, 239, 0.6);
+  --settings-panel-naming-list-delete-hover-bg: rgba(243, 57, 57, 0.18);
+  --settings-panel-naming-list-delete-hover-color: #ff8d8d;
+  --settings-panel-naming-list-empty: rgba(223, 231, 239, 0.6);
   --settings-panel-search-summary: #dfe7ef;
   --settings-panel-search-mark-bg: #ae9a14;
 }
@@ -773,8 +795,19 @@ body.mobile #quickCrawlBtn {
   --settings-panel-help-action-shadow: var(--settings-panel-card-shadow);
   --settings-panel-help-action-hover-bg: rgba(255, 255, 255, 0.3);
   --settings-panel-help-action-hover-text: #fff;
+  --settings-panel-naming-list-bg: rgba(18, 27, 38, 0.92);
+  --settings-panel-naming-list-border: rgba(255, 255, 255, 0.14);
+  --settings-panel-naming-list-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  --settings-panel-naming-list-text: rgba(255, 255, 255, 0.86);
+  --settings-panel-naming-list-rule: #fff;
+  --settings-panel-naming-list-hover-bg: rgba(255, 255, 255, 0.12);
+  --settings-panel-naming-list-divider: rgba(255, 255, 255, 0.1);
+  --settings-panel-naming-list-delete: rgba(255, 255, 255, 0.68);
+  --settings-panel-naming-list-delete-hover-bg: rgba(255, 255, 255, 0.16);
+  --settings-panel-naming-list-delete-hover-color: #fff;
+  --settings-panel-naming-list-empty: rgba(255, 255, 255, 0.68);
   --settings-panel-search-summary: #fff;
-  --settings-panel-search-mark-bg: #aba000;
+  --settings-panel-search-mark-bg: #c1b504;
 }
 .centerWrap.mobile {
   width: calc(100vw - 32px);
@@ -886,21 +919,30 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.mobile .centerWrap_con .settingForm .namingRuleList {
   left: 20px;
-  max-width: 80% !important;
+  top: 66px;
+  right: auto;
+  width: 100vw;
+  max-width: min(80%, calc(100vw - 64px)) !important;
+  min-width: unset !important;
 }
 .centerWrap.mobile .centerWrap_con .settingForm .namingRuleList li {
   min-width: unset !important;
-  max-width: 80% !important;
+  max-width: none !important;
 }
 .centerWrap.mobile .centerWrap_con .settingForm .namingRuleList li .rule {
-  padding-left: 10px;
+  padding-left: 12px;
 }
 .centerWrap.mobile .centerWrap_con .settingForm .namingRuleList li .delete {
-  padding: 0;
+  margin-right: 2px;
+}
+.centerWrap.mobile .centerWrap_con .settingsPanel_sidebar {
+  align-items: center;
 }
 .centerWrap.mobile .centerWrap_con .settingsPanel_downloadSummary {
-  margin-top: 12px;
-  padding: 12px 15px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 12px 12px;
+  width: 98%;
   border-top: none;
   background: var(--settings-panel-surface-bg);
   border-radius: 12px;
@@ -1036,6 +1078,17 @@ body.mobile #quickCrawlBtn {
   --settings-panel-help-action-hover-bg: #09a0f4;
   --settings-panel-help-action-hover-text: #fff;
   --settings-panel-help-action-update-dot: #ff4060;
+  --settings-panel-naming-list-bg: #fff;
+  --settings-panel-naming-list-border: #d8e8f2;
+  --settings-panel-naming-list-shadow: 0 8px 24px rgba(15, 53, 86, 0.12);
+  --settings-panel-naming-list-text: #556571;
+  --settings-panel-naming-list-rule: #4c5f6d;
+  --settings-panel-naming-list-hover-bg: #eef7ff;
+  --settings-panel-naming-list-divider: #edf2f6;
+  --settings-panel-naming-list-delete: #9aa9b5;
+  --settings-panel-naming-list-delete-hover-bg: rgba(243, 57, 57, 0.1);
+  --settings-panel-naming-list-delete-hover-color: #f33939;
+  --settings-panel-naming-list-empty: #93a1ac;
   --settings-panel-search-summary: #444;
   --settings-panel-search-mark-bg: #ffe74b;
   box-sizing: border-box;
@@ -1173,6 +1226,8 @@ body.mobile #quickCrawlBtn {
   user-select: none;
   display: inline-block;
   vertical-align: baseline;
+  background: none;
+  border: none;
 }
 .centerWrap .centerWrap_head .btns .centerWrap_top_btn .icon {
   vertical-align: initial;
@@ -1217,6 +1272,8 @@ body.mobile #quickCrawlBtn {
   justify-content: center;
   color: var(--settings-panel-top-btn-color);
   transition: color 0.2s, background-color 0.2s;
+  background: none;
+  border: none;
 }
 .centerWrap .centerWrap_top_btn:hover {
   color: var(--settings-panel-top-btn-hover-color);
@@ -1266,6 +1323,10 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .settingsPanel_searchBar input::placeholder {
   color: var(--settings-panel-search-placeholder);
+}
+.centerWrap .settingsPanel_searchBar button {
+  background: none;
+  border: none;
 }
 .centerWrap .settingsPanel_searchIcon {
   color: var(--settings-panel-search-icon);
@@ -1480,7 +1541,7 @@ body.mobile #quickCrawlBtn {
   width: 250px;
 }
 .centerWrap .centerWrap_con .settingForm .option .setinput_style.postDate {
-  width: 160px;
+  width: 170px;
 }
 .centerWrap .centerWrap_con .settingForm .option .setinput_style.bmkNum {
   width: 60px;
@@ -1945,52 +2006,81 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingForm .namingRuleList {
   position: absolute;
-  right: 0px;
-  top: 25px;
+  right: 0;
+  top: 36px;
   z-index: 1002;
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--box-shadow-blue) 0px 0px 10px;
+  min-width: 380px;
+  max-width: min(560px, calc(100vw - 80px));
+  max-height: 260px;
+  padding: 6px;
+  margin: 0;
+  border: 1px solid var(--settings-panel-naming-list-border);
+  border-radius: var(--settings-panel-card-radius);
+  background: var(--settings-panel-naming-list-bg);
+  overflow: auto;
+  box-shadow: var(--settings-panel-naming-list-shadow);
   display: none;
-  --li-height: 30px;
+  list-style: none;
+  --li-height: 38px;
 }
 .centerWrap .centerWrap_con .settingForm .namingRuleList li {
-  padding: 2px 0 2px 0;
-  color: #555;
+  padding: 0;
+  color: var(--settings-panel-naming-list-text);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color 0.2s, color 0.2s;
   display: flex;
   justify-content: space-between;
-  justify-items: center;
   align-items: center;
-  min-width: 500px;
+  min-width: 0;
+  border-radius: calc(var(--settings-panel-control-radius) - 2px);
 }
 .centerWrap .centerWrap_con .settingForm .namingRuleList li > * {
   min-height: var(--li-height);
   line-height: var(--li-height);
 }
-.centerWrap .centerWrap_con .settingForm .namingRuleList li:hover {
-  background: #e3f5ff;
+.centerWrap .centerWrap_con .settingForm .namingRuleList li + li {
+  border-top: 1px solid var(--settings-panel-naming-list-divider);
 }
 .centerWrap .centerWrap_con .settingForm .namingRuleList .rule {
   flex: 1;
   line-height: var(--li-height) !important;
-  padding-left: 20px;
+  min-width: 0;
+  padding: 0 14px;
+  color: var(--settings-panel-naming-list-rule);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.centerWrap .centerWrap_con .settingForm .namingRuleList li:hover {
+  background: var(--settings-panel-naming-list-hover-bg);
 }
 .centerWrap .centerWrap_con .settingForm .namingRuleList li:first-child {
-  padding-top: 5px;
+  margin-top: 0;
 }
 .centerWrap .centerWrap_con .settingForm .namingRuleList li:last-child {
-  padding-bottom: 5px;
+  margin-bottom: 0;
 }
 .centerWrap .centerWrap_con .settingForm .namingRuleList .delete {
-  padding: 0 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-size: 1.3em;
-  color: #999;
-  font-weight: lighter;
+  width: 28px;
+  min-width: 28px;
+  margin-right: 6px;
+  padding: 0;
+  border-radius: 999px;
+  font-size: 20px;
+  color: var(--settings-panel-naming-list-delete);
+  font-weight: 300;
+  transition: background-color 0.2s, color 0.2s;
+}
+.centerWrap .centerWrap_con .settingForm .namingRuleList .delete:hover,
+.centerWrap .centerWrap_con .settingForm .namingRuleList .delete:focus {
+  background: var(--settings-panel-naming-list-delete-hover-bg);
+  color: var(--settings-panel-naming-list-delete-hover-color) !important;
+}
+.centerWrap .centerWrap_con .settingForm .namingRuleList i {
+  display: block;
+  padding: 8px 14px;
+  color: var(--settings-panel-naming-list-empty);
+  font-style: normal;
 }
 .centerWrap .centerWrap_con .settingForm .setinput_style,
 .centerWrap .centerWrap_con .settingForm .setinput_style:focus,
@@ -2132,6 +2222,8 @@ body.mobile #quickCrawlBtn {
   align-items: center;
   justify-content: center;
   transition: color 0.2s, background-color 0.2s;
+  background: none;
+  border: none;
 }
 .centerWrap .centerWrap_con .settingsPanel_downloadSummaryBtn:hover {
   color: var(--settings-panel-download-summary-btn-hover-color);
@@ -2468,6 +2560,7 @@ body.mobile #quickCrawlBtn {
   background: var(--settings-panel-search-mark-bg);
   color: inherit;
   padding: 0 2px;
+  border-radius: 4px;
 }
 .centerWrap .centerWrap_con .download_area {
   margin-top: 13px;
@@ -2554,14 +2647,7 @@ body.mobile #quickCrawlBtn {
   color: #fff !important;
 }
 .centerWrap.theme-dark .saveNamingRuleWrap .namingRuleList {
-  background: var(--settings-panel-bg-dark);
-  box-shadow: var(--dark-box-shadow);
-}
-.centerWrap.theme-dark .saveNamingRuleWrap .namingRuleList li {
-  color: #fff;
-}
-.centerWrap.theme-dark .saveNamingRuleWrap .namingRuleList li:hover {
-  background: #333;
+  text-shadow: none;
 }
 .centerWrap.xzBG {
   background: var(--settings-panel-bg-xzbg);
@@ -2633,7 +2719,6 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.xzBG .saveNamingRuleWrap .namingRuleList {
   text-shadow: none;
-  opacity: 0.9 !important;
 }
 .showBlobKeywords .option > a .key,
 .showBlobKeywords .optionName .key {
@@ -3437,7 +3522,7 @@ iframe[name='expandedFooter'] {
 }
 .setUserNameWrap.setTagAliasWrap .listWrap .settingItem {
   flex-basis: 100%;
-  column-gap: 10px;
+  gap: 10px;
 }
 .setUserNameWrap.setTagAliasWrap .listWrap .settingItem input.alias {
   flex-basis: 20%;

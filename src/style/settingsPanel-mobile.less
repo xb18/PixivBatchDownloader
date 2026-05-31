@@ -132,26 +132,35 @@
 
       .namingRuleList {
         left: 20px;
-        max-width: 80% !important;
+        top: 66px;
+        right: auto;
+        width: 100vw;
+        max-width: min(80%, calc(100vw - 64px)) !important;
+        min-width: unset !important;
 
         li {
           min-width: unset !important;
-          max-width: 80% !important;
+          max-width: none !important;
 
           .rule {
-            padding-left: 10px;
+            padding-left: 12px;
           }
 
           .delete {
-            padding: 0;
+            margin-right: 2px;
           }
         }
       }
     }
+    .settingsPanel_sidebar {
+      align-items: center;
+    }
 
     .settingsPanel_downloadSummary {
-      margin-top: 12px;
-      padding: 12px 15px;
+      margin-top: 0px;
+      margin-bottom: 10px;
+      padding: 12px 12px;
+      width: 98%;
       border-top: none;
       background: var(--settings-panel-surface-bg);
       border-radius: 12px;
