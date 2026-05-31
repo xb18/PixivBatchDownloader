@@ -1,6 +1,5 @@
 // 初始化用户页面
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { lang } from '../Language'
 import { API } from '../API'
 import { store } from '../store/Store'
@@ -44,10 +43,10 @@ class InitUserPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_开始抓取',
       '_默认下载多页',
-      'startCrawling'
+      'startCrawling',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })
@@ -59,30 +58,30 @@ class InitUserPage extends InitPageBase {
   protected addAnyElement() {
     this.addInitPageBtn(
       'otherBtns',
-      Colors.bgGreen,
       '_保存用户头像',
       '',
-      'saveUserAvatar'
+      'saveUserAvatar',
+      'success'
     ).addEventListener('click', () => {
       EVT.fire('saveAvatarImage')
     })
 
     this.addInitPageBtn(
       'otherBtns',
-      Colors.bgGreen,
       '_保存用户头像为图标',
       '_保存用户头像为图标说明',
-      'saveUserAvatarAsIcon'
+      'saveUserAvatarAsIcon',
+      'success'
     ).addEventListener('click', () => {
       EVT.fire('saveAvatarIcon')
     })
 
     this.addInitPageBtn(
       'otherBtns',
-      Colors.bgGreen,
       '_保存用户封面',
       '',
-      'saveUserCoverImage'
+      'saveUserCoverImage',
+      'success'
     ).addEventListener('click', () => {
       EVT.fire('saveUserCover')
     })
@@ -90,10 +89,10 @@ class InitUserPage extends InitPageBase {
     // 添加收藏本页所有作品的功能
     const bookmarkAllBtn = this.addInitPageBtn(
       'otherBtns',
-      Colors.bgGreen,
       '_收藏本页面的所有作品',
       '',
-      'bookmarkAllWorksOnPage'
+      'bookmarkAllWorksOnPage',
+      'success'
     )
     this.bookmarkAll = new BookmarkAllWorks(bookmarkAllBtn)
 

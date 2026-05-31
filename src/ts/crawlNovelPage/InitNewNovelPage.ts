@@ -1,6 +1,5 @@
 // 初始化 本站的最新作品 小说页面
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { lang } from '../Language'
 import { NewIllustOption } from '../crawl/CrawlArgument.d'
 import { NewNovelData } from '../crawl/CrawlResult.d'
@@ -29,10 +28,10 @@ class InitNewNovelPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_开始抓取',
       '_下载大家的新作品',
-      'startCrawling'
+      'startCrawling',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })

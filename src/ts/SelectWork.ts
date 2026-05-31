@@ -224,21 +224,22 @@ class SelectWork {
   private addBtn() {
     this.controlBtn = Tools.addBtn(
       'selectWorkBtns',
-      Colors.bgBlue,
       '_手动选择作品',
       'Alt + S',
-      'manuallySelectWork'
+      'manuallySelectWork',
+      'secondary',
+      'brand'
     )
     this.controlTextSpan = this.controlBtn.querySelector('span')!
     this.updateControlBtn()
 
     this.clearBtn = Tools.addBtn(
       'selectWorkBtns',
-      Colors.bgRed,
       '_清空选择的作品',
       '',
       'clearSelectedWork',
-      { emphasis: 'secondary' }
+      'secondary',
+      'danger'
     )
     this.clearBtn.style.display = 'none'
     this.clearBtn.addEventListener('click', () => {
@@ -249,10 +250,11 @@ class SelectWork {
 
     this.crawlBtn = Tools.addBtn(
       'selectWorkBtns',
-      Colors.bgBlue,
       '_抓取选择的作品',
       '',
-      'crawlSelectedWork'
+      'crawlSelectedWork',
+      'secondary',
+      'brand'
     )
     this.crawlBtn.style.display = 'none'
     this.crawlBtn.addEventListener('click', (ev) => {

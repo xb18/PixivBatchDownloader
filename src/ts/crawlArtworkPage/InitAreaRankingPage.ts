@@ -1,6 +1,5 @@
 // 初始化地区排行榜页面
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { Tools } from '../Tools'
 import { filter, FilterOption } from '../filter/Filter'
 import { store } from '../store/Store'
@@ -18,10 +17,10 @@ class InitAreaRankingPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_抓取本页作品',
       '_抓取本页作品Title',
-      'crawlCurrentPageWork'
+      'crawlCurrentPageWork',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })

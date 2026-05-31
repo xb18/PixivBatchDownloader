@@ -1,7 +1,6 @@
 // 初始化数据分析（我的作品）页面
 // https://www.pixiv.net/dashboard/works
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { Tools } from '../Tools'
 import { lang } from '../Language'
 import { toast } from '../Toast'
@@ -75,10 +74,10 @@ class InitDashboardPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgGreen,
       '_导出作品数据CSV',
       '',
-      'exportDashboardData'
+      'exportDashboardData',
+      'success'
     ).addEventListener('click', () => {
       this.export()
     })

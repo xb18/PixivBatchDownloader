@@ -1,6 +1,5 @@
 //初始化小说系列作品页面
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { store } from '../store/Store'
 import { Tools } from '../Tools'
 import { API } from '../API'
@@ -20,10 +19,10 @@ class InitNovelSeriesPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_抓取系列小说',
       '',
-      'crawlSeriesNovel'
+      'crawlSeriesNovel',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })
@@ -32,10 +31,10 @@ class InitNovelSeriesPage extends InitPageBase {
   protected addAnyElement() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_合并系列小说',
       '',
-      'mergeSeriesNovel'
+      'mergeSeriesNovel',
+      'brand'
     ).addEventListener('click', async () => {
       EVT.fire('closeCenterPanel')
       const seriesId = Utils.getURLPathField(window.location.pathname, 'series')

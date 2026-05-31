@@ -96,11 +96,11 @@ class DeleteWorks {
 
     Tools.addBtn(
       'crawlBtns',
-      Colors.bgRed,
       '_清除多图作品',
       '',
       'clearMultiImageWork',
-      { emphasis: 'secondary' }
+      'secondary',
+      'danger'
     ).addEventListener(
       'click',
       () => {
@@ -127,11 +127,11 @@ class DeleteWorks {
 
     Tools.addBtn(
       'crawlBtns',
-      Colors.bgRed,
       '_清除动图作品',
       '',
       'clearUgoiraWork',
-      { emphasis: 'secondary' }
+      'secondary',
+      'danger'
     ).addEventListener(
       'click',
       () => {
@@ -157,11 +157,11 @@ class DeleteWorks {
     this.deleteWorkCallback = callback
     this.delBtn = Tools.addBtn(
       'crawlBtns',
-      Colors.bgRed,
       '_手动删除作品',
       '_手动删除作品Title',
       'manuallyDeleteWork',
-      { emphasis: 'secondary' }
+      'secondary',
+      'danger'
     )
 
     this.delBtn.addEventListener('click', () => {

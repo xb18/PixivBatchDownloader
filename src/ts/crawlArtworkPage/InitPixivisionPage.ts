@@ -1,6 +1,5 @@
 // 初始化 pixivision 页面
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { Tools } from '../Tools'
 import { store } from '../store/Store'
 import { Utils } from '../utils/Utils'
@@ -21,10 +20,10 @@ class InitPixivisionPage extends InitPageBase {
       // 在插画、漫画、cosplay类型的页面上创建下载功能
       this.addInitPageBtn(
         'crawlBtns',
-        Colors.bgBlue,
         '_抓取该页面的图片',
         '',
-        'crawlImagesOnThisPage'
+        'crawlImagesOnThisPage',
+        'brand'
       ).addEventListener(
         'click',
         () => {

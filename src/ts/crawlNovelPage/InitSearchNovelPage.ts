@@ -1,6 +1,5 @@
 // 初始化小说搜索页
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { lang } from '../Language'
 import { SearchOption } from '../crawl/CrawlArgument'
 import { filter, FilterOption } from '../filter/Filter'
@@ -106,10 +105,10 @@ class InitSearchNovelPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_开始抓取',
       '_默认下载多页',
-      'startCrawling'
+      'startCrawling',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })
@@ -134,10 +133,10 @@ class InitSearchNovelPage extends InitPageBase {
     // 添加收藏本页所有作品的功能
     const bookmarkAllBtn = this.addInitPageBtn(
       'otherBtns',
-      Colors.bgGreen,
       '_收藏本页面的所有作品',
       '',
-      'bookmarkAllWorksOnPage'
+      'bookmarkAllWorksOnPage',
+      'success'
     )
     const bookmarkAll = new BookmarkAllWorks(bookmarkAllBtn)
 

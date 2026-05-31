@@ -290,44 +290,44 @@ class DownloadControl {
     // 添加按钮
     Tools.addBtn(
       'downloadControlBtns',
-      Colors.bgGreen,
       '_开始下载',
       '',
       'startDownload',
-      { emphasis: 'primary', intent: 'success' }
+      'primary',
+      'success'
     ).addEventListener('click', () => {
       this.startDownload()
     })
 
     Tools.addBtn(
       'downloadControlBtns',
-      Colors.bgYellow,
       '_暂停下载',
       '',
       'pauseDownload',
-      { emphasis: 'primary', intent: 'warning' }
+      'primary',
+      'warning'
     ).addEventListener('click', () => {
       this.pauseDownload()
     })
 
     Tools.addBtn(
       'downloadControlBtns',
-      Colors.bgRed,
       '_停止下载',
       '',
       'stopDownload',
-      { emphasis: 'primary', intent: 'danger' }
+      'primary',
+      'danger'
     ).addEventListener('click', () => {
       this.stopDownload()
     })
 
     Tools.addBtn(
       'downloadControlBtns',
-      Colors.bgGreen,
       '_复制url',
       '',
       'copyURLs',
-      { emphasis: 'secondary' }
+      'secondary',
+      'brand'
     ).addEventListener('click', () => {
       EVT.fire('showURLs')
     })
@@ -339,10 +339,11 @@ class DownloadControl {
       // 导入抓取结果
       this.resultBtns.importJSON = Tools.addBtn(
         'exportResult',
-        Colors.bgGreen,
         '_导入抓取结果',
         '',
-        'importCrawlResults'
+        'importCrawlResults',
+        'secondary',
+        'success'
       )
       // 导入抓取结果的按钮始终显示，因为它需要始终可用。
       // 导出抓取结果的按钮只有在可以准备下载时才显示
@@ -358,10 +359,11 @@ class DownloadControl {
       // 导出抓取结果
       this.resultBtns.exportJSON = Tools.addBtn(
         'exportResult',
-        Colors.bgGreen,
         '_导出抓取结果',
         '',
-        'exportCrawlResultsJSON'
+        'exportCrawlResultsJSON',
+        'secondary',
+        'success'
       )
       this.resultBtns.exportJSON.style.display = 'none'
 
@@ -376,10 +378,11 @@ class DownloadControl {
       // 导出 csv
       this.resultBtns.exportCSV = Tools.addBtn(
         'exportResult',
-        Colors.bgGreen,
         '_导出csv',
         '',
-        'exportCrawlResultsCSV'
+        'exportCrawlResultsCSV',
+        'secondary',
+        'success'
       )
       this.resultBtns.exportCSV.style.display = 'none'
 

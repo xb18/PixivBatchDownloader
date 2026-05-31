@@ -1,6 +1,5 @@
 // 初始化插画/漫画的系列作品页面
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { API } from '../API'
 import { lang } from '../Language'
 import { Tools } from '../Tools'
@@ -25,10 +24,10 @@ class InitArtworkSeriesPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_开始抓取',
       '_默认下载多页',
-      'startCrawling'
+      'startCrawling',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })

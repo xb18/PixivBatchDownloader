@@ -56,40 +56,40 @@ class InitFollowingPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_开始抓取',
       '_默认下载多页',
-      'startCrawlingInFollowingPage'
+      'startCrawlingInFollowingPage',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })
 
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgGreen,
       '_导出关注列表CSV',
       '',
-      'exportFollowingListCSV'
+      'exportFollowingListCSV',
+      'success'
     ).addEventListener('click', () => {
       exportFollowingList.start('csv')
     })
 
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgGreen,
       '_导出关注列表JSON',
       '',
-      'exportFollowingListJSON'
+      'exportFollowingListJSON',
+      'success'
     ).addEventListener('click', () => {
       exportFollowingList.start('json')
     })
 
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgGreen,
       '_批量关注用户',
       '',
-      'batchFollowUser'
+      'batchFollowUser',
+      'success'
     ).addEventListener('click', async () => {
       batchFollowUser.start()
     })
@@ -107,10 +107,10 @@ class InitFollowingPage extends InitPageBase {
 
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgGreen,
       '_查找已注销的用户',
       '',
-      'findDeactivatedUsers'
+      'findDeactivatedUsers',
+      'success'
     ).addEventListener('click', async () => {
       findDeactivatedUsers.check()
     })

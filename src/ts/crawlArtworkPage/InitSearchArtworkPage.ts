@@ -1,6 +1,5 @@
 // 初始化 artwork 搜索页
 import { InitPageBase } from '../crawl/InitPageBase'
-import { Colors } from '../Colors'
 import { lang } from '../Language'
 import { DeleteWorks } from '../pageFunciton/DeleteWorks'
 import { EVT } from '../EVT'
@@ -166,10 +165,10 @@ class InitSearchArtworkPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_开始抓取',
       '_默认下载多页',
-      'startCrawling'
+      'startCrawling',
+      'brand'
     ).addEventListener('click', () => {
       this.resultMeta = []
       this.crawlStartBySelf = true
@@ -185,10 +184,10 @@ class InitSearchArtworkPage extends InitPageBase {
 
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgGreen,
       '_在结果中筛选',
       '_在结果中筛选说明',
-      'filterResults'
+      'filterResults',
+      'success'
     ).addEventListener('click', () => {
       this.screenInResult()
     })
@@ -212,10 +211,10 @@ class InitSearchArtworkPage extends InitPageBase {
     // 添加收藏本页所有作品的功能
     const bookmarkAllBtn = this.addInitPageBtn(
       'otherBtns',
-      Colors.bgGreen,
       '_收藏本页面的所有作品',
       '',
-      'bookmarkAllWorksOnPage'
+      'bookmarkAllWorksOnPage',
+      'success'
     )
     const bookmarkAll = new BookmarkAllWorks(bookmarkAllBtn)
 

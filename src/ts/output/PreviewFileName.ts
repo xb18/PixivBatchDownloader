@@ -20,10 +20,11 @@ class PreviewFileName {
 
     const prevBtn = Tools.addBtn(
       'namingBtns',
-      Colors.bgGreen,
       '_预览文件名',
       '',
-      'previewFileName'
+      'previewFileName',
+      'secondary',
+      'success'
     )
 
     prevBtn.addEventListener(

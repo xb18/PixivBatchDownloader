@@ -1,7 +1,6 @@
 // 初始化新版收藏页面
 import { InitPageBase } from '../crawl/InitPageBase'
 import { API } from '../API'
-import { Colors } from '../Colors'
 import { lang } from '../Language'
 import { IDData } from '../store/StoreType'
 import {
@@ -59,10 +58,10 @@ class InitBookmarkPage extends InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_开始抓取',
       '_默认下载多页',
-      'startCrawling'
+      'startCrawling',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })
@@ -103,39 +102,39 @@ class InitBookmarkPage extends InitPageBase {
     if (ownPage) {
       const btn = this.addInitPageBtn(
         'otherBtns',
-        Colors.bgGreen,
         '_给未分类作品添加添加tag',
         '',
-        'addTagToUnmarkedWork'
+        'addTagToUnmarkedWork',
+        'success'
       )
       new BookmarksAddTag(btn)
 
       this.addInitPageBtn(
         'otherBtns',
-        Colors.bgYellow,
         '_移除本页面中所有作品的标签',
         '',
-        'removeTagsFromAllWorksOnPage'
+        'removeTagsFromAllWorksOnPage',
+        'warning'
       ).addEventListener('click', () => {
         this.removeWorksTagsOnThisPage()
       })
 
       this.addInitPageBtn(
         'otherBtns',
-        Colors.bgRed,
         '_取消收藏本页面的所有作品',
         '',
-        'unBookmarkAllWorksOnPage'
+        'unBookmarkAllWorksOnPage',
+        'danger'
       ).addEventListener('click', () => {
         this.unBookmarkAllWorksOnThisPage()
       })
 
       this.addInitPageBtn(
         'otherBtns',
-        Colors.bgRed,
         '_取消收藏所有已被删除的作品',
         '',
-        'unBookmarkAll404Works'
+        'unBookmarkAll404Works',
+        'danger'
       ).addEventListener('click', () => {
         this.unBookmarkAll404Works()
       })
@@ -144,10 +143,10 @@ class InitBookmarkPage extends InitPageBase {
     // 下面的功能按钮在所有人的收藏页面里都可以使用
     const btnExport = this.addInitPageBtn(
       'otherBtns',
-      Colors.bgGreen,
       '_导出收藏列表',
       '',
-      'exportBookmarkList'
+      'exportBookmarkList',
+      'success'
     )
     btnExport.addEventListener('click', () => {
       this.exportBookmarkList()
@@ -155,10 +154,10 @@ class InitBookmarkPage extends InitPageBase {
 
     const btnImport = this.addInitPageBtn(
       'otherBtns',
-      Colors.bgGreen,
       '_导入收藏列表',
       '',
-      'importBookmarkList'
+      'importBookmarkList',
+      'success'
     )
     btnImport.addEventListener('click', () => {
       this.importBookmarkIDList()

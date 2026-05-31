@@ -16,11 +16,11 @@ class StopCrawl {
   private addBtn() {
     this.btn = Tools.addBtn(
       'stopCrawl',
-      Colors.bgRed,
       '_停止抓取',
       '',
       'stopCrawling',
-      { emphasis: 'secondary' }
+      'secondary',
+      'danger'
     )
     this.hide()
 

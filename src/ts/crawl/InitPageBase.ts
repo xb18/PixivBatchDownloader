@@ -132,10 +132,10 @@ abstract class InitPageBase {
   protected addCrawlBtns() {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_开始抓取',
       '_默认下载多页',
-      'startCrawling'
+      'startCrawling',
+      'brand'
     ).addEventListener('click', () => {
       this.readyCrawl()
     })
@@ -143,19 +143,19 @@ abstract class InitPageBase {
 
   protected addInitPageBtn(
     slot: string,
-    bg: string,
     text: string,
     title: string,
-    id: string
+    id: string,
+    intent: 'brand' | 'success' | 'warning' | 'danger'
   ) {
-    // 在每个 Init.*Page.ts 中，当该按钮是第一个按钮时，并且背景颜色是蓝色时，把它设为主按钮 primary，其余情况（不是第一个按钮或背景颜色不是蓝色）是次要按钮。
+    // 在每个 Init.*Page.ts 中，当该按钮是第一个按钮并且语义是 brand 时，把它设为主按钮 primary，其余情况都是次要按钮。
     let emphasis: 'primary' | 'secondary' = 'secondary'
-    if(this.initPageBtnCount === 0 && bg === Colors.bgBlue) {
+    if (this.initPageBtnCount === 0 && intent === 'brand') {
       emphasis = 'primary'
     }
 
     this.initPageBtnCount++
-    return Tools.addBtn(slot, bg, text, title, id, { emphasis })
+    return Tools.addBtn(slot, text, title, id, emphasis, intent)
   }
 
   // 添加其他任意元素（如果有）
@@ -748,10 +748,10 @@ abstract class InitPageBase {
   protected addStartTimedCrawlBtn(cb: Function) {
     this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgBlue,
       '_定时抓取',
       '_定时抓取说明',
-      'scheduleCrawling'
+      'scheduleCrawling',
+      'brand'
     ).addEventListener('click', () => {
       timedCrawl.start(cb)
     })
@@ -762,10 +762,10 @@ abstract class InitPageBase {
     const id = 'cancelScheduledCrawling'
     const btn = this.addInitPageBtn(
       'crawlBtns',
-      Colors.bgWarning,
       '_取消定时抓取',
       '',
-      id
+      id,
+      'warning'
     )
     btn.style.display = 'none'
 
