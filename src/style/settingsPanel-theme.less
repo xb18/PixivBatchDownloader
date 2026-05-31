@@ -49,17 +49,29 @@
   --settings-panel-btn-primary-shadow-hover: 0 4px 10px rgba(15, 53, 86, 0.14);
   --settings-panel-btn-secondary-bg: #fff;
   --settings-panel-btn-secondary-border: #199df5;
-  --settings-panel-btn-secondary-hover-bg: #f5fbff;
+  --settings-panel-btn-secondary-hover-bg: #edf7ff;
   --settings-panel-btn-secondary-shadow: 0 1px 3px rgba(15, 53, 86, 0.04);
   --settings-panel-btn-secondary-brand-text: var(--theme-blue);
   --settings-panel-btn-secondary-success-text: #0f9f23;
-  --settings-panel-btn-secondary-warning-text: #bd8400;
-  --settings-panel-btn-secondary-danger-text: #f33939;
+  --settings-panel-btn-secondary-warning-text: #96815a;
+  --settings-panel-btn-secondary-danger-text: #bb7878;
+  --settings-panel-btn-secondary-warning-hover-bg: #fff8ec;
+  --settings-panel-btn-secondary-warning-hover-border: #e4c992;
+  --settings-panel-btn-secondary-warning-hover-text: #9d6e00;
+  --settings-panel-btn-secondary-danger-hover-bg: #fff4f4;
+  --settings-panel-btn-secondary-danger-hover-border: #efc0c0;
+  --settings-panel-btn-secondary-danger-hover-text: #d15f5f;
   --settings-panel-download-summary-border: #eee;
   --settings-panel-download-summary-status: #666;
   --settings-panel-download-summary-btn-color: #666;
   --settings-panel-download-summary-btn-hover-color: var(--theme-blue);
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-download-state-start: var(--theme-blue);
+  --settings-panel-download-state-loading: var(--theme-blue);
+  --settings-panel-download-state-pause: #96815a;
+  --settings-panel-download-state-stop: #bb7878;
+  --settings-panel-download-state-complete-text: #697784;
+  --settings-panel-download-state-complete-dot: #17aa2d;
   --settings-panel-progress-total-track: #ebf4fa;
   --settings-panel-progress-total-border: #d8e8f2;
   --settings-panel-progress-total-fill: linear-gradient(
@@ -171,13 +183,25 @@
   --settings-panel-btn-secondary-hover-bg: rgba(255, 255, 255, 0.12);
   --settings-panel-btn-secondary-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   --settings-panel-btn-secondary-success-text: #57d66a;
-  --settings-panel-btn-secondary-warning-text: #ffc042;
-  --settings-panel-btn-secondary-danger-text: #ff7b7b;
+  --settings-panel-btn-secondary-warning-text: #d4bb87;
+  --settings-panel-btn-secondary-danger-text: #df9d9d;
+  --settings-panel-btn-secondary-warning-hover-bg: rgba(255, 197, 91, 0.12);
+  --settings-panel-btn-secondary-warning-hover-border: rgba(255, 197, 91, 0.34);
+  --settings-panel-btn-secondary-warning-hover-text: #ffd38a;
+  --settings-panel-btn-secondary-danger-hover-bg: rgba(255, 123, 123, 0.12);
+  --settings-panel-btn-secondary-danger-hover-border: rgba(255, 123, 123, 0.34);
+  --settings-panel-btn-secondary-danger-hover-text: #ffaeae;
   --settings-panel-download-summary-border: rgba(255, 255, 255, 0.1);
   --settings-panel-download-summary-status: #dfe7ef;
   --settings-panel-download-summary-btn-color: #dfe7ef;
   --settings-panel-download-summary-btn-hover-color: #42c3ff;
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-download-state-start: #42c3ff;
+  --settings-panel-download-state-loading: #42c3ff;
+  --settings-panel-download-state-pause: #d4bb87;
+  --settings-panel-download-state-stop: #df9d9d;
+  --settings-panel-download-state-complete-text: rgba(223, 231, 239, 0.84);
+  --settings-panel-download-state-complete-dot: #57d66a;
   --settings-panel-progress-total-track: rgba(255, 255, 255, 0.08);
   --settings-panel-progress-total-border: rgba(255, 255, 255, 0.12);
   --settings-panel-progress-total-fill: linear-gradient(
@@ -286,15 +310,30 @@
   --settings-panel-btn-secondary-brand-text: #fff;
   // --settings-panel-btn-secondary-success-text: #dcffe3;
   --settings-panel-btn-secondary-success-text: #fff;
-  // --settings-panel-btn-secondary-warning-text: #ffe7a5;
-  --settings-panel-btn-secondary-warning-text: #fff;
-  // --settings-panel-btn-secondary-danger-text: #ffd0d0;
-  --settings-panel-btn-secondary-danger-text: #fff;
+  --settings-panel-btn-secondary-warning-text: rgba(255, 255, 255, 0.84);
+  --settings-panel-btn-secondary-danger-text: rgba(255, 255, 255, 0.84);
+  --settings-panel-btn-secondary-warning-hover-bg: rgba(255, 239, 191, 0.24);
+  --settings-panel-btn-secondary-warning-hover-border: rgba(
+    255,
+    255,
+    255,
+    0.18
+  );
+  --settings-panel-btn-secondary-warning-hover-text: #fff;
+  --settings-panel-btn-secondary-danger-hover-bg: rgba(255, 214, 214, 0.22);
+  --settings-panel-btn-secondary-danger-hover-border: rgba(255, 255, 255, 0.18);
+  --settings-panel-btn-secondary-danger-hover-text: #fff;
   --settings-panel-download-summary-border: rgba(255, 255, 255, 0.1);
   --settings-panel-download-summary-status: #fff;
   --settings-panel-download-summary-btn-color: #fff;
   --settings-panel-download-summary-btn-hover-color: #fff;
   --settings-panel-download-summary-btn-hover-bg: rgba(255, 255, 255, 0.3);
+  --settings-panel-download-state-start: #fff;
+  --settings-panel-download-state-loading: #fff;
+  --settings-panel-download-state-pause: rgba(255, 255, 255, 0.88);
+  --settings-panel-download-state-stop: rgba(255, 255, 255, 0.88);
+  --settings-panel-download-state-complete-text: rgba(255, 255, 255, 0.84);
+  --settings-panel-download-state-complete-dot: rgba(168, 255, 183, 0.96);
   --settings-panel-progress-total-track: rgba(255, 255, 255, 0.12);
   --settings-panel-progress-total-border: rgba(255, 255, 255, 0.14);
   --settings-panel-progress-total-fill: linear-gradient(

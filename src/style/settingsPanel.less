@@ -50,17 +50,29 @@
   --settings-panel-btn-primary-shadow: 0 2px 6px rgba(15, 53, 86, 0.1);
   --settings-panel-btn-primary-shadow-hover: 0 4px 10px rgba(15, 53, 86, 0.14);
   --settings-panel-btn-secondary-bg: #fff;
-  --settings-panel-btn-secondary-hover-bg: #f5fbff;
+  --settings-panel-btn-secondary-hover-bg: #edf7ff;
   --settings-panel-btn-secondary-shadow: 0 1px 3px rgba(15, 53, 86, 0.04);
   --settings-panel-btn-secondary-brand-text: var(--theme-blue);
   --settings-panel-btn-secondary-success-text: #0f9f23;
-  --settings-panel-btn-secondary-warning-text: #bd8400;
-  --settings-panel-btn-secondary-danger-text: #f33939;
+  --settings-panel-btn-secondary-warning-text: #96815a;
+  --settings-panel-btn-secondary-danger-text: #bb7878;
+  --settings-panel-btn-secondary-warning-hover-bg: #fff8ec;
+  --settings-panel-btn-secondary-warning-hover-border: #e4c992;
+  --settings-panel-btn-secondary-warning-hover-text: #9d6e00;
+  --settings-panel-btn-secondary-danger-hover-bg: #fff4f4;
+  --settings-panel-btn-secondary-danger-hover-border: #efc0c0;
+  --settings-panel-btn-secondary-danger-hover-text: #d15f5f;
   --settings-panel-download-summary-border: #ccc;
   --settings-panel-download-summary-status: #666;
   --settings-panel-download-summary-btn-color: #666;
   --settings-panel-download-summary-btn-hover-color: var(--theme-blue);
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-download-state-start: var(--theme-blue);
+  --settings-panel-download-state-loading: var(--theme-blue);
+  --settings-panel-download-state-pause: #96815a;
+  --settings-panel-download-state-stop: #bb7878;
+  --settings-panel-download-state-complete-text: #697784;
+  --settings-panel-download-state-complete-dot: #17aa2d;
   --settings-panel-progress-total-track: #ebf4fa;
   --settings-panel-progress-total-border: #d8e8f2;
   --settings-panel-progress-total-fill: linear-gradient(
@@ -1038,6 +1050,25 @@
           background: var(--settings-panel-btn-secondary-hover-bg);
         }
 
+        &
+          button[data-btn-emphasis='secondary'][data-btn-intent='warning']:hover,
+        &
+          button[data-btn-emphasis='secondary'][data-btn-intent='warning']:focus {
+          background: var(--settings-panel-btn-secondary-warning-hover-bg);
+          border-color: var(
+            --settings-panel-btn-secondary-warning-hover-border
+          );
+          color: var(--settings-panel-btn-secondary-warning-hover-text);
+        }
+
+        & button[data-btn-emphasis='secondary'][data-btn-intent='danger']:hover,
+        &
+          button[data-btn-emphasis='secondary'][data-btn-intent='danger']:focus {
+          background: var(--settings-panel-btn-secondary-danger-hover-bg);
+          border-color: var(--settings-panel-btn-secondary-danger-hover-border);
+          color: var(--settings-panel-btn-secondary-danger-hover-text);
+        }
+
         & button[data-btn-emphasis='primary'] {
           color: var(--settings-panel-btn-primary-text);
           border-color: transparent;
@@ -1219,16 +1250,53 @@
         display: none;
 
         .download_status_text_wrap {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          column-gap: 5px;
+          row-gap: 4px;
           line-height: var(--line-height);
           margin-top: 10px;
 
           & > * {
-            padding-right: 5px;
+            padding-right: 0;
           }
 
           .down_status {
-            color: var(--theme-blue);
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--settings-panel-download-state-start);
+            font-weight: 500;
+
+            &::before {
+              content: '';
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              background: currentColor;
+              flex: none;
+            }
+
+            &[data-state='loading'] {
+              color: var(--settings-panel-download-state-loading);
+            }
+
+            &[data-state='pause'] {
+              color: var(--settings-panel-download-state-pause);
+            }
+
+            &[data-state='stop'] {
+              color: var(--settings-panel-download-state-stop);
+            }
+
+            &[data-state='complete'] {
+              color: var(--settings-panel-download-state-complete-text);
+
+              &::before {
+                background: var(--settings-panel-download-state-complete-dot);
+              }
+            }
           }
         }
       }
@@ -2013,8 +2081,7 @@
   .has_tip:hover,
   label:hover,
   .title.active,
-  .title:hover,
-  .down_status {
+  .title:hover {
     color: var(--beautify-blue) !important;
   }
 
@@ -2094,9 +2161,8 @@
   label:hover,
   .title.active,
   .title:hover,
-  .down_status,
   .centerPanelTextArea,
-  .download_status_text_wrap span {
+  .download_status_text_wrap > span:not(.down_status) {
     // color: var(--beautify-blue) !important;
     color: #fff !important;
   }

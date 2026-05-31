@@ -26013,10 +26013,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ShowDownloadStates: () => (/* binding */ ShowDownloadStates)
 /* harmony export */ });
-/* harmony import */ var _Colors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Colors */ "./src/ts/Colors.ts");
-/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
-/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
-
+/* harmony import */ var _EVT__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../EVT */ "./src/ts/EVT.ts");
+/* harmony import */ var _Language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Language */ "./src/ts/Language.ts");
 
 
 // 显示下载状态
@@ -26028,30 +26026,31 @@ class ShowDownloadStates {
     el;
     bindEvents() {
         for (const ev of [
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.crawlComplete,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resultChange,
-            _EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.resume,
+            _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.crawlComplete,
+            _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.resultChange,
+            _EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.resume,
         ]) {
             window.addEventListener(ev, () => {
                 this.setText('_未开始下载');
             });
         }
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStart, () => {
-            this.setText('_正在下载中');
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.downloadStart, () => {
+            this.setText('_正在下载中', 'loading');
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadPause, () => {
-            this.setText('_下载已暂停', _Colors__WEBPACK_IMPORTED_MODULE_0__.Colors.textWarning);
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.downloadPause, () => {
+            this.setText('_下载已暂停', 'pause');
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadStop, () => {
-            this.setText('_下载已停止', _Colors__WEBPACK_IMPORTED_MODULE_0__.Colors.textError);
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.downloadStop, () => {
+            this.setText('_下载已停止', 'stop');
         });
-        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_1__.EVT.list.downloadComplete, () => {
-            this.setText('_下载完毕', _Colors__WEBPACK_IMPORTED_MODULE_0__.Colors.textSuccess);
+        window.addEventListener(_EVT__WEBPACK_IMPORTED_MODULE_0__.EVT.list.downloadComplete, () => {
+            this.setText('_下载完毕', 'complete');
         });
     }
-    setText(textFlag, color = _Colors__WEBPACK_IMPORTED_MODULE_0__.Colors.bgBlue) {
-        _Language__WEBPACK_IMPORTED_MODULE_2__.lang.updateText(this.el, textFlag);
-        this.el.style.color = color;
+    setText(textFlag, state = 'start') {
+        _Language__WEBPACK_IMPORTED_MODULE_1__.lang.updateText(this.el, textFlag);
+        this.el.dataset.state = state;
+        this.el.style.removeProperty('color');
     }
 }
 

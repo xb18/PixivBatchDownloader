@@ -19,6 +19,7 @@
   --mask-on-xzbg: rgba(10, 18, 28, 0.3);
   --white-30: rgba(255, 255, 255, 0.3);
   --text-shadow-on-xzbg: #003247 0px 0px 2px;
+  --settings-panel-text: #444;
 }
 #deleteWorkEl {
   box-sizing: border-box;
@@ -538,17 +539,29 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-primary-shadow-hover: 0 4px 10px rgba(15, 53, 86, 0.14);
   --settings-panel-btn-secondary-bg: #fff;
   --settings-panel-btn-secondary-border: #199df5;
-  --settings-panel-btn-secondary-hover-bg: #f5fbff;
+  --settings-panel-btn-secondary-hover-bg: #edf7ff;
   --settings-panel-btn-secondary-shadow: 0 1px 3px rgba(15, 53, 86, 0.04);
   --settings-panel-btn-secondary-brand-text: var(--theme-blue);
   --settings-panel-btn-secondary-success-text: #0f9f23;
-  --settings-panel-btn-secondary-warning-text: #bd8400;
-  --settings-panel-btn-secondary-danger-text: #f33939;
+  --settings-panel-btn-secondary-warning-text: #96815a;
+  --settings-panel-btn-secondary-danger-text: #bb7878;
+  --settings-panel-btn-secondary-warning-hover-bg: #fff8ec;
+  --settings-panel-btn-secondary-warning-hover-border: #e4c992;
+  --settings-panel-btn-secondary-warning-hover-text: #9d6e00;
+  --settings-panel-btn-secondary-danger-hover-bg: #fff4f4;
+  --settings-panel-btn-secondary-danger-hover-border: #efc0c0;
+  --settings-panel-btn-secondary-danger-hover-text: #d15f5f;
   --settings-panel-download-summary-border: #eee;
   --settings-panel-download-summary-status: #666;
   --settings-panel-download-summary-btn-color: #666;
   --settings-panel-download-summary-btn-hover-color: var(--theme-blue);
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-download-state-start: var(--theme-blue);
+  --settings-panel-download-state-loading: var(--theme-blue);
+  --settings-panel-download-state-pause: #96815a;
+  --settings-panel-download-state-stop: #bb7878;
+  --settings-panel-download-state-complete-text: #697784;
+  --settings-panel-download-state-complete-dot: #17aa2d;
   --settings-panel-progress-total-track: #ebf4fa;
   --settings-panel-progress-total-border: #d8e8f2;
   --settings-panel-progress-total-fill: linear-gradient(90deg, #84d4fb 0%, #5dc0f4 100%);
@@ -650,13 +663,25 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-secondary-hover-bg: rgba(255, 255, 255, 0.12);
   --settings-panel-btn-secondary-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   --settings-panel-btn-secondary-success-text: #57d66a;
-  --settings-panel-btn-secondary-warning-text: #ffc042;
-  --settings-panel-btn-secondary-danger-text: #ff7b7b;
+  --settings-panel-btn-secondary-warning-text: #d4bb87;
+  --settings-panel-btn-secondary-danger-text: #df9d9d;
+  --settings-panel-btn-secondary-warning-hover-bg: rgba(255, 197, 91, 0.12);
+  --settings-panel-btn-secondary-warning-hover-border: rgba(255, 197, 91, 0.34);
+  --settings-panel-btn-secondary-warning-hover-text: #ffd38a;
+  --settings-panel-btn-secondary-danger-hover-bg: rgba(255, 123, 123, 0.12);
+  --settings-panel-btn-secondary-danger-hover-border: rgba(255, 123, 123, 0.34);
+  --settings-panel-btn-secondary-danger-hover-text: #ffaeae;
   --settings-panel-download-summary-border: rgba(255, 255, 255, 0.1);
   --settings-panel-download-summary-status: #dfe7ef;
   --settings-panel-download-summary-btn-color: #dfe7ef;
   --settings-panel-download-summary-btn-hover-color: #42c3ff;
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-download-state-start: #42c3ff;
+  --settings-panel-download-state-loading: #42c3ff;
+  --settings-panel-download-state-pause: #d4bb87;
+  --settings-panel-download-state-stop: #df9d9d;
+  --settings-panel-download-state-complete-text: rgba(223, 231, 239, 0.84);
+  --settings-panel-download-state-complete-dot: #57d66a;
   --settings-panel-progress-total-track: rgba(255, 255, 255, 0.08);
   --settings-panel-progress-total-border: rgba(255, 255, 255, 0.12);
   --settings-panel-progress-total-fill: linear-gradient(90deg, rgba(66, 195, 255, 0.56) 0%, rgba(66, 195, 255, 0.72) 100%);
@@ -753,13 +778,25 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-secondary-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   --settings-panel-btn-secondary-brand-text: #fff;
   --settings-panel-btn-secondary-success-text: #fff;
-  --settings-panel-btn-secondary-warning-text: #fff;
-  --settings-panel-btn-secondary-danger-text: #fff;
+  --settings-panel-btn-secondary-warning-text: rgba(255, 255, 255, 0.84);
+  --settings-panel-btn-secondary-danger-text: rgba(255, 255, 255, 0.84);
+  --settings-panel-btn-secondary-warning-hover-bg: rgba(255, 239, 191, 0.24);
+  --settings-panel-btn-secondary-warning-hover-border: rgba(255, 255, 255, 0.18);
+  --settings-panel-btn-secondary-warning-hover-text: #fff;
+  --settings-panel-btn-secondary-danger-hover-bg: rgba(255, 214, 214, 0.22);
+  --settings-panel-btn-secondary-danger-hover-border: rgba(255, 255, 255, 0.18);
+  --settings-panel-btn-secondary-danger-hover-text: #fff;
   --settings-panel-download-summary-border: rgba(255, 255, 255, 0.1);
   --settings-panel-download-summary-status: #fff;
   --settings-panel-download-summary-btn-color: #fff;
   --settings-panel-download-summary-btn-hover-color: #fff;
   --settings-panel-download-summary-btn-hover-bg: rgba(255, 255, 255, 0.3);
+  --settings-panel-download-state-start: #fff;
+  --settings-panel-download-state-loading: #fff;
+  --settings-panel-download-state-pause: rgba(255, 255, 255, 0.88);
+  --settings-panel-download-state-stop: rgba(255, 255, 255, 0.88);
+  --settings-panel-download-state-complete-text: rgba(255, 255, 255, 0.84);
+  --settings-panel-download-state-complete-dot: rgba(168, 255, 183, 0.96);
   --settings-panel-progress-total-track: rgba(255, 255, 255, 0.12);
   --settings-panel-progress-total-border: rgba(255, 255, 255, 0.14);
   --settings-panel-progress-total-fill: linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.42) 100%);
@@ -1029,17 +1066,29 @@ body.mobile #quickCrawlBtn {
   --settings-panel-btn-primary-shadow: 0 2px 6px rgba(15, 53, 86, 0.1);
   --settings-panel-btn-primary-shadow-hover: 0 4px 10px rgba(15, 53, 86, 0.14);
   --settings-panel-btn-secondary-bg: #fff;
-  --settings-panel-btn-secondary-hover-bg: #f5fbff;
+  --settings-panel-btn-secondary-hover-bg: #edf7ff;
   --settings-panel-btn-secondary-shadow: 0 1px 3px rgba(15, 53, 86, 0.04);
   --settings-panel-btn-secondary-brand-text: var(--theme-blue);
   --settings-panel-btn-secondary-success-text: #0f9f23;
-  --settings-panel-btn-secondary-warning-text: #bd8400;
-  --settings-panel-btn-secondary-danger-text: #f33939;
+  --settings-panel-btn-secondary-warning-text: #96815a;
+  --settings-panel-btn-secondary-danger-text: #bb7878;
+  --settings-panel-btn-secondary-warning-hover-bg: #fff8ec;
+  --settings-panel-btn-secondary-warning-hover-border: #e4c992;
+  --settings-panel-btn-secondary-warning-hover-text: #9d6e00;
+  --settings-panel-btn-secondary-danger-hover-bg: #fff4f4;
+  --settings-panel-btn-secondary-danger-hover-border: #efc0c0;
+  --settings-panel-btn-secondary-danger-hover-text: #d15f5f;
   --settings-panel-download-summary-border: #ccc;
   --settings-panel-download-summary-status: #666;
   --settings-panel-download-summary-btn-color: #666;
   --settings-panel-download-summary-btn-hover-color: var(--theme-blue);
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-download-state-start: var(--theme-blue);
+  --settings-panel-download-state-loading: var(--theme-blue);
+  --settings-panel-download-state-pause: #96815a;
+  --settings-panel-download-state-stop: #bb7878;
+  --settings-panel-download-state-complete-text: #697784;
+  --settings-panel-download-state-complete-dot: #17aa2d;
   --settings-panel-progress-total-track: #ebf4fa;
   --settings-panel-progress-total-border: #d8e8f2;
   --settings-panel-progress-total-fill: linear-gradient(90deg, #84d4fb 0%, #5dc0f4 100%);
@@ -1824,6 +1873,18 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con .settingForm .centerWrap_btns button[data-btn-emphasis='secondary']:focus {
   background: var(--settings-panel-btn-secondary-hover-bg);
 }
+.centerWrap .centerWrap_con .settingForm .centerWrap_btns button[data-btn-emphasis='secondary'][data-btn-intent='warning']:hover,
+.centerWrap .centerWrap_con .settingForm .centerWrap_btns button[data-btn-emphasis='secondary'][data-btn-intent='warning']:focus {
+  background: var(--settings-panel-btn-secondary-warning-hover-bg);
+  border-color: var(--settings-panel-btn-secondary-warning-hover-border);
+  color: var(--settings-panel-btn-secondary-warning-hover-text);
+}
+.centerWrap .centerWrap_con .settingForm .centerWrap_btns button[data-btn-emphasis='secondary'][data-btn-intent='danger']:hover,
+.centerWrap .centerWrap_con .settingForm .centerWrap_btns button[data-btn-emphasis='secondary'][data-btn-intent='danger']:focus {
+  background: var(--settings-panel-btn-secondary-danger-hover-bg);
+  border-color: var(--settings-panel-btn-secondary-danger-hover-border);
+  color: var(--settings-panel-btn-secondary-danger-hover-text);
+}
 .centerWrap .centerWrap_con .settingForm .centerWrap_btns button[data-btn-emphasis='primary'] {
   color: var(--settings-panel-btn-primary-text);
   border-color: transparent;
@@ -1974,15 +2035,46 @@ body.mobile #quickCrawlBtn {
   display: none;
 }
 .centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 5px;
+  row-gap: 4px;
   line-height: var(--line-height);
   margin-top: 10px;
 }
 .centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap > * {
-  padding-right: 5px;
+  padding-right: 0;
 }
 .centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap .down_status {
-  color: var(--theme-blue);
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--settings-panel-download-state-start);
+  font-weight: 500;
+}
+.centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap .down_status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+.centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap .down_status[data-state='loading'] {
+  color: var(--settings-panel-download-state-loading);
+}
+.centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap .down_status[data-state='pause'] {
+  color: var(--settings-panel-download-state-pause);
+}
+.centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap .down_status[data-state='stop'] {
+  color: var(--settings-panel-download-state-stop);
+}
+.centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap .down_status[data-state='complete'] {
+  color: var(--settings-panel-download-state-complete-text);
+}
+.centerWrap .centerWrap_con .settingForm .download_area .download_status_text_wrap .down_status[data-state='complete']::before {
+  background: var(--settings-panel-download-state-complete-dot);
 }
 .centerWrap .centerWrap_con .settingForm .settingNameStyle {
   cursor: pointer;
@@ -2615,8 +2707,7 @@ body.mobile #quickCrawlBtn {
 .centerWrap.theme-dark .has_tip:hover,
 .centerWrap.theme-dark label:hover,
 .centerWrap.theme-dark .title.active,
-.centerWrap.theme-dark .title:hover,
-.centerWrap.theme-dark .down_status {
+.centerWrap.theme-dark .title:hover {
   color: var(--beautify-blue) !important;
 }
 .centerWrap.theme-dark .showFileNameTip:hover,
@@ -2680,9 +2771,8 @@ body.mobile #quickCrawlBtn {
 .centerWrap.xzBG label:hover,
 .centerWrap.xzBG .title.active,
 .centerWrap.xzBG .title:hover,
-.centerWrap.xzBG .down_status,
 .centerWrap.xzBG .centerPanelTextArea,
-.centerWrap.xzBG .download_status_text_wrap span {
+.centerWrap.xzBG .download_status_text_wrap > span:not(.down_status) {
   color: #fff !important;
 }
 .centerWrap.xzBG .showFileNameTip:hover,
@@ -2844,6 +2934,7 @@ body.mobile #quickCrawlBtn {
   line-height: 26px;
   min-height: 100px;
   word-break: break-all;
+  color: var(--settings-panel-text);
 }
 .outputWrap .outputContent p.result {
   margin-bottom: 10px;
@@ -2856,9 +2947,6 @@ body.mobile #quickCrawlBtn {
 }
 .outputWrap .outputContent .color666 {
   color: #666;
-}
-.outputWrap .outputContent .color000 {
-  color: #000;
 }
 .outputWrap .outputFooter {
   display: flex;
