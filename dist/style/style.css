@@ -541,6 +541,16 @@ body.mobile #quickCrawlBtn {
   --settings-panel-download-summary-btn-color: #666;
   --settings-panel-download-summary-btn-hover-color: var(--theme-blue);
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-progress-total-track: #ebf4fa;
+  --settings-panel-progress-total-border: #d8e8f2;
+  --settings-panel-progress-total-fill: linear-gradient(90deg, #84d4fb 0%, #5dc0f4 100%);
+  --settings-panel-progress-total-text: #32586d;
+  --settings-panel-progress-item-track: #fff;
+  --settings-panel-progress-item-border: #d8e8f2;
+  --settings-panel-progress-item-fill: linear-gradient(90deg, #eef8ff 0%, #dcefff 100%);
+  --settings-panel-progress-label: #647987;
+  --settings-panel-progress-name: #355468;
+  --settings-panel-progress-meta: #83919c;
   --settings-panel-surface-bg: #fff;
   --settings-panel-sticky-bg: #fff;
   --settings-panel-surface-shadow: 0 0 15px #ddd;
@@ -620,6 +630,16 @@ body.mobile #quickCrawlBtn {
   --settings-panel-download-summary-btn-color: #dfe7ef;
   --settings-panel-download-summary-btn-hover-color: #42c3ff;
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-progress-total-track: rgba(255, 255, 255, 0.08);
+  --settings-panel-progress-total-border: rgba(255, 255, 255, 0.12);
+  --settings-panel-progress-total-fill: linear-gradient(90deg, rgba(66, 195, 255, 0.56) 0%, rgba(66, 195, 255, 0.72) 100%);
+  --settings-panel-progress-total-text: #e9f4fb;
+  --settings-panel-progress-item-track: rgba(255, 255, 255, 0.04);
+  --settings-panel-progress-item-border: rgba(255, 255, 255, 0.12);
+  --settings-panel-progress-item-fill: linear-gradient(90deg, rgba(66, 195, 255, 0.08) 0%, rgba(66, 195, 255, 0.2) 100%);
+  --settings-panel-progress-label: rgba(223, 231, 239, 0.82);
+  --settings-panel-progress-name: #f1f5f8;
+  --settings-panel-progress-meta: rgba(223, 231, 239, 0.72);
   --settings-panel-surface-bg: rgba(255, 255, 255, 0.08);
   --settings-panel-sticky-bg: #252b32;
   --settings-panel-surface-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
@@ -694,6 +714,16 @@ body.mobile #quickCrawlBtn {
   --settings-panel-download-summary-btn-color: #fff;
   --settings-panel-download-summary-btn-hover-color: #fff;
   --settings-panel-download-summary-btn-hover-bg: rgba(255, 255, 255, 0.3);
+  --settings-panel-progress-total-track: rgba(255, 255, 255, 0.12);
+  --settings-panel-progress-total-border: rgba(255, 255, 255, 0.14);
+  --settings-panel-progress-total-fill: linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.42) 100%);
+  --settings-panel-progress-total-text: #fff;
+  --settings-panel-progress-item-track: rgba(255, 255, 255, 0.08);
+  --settings-panel-progress-item-border: rgba(255, 255, 255, 0.14);
+  --settings-panel-progress-item-fill: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.24) 100%);
+  --settings-panel-progress-label: rgba(255, 255, 255, 0.86);
+  --settings-panel-progress-name: #fff;
+  --settings-panel-progress-meta: rgba(255, 255, 255, 0.76);
   --settings-panel-surface-bg: rgba(255, 255, 255, 0.1);
   --settings-panel-sticky-bg: rgba(255, 255, 255, 0.4);
   --settings-panel-surface-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
@@ -936,6 +966,16 @@ body.mobile #quickCrawlBtn {
   --settings-panel-download-summary-btn-color: #666;
   --settings-panel-download-summary-btn-hover-color: var(--theme-blue);
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-progress-total-track: #ebf4fa;
+  --settings-panel-progress-total-border: #d8e8f2;
+  --settings-panel-progress-total-fill: linear-gradient(90deg, #84d4fb 0%, #5dc0f4 100%);
+  --settings-panel-progress-total-text: #32586d;
+  --settings-panel-progress-item-track: #fff;
+  --settings-panel-progress-item-border: #d8e8f2;
+  --settings-panel-progress-item-fill: linear-gradient(90deg, #eef8ff 0%, #dcefff 100%);
+  --settings-panel-progress-label: #647987;
+  --settings-panel-progress-name: #355468;
+  --settings-panel-progress-meta: #83919c;
   --settings-panel-surface-bg: #fff;
   --settings-panel-sticky-bg: #fff;
   --settings-panel-surface-shadow: 0 0 15px #ddd;
@@ -1695,44 +1735,56 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap {
   display: none;
+  margin-top: 12px;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .total {
   display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .total .text {
-  margin-right: 10px;
-  line-height: 22px;
+  flex: none;
+  line-height: 24px;
+  color: var(--settings-panel-progress-label);
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .total .right1 {
   flex: 1;
+  min-width: 0;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progress,
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBar {
-  border-radius: 11px;
-  height: 22px;
+  border-radius: 999px;
+  height: 28px;
   overflow: hidden;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .right1 {
-  display: inline-block;
-  height: 22px;
-  vertical-align: middle;
+  display: block;
+  height: 28px;
+  position: relative;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBar {
   position: absolute;
-  background: #6792a2;
+  inset: 0;
+  border: 1px solid var(--settings-panel-progress-item-border);
+  background: var(--settings-panel-progress-item-track);
+  box-shadow: inset 0 1px 2px rgba(15, 53, 86, 0.04), 0 1px 3px rgba(15, 53, 86, 0.04);
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progress {
-  background: var(--bg-progress-blue);
-  transition: 0.15s;
+  transition: width 0.15s ease;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressTip {
   position: absolute;
-  line-height: 22px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progress1 {
   width: 0;
+  background: var(--settings-panel-progress-total-fill);
+}
+.centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBar1 {
+  background: var(--settings-panel-progress-total-track);
+  border-color: var(--settings-panel-progress-total-border);
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressTip1 {
   width: 100%;
@@ -1740,49 +1792,66 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .totalNumberWrap {
   position: absolute;
-  height: 22px;
-  line-height: 22px;
-  color: #fff;
   width: 100%;
+  height: 28px;
+  line-height: 28px;
+  color: var(--settings-panel-progress-total-text);
   text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .totalNumberWrap span {
   position: initial;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBarList {
-  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
   margin: 0;
   padding-left: 0;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBarList .downloadBar {
+  list-style: none;
   position: relative;
   width: 100%;
-  padding: 5px 0;
-  height: 22px;
+  padding: 0;
+  height: 30px;
   box-sizing: content-box;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBarList .progressBar2 {
   width: 100%;
+  background: var(--settings-panel-progress-item-track);
+  border-color: var(--settings-panel-progress-item-border);
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBarList .progress2 {
   width: 0;
+  background: var(--settings-panel-progress-item-fill);
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBarList .progressTip2 {
   width: 100%;
+  height: 30px;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBarList .fileName {
+  line-height: 30px;
+  height: 30px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   vertical-align: top;
-  padding: 0 10px;
+  padding: 0 12px;
   flex: 1;
+  color: var(--settings-panel-progress-name);
+  font-weight: 500;
 }
 .centerWrap .centerWrap_con .settingForm .progressBarWrap .progressBarList .loadedWrap {
   display: flex;
   align-items: center;
-  padding: 0 10px;
-  font: status-bar;
+  padding: 0 12px;
+  color: var(--settings-panel-progress-meta);
+  font-size: 13px;
+  font-family: inherit;
+  letter-spacing: 0.1px;
 }
 .centerWrap .centerWrap_con .settingForm .download_area {
   display: none;
@@ -2494,9 +2563,6 @@ body.mobile #quickCrawlBtn {
 }
 .centerWrap.xzBG .centerWrap_con .settingForm select {
   background: transparent;
-}
-.centerWrap.xzBG .progressBar {
-  background-color: #6e9dad !important;
 }
 .centerWrap.xzBG .saveNamingRuleWrap {
   color: #fff;

@@ -53,6 +53,24 @@
   --settings-panel-download-summary-btn-color: #666;
   --settings-panel-download-summary-btn-hover-color: var(--theme-blue);
   --settings-panel-download-summary-btn-hover-bg: transparent;
+  --settings-panel-progress-total-track: #ebf4fa;
+  --settings-panel-progress-total-border: #d8e8f2;
+  --settings-panel-progress-total-fill: linear-gradient(
+    90deg,
+    #84d4fb 0%,
+    #5dc0f4 100%
+  );
+  --settings-panel-progress-total-text: #32586d;
+  --settings-panel-progress-item-track: #fff;
+  --settings-panel-progress-item-border: #d8e8f2;
+  --settings-panel-progress-item-fill: linear-gradient(
+    90deg,
+    #eef8ff 0%,
+    #dcefff 100%
+  );
+  --settings-panel-progress-label: #647987;
+  --settings-panel-progress-name: #355468;
+  --settings-panel-progress-meta: #83919c;
   --settings-panel-surface-bg: #fff;
   --settings-panel-sticky-bg: #fff;
   --settings-panel-surface-shadow: 0 0 15px #ddd;
@@ -991,52 +1009,67 @@
 
       .progressBarWrap {
         display: none;
+        margin-top: 12px;
 
         .total {
           display: flex;
+          align-items: center;
+          gap: 10px;
 
           .text {
-            margin-right: 10px;
-            line-height: 22px;
+            flex: none;
+            line-height: 24px;
+            color: var(--settings-panel-progress-label);
           }
 
           .right1 {
             flex: 1;
+            min-width: 0;
           }
         }
 
         .progress,
         .progressBar {
-          border-radius: 11px;
-          height: 22px;
+          border-radius: 999px;
+          height: 28px;
           overflow: hidden;
         }
 
         .right1 {
-          display: inline-block;
-          height: 22px;
-          vertical-align: middle;
+          display: block;
+          height: 28px;
+          position: relative;
         }
 
         .progressBar {
           position: absolute;
-          background: #6792a2;
+          inset: 0;
+          border: 1px solid var(--settings-panel-progress-item-border);
+          background: var(--settings-panel-progress-item-track);
+          box-shadow:
+            inset 0 1px 2px rgba(15, 53, 86, 0.04),
+            0 1px 3px rgba(15, 53, 86, 0.04);
         }
 
         .progress {
-          background: var(--bg-progress-blue);
-          transition: 0.15s;
+          transition: width 0.15s ease;
         }
 
         .progressTip {
           position: absolute;
-          line-height: 22px;
           display: flex;
+          align-items: center;
           justify-content: space-between;
         }
 
         .progress1 {
           width: 0;
+          background: var(--settings-panel-progress-total-fill);
+        }
+
+        .progressBar1 {
+          background: var(--settings-panel-progress-total-track);
+          border-color: var(--settings-panel-progress-total-border);
         }
 
         .progressTip1 {
@@ -1046,11 +1079,13 @@
 
         .totalNumberWrap {
           position: absolute;
-          height: 22px;
-          line-height: 22px;
-          color: #fff;
           width: 100%;
+          height: 28px;
+          line-height: 28px;
+          color: var(--settings-panel-progress-total-text);
           text-align: center;
+          font-weight: 600;
+          letter-spacing: 0.2px;
 
           span {
             position: initial;
@@ -1058,44 +1093,59 @@
         }
 
         .progressBarList {
-          padding-top: 6px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding-top: 8px;
           margin: 0;
           padding-left: 0;
 
           .downloadBar {
+            list-style: none;
             position: relative;
             width: 100%;
-            padding: 5px 0;
-            height: 22px;
+            padding: 0;
+            height: 30px;
             box-sizing: content-box;
           }
 
           .progressBar2 {
             width: 100%;
+            background: var(--settings-panel-progress-item-track);
+            border-color: var(--settings-panel-progress-item-border);
           }
 
           .progress2 {
             width: 0;
+            background: var(--settings-panel-progress-item-fill);
           }
 
           .progressTip2 {
             width: 100%;
+            height: 30px;
           }
 
           .fileName {
+            line-height: 30px;
+            height: 30px;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
             vertical-align: top;
-            padding: 0 10px;
+            padding: 0 12px;
             flex: 1;
+            color: var(--settings-panel-progress-name);
+            font-weight: 500;
           }
 
           .loadedWrap {
             display: flex;
             align-items: center;
-            padding: 0 10px;
-            font: status-bar;
+            padding: 0 12px;
+            color: var(--settings-panel-progress-meta);
+            font-size: 13px;
+            font-family: inherit;
+            letter-spacing: 0.1px;
           }
         }
       }
@@ -1983,10 +2033,6 @@
         background: transparent;
       }
     }
-  }
-
-  .progressBar {
-    background-color: #6e9dad !important;
   }
 
   .saveNamingRuleWrap {
