@@ -182,6 +182,8 @@ class EVENT {
     exportLog: 'exportLog',
     /** 显示最近更新 */
     showRecentUpdates: 'showRecentUpdates',
+    /** 重置下载器保存的关注数据 */
+    resetFollowingData: 'resetFollowingData',
   }
 
   /** 触发自定义事件，大部分事件都不需要携带数据
@@ -250,6 +252,7 @@ class EVENT {
       | 'followingUsersChange'
       | 'exportLog'
       | 'showRecentUpdates'
+      | 'resetFollowingData'
   ): void
 
   // 对于需要携带数据的事件进行重载

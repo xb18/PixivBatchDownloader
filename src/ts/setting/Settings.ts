@@ -1052,6 +1052,18 @@ class Settings {
       }
     })
 
+    window.addEventListener(EVT.list.resetFollowingData, () => {
+      const result = window.confirm(
+        lang.transl('_是否清除下载器保存的关注数据')
+      )
+      if (result) {
+        browser.runtime.sendMessage({
+          msg: 'resetFollowingData',
+        })
+        toast.success(lang.transl('_已清除'))
+      }
+    })
+
     window.addEventListener(EVT.list.exportSettings, () => {
       this.exportSettings()
     })
@@ -1215,6 +1227,7 @@ class Settings {
   private reset(data?: XzSetting) {
     this.assignSettings(data ? data : this.defaultSettings)
     EVT.fire('resetSettingsEnd')
+    toast.success(lang.transl('_已重置设置'))
   }
 
   /** 更新设置项的值 */
