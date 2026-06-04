@@ -327,46 +327,55 @@
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="BMKNumSwitch">
-    &gt;=&nbsp;
-    <input
-      type="text"
-      name="BMKNumMin"
-      class="setinput_style blue bmkNum"
-      value="0"
-    />
-    &lt;=&nbsp;
-    <input
-      type="text"
-      name="BMKNumMax"
-      class="setinput_style blue bmkNum"
-      value="__BOOKMARK_COUNT_LIMIT__"
-    />
-    &nbsp;<span data-xztext="_或者"></span>
-    <label
-      for="BMKNumAverageSwitch"
-      class="has_tip"
-      data-xztip="_日均收藏数量的提示"
-    >
-      <span data-xztext="_日均收藏数量"></span>
-      <span class="gray1"> ? </span>
-    </label>
-    &nbsp;
-    <input
-      type="checkbox"
-      name="BMKNumAverageSwitch"
-      id="BMKNumAverageSwitch"
-      class="need_beautify checkbox_switch"
-    />
-    <span class="beautify_switch" tabindex="0"></span>
-    <div class="subOptionWrap" data-show="BMKNumAverageSwitch">
-      &gt;=&nbsp;
+  <div class="subOptionWrap flexBasis100" data-show="BMKNumSwitch">
+    <div class="optionLine">
+      <span data-xztext="_最小值"></span>
       <input
         type="text"
-        name="BMKNumAverage"
+        name="BMKNumMin"
         class="setinput_style blue bmkNum"
-        value="600"
+        value="0"
       />
+
+      &nbsp;
+      <span data-xztext="_最大值"></span>
+      <input
+        type="text"
+        name="BMKNumMax"
+        class="setinput_style blue bmkNum"
+        value="__BOOKMARK_COUNT_LIMIT__"
+      />
+    </div>
+
+    <div class="optionLine">
+      <span data-xztext="_或者"></span>
+    </div>
+
+    <div class="optionLine">
+      <label
+        for="BMKNumAverageSwitch"
+        class="has_tip"
+        data-xztip="_日均收藏数量的提示"
+      >
+        <span data-xztext="_满足日均收藏数量条件"></span>
+        <span class="gray1"> ? </span>
+      </label>
+      <input
+        type="checkbox"
+        name="BMKNumAverageSwitch"
+        id="BMKNumAverageSwitch"
+        class="need_beautify checkbox_switch"
+      />
+      <span class="beautify_switch" tabindex="0"></span>
+      <div class="subOptionWrap" data-show="BMKNumAverageSwitch">
+        &gt;=&nbsp;
+        <input
+          type="text"
+          name="BMKNumAverage"
+          class="setinput_style blue bmkNum"
+          value="600"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -448,7 +457,9 @@
       />
       <span class="beautify_radio" tabindex="0"></span>
       <label for="setWidth_AndOr2" data-xztext="_或者"></label>
+    </div>
 
+    <div class="optionLine">
       <span data-xztext="_高度"></span>
       <input
         type="radio"
@@ -504,7 +515,7 @@
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="ratioSwitch">
+  <div class="subOptionWrap flexBasis100" data-show="ratioSwitch">
     <input
       type="radio"
       name="ratio"
@@ -608,89 +619,95 @@
   />
   <span class="beautify_switch" tabindex="0"></span>
   <div class="subOptionWrap" data-show="idRangeSwitch">
-    <span data-xztext="_图像作品"></span>
-    <input
-      type="radio"
-      name="idRangeComparisonForImageWorks"
-      id="idRangeComparisonForImageWorks1"
-      class="need_beautify radio"
-      value=">"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="idRangeComparisonForImageWorks1">&gt;</label>
-    <input
-      type="radio"
-      name="idRangeComparisonForImageWorks"
-      id="idRangeComparisonForImageWorks2"
-      class="need_beautify radio"
-      value="<"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="idRangeComparisonForImageWorks2">&lt;</label>
-    <input
-      type="text"
-      name="idRangeValueForImageWorks"
-      class="setinput_style w80 blue"
-      value="0"
-      placeholder="0"
-    />
+    <div class="optionLine">
+      <span data-xztext="_图像作品"></span>
+      <input
+        type="radio"
+        name="idRangeComparisonForImageWorks"
+        id="idRangeComparisonForImageWorks1"
+        class="need_beautify radio"
+        value=">"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="idRangeComparisonForImageWorks1">&gt;</label>
+      <input
+        type="radio"
+        name="idRangeComparisonForImageWorks"
+        id="idRangeComparisonForImageWorks2"
+        class="need_beautify radio"
+        value="<"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="idRangeComparisonForImageWorks2">&lt;</label>
+      <input
+        type="text"
+        name="idRangeValueForImageWorks"
+        class="setinput_style w100 blue"
+        value="0"
+        placeholder="0"
+      />
+    </div>
 
-    <span data-xztext="_小说"></span>
-    <input
-      type="radio"
-      name="idRangeComparisonForNovelWorks"
-      id="idRangeComparisonForNovelWorks1"
-      class="need_beautify radio"
-      value=">"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="idRangeComparisonForNovelWorks1">&gt;</label>
-    <input
-      type="radio"
-      name="idRangeComparisonForNovelWorks"
-      id="idRangeComparisonForNovelWorks2"
-      class="need_beautify radio"
-      value="<"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="idRangeComparisonForNovelWorks2">&lt;</label>
-    <input
-      type="text"
-      name="idRangeValueForNovelWorks"
-      class="setinput_style w80 blue"
-      value="0"
-      placeholder="0"
-    />
+    <div class="optionLine">
+      <span data-xztext="_小说"></span>
+      <input
+        type="radio"
+        name="idRangeComparisonForNovelWorks"
+        id="idRangeComparisonForNovelWorks1"
+        class="need_beautify radio"
+        value=">"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="idRangeComparisonForNovelWorks1">&gt;</label>
+      <input
+        type="radio"
+        name="idRangeComparisonForNovelWorks"
+        id="idRangeComparisonForNovelWorks2"
+        class="need_beautify radio"
+        value="<"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="idRangeComparisonForNovelWorks2">&lt;</label>
+      <input
+        type="text"
+        name="idRangeValueForNovelWorks"
+        class="setinput_style w100 blue"
+        value="0"
+        placeholder="0"
+      />
+    </div>
 
-    <span data-xztext="_系列小说"></span>
-    <input
-      type="radio"
-      name="idRangeComparisonForNovelSeries"
-      id="idRangeComparisonForNovelSeries1"
-      class="need_beautify radio"
-      value=">"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="idRangeComparisonForNovelSeries1">&gt;</label>
-    <input
-      type="radio"
-      name="idRangeComparisonForNovelSeries"
-      id="idRangeComparisonForNovelSeries2"
-      class="need_beautify radio"
-      value="<"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="idRangeComparisonForNovelSeries2">&lt;</label>
-    <input
-      type="text"
-      name="idRangeValueForNovelSeries"
-      class="setinput_style w80 blue"
-      value="0"
-      placeholder="0"
-    />
+    <div class="optionLine">
+      <span data-xztext="_系列小说"></span>
+      <input
+        type="radio"
+        name="idRangeComparisonForNovelSeries"
+        id="idRangeComparisonForNovelSeries1"
+        class="need_beautify radio"
+        value=">"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="idRangeComparisonForNovelSeries1">&gt;</label>
+      <input
+        type="radio"
+        name="idRangeComparisonForNovelSeries"
+        id="idRangeComparisonForNovelSeries2"
+        class="need_beautify radio"
+        value="<"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="idRangeComparisonForNovelSeries2">&lt;</label>
+      <input
+        type="text"
+        name="idRangeValueForNovelSeries"
+        class="setinput_style w100 blue"
+        value="0"
+        placeholder="0"
+      />
+    </div>
   </div>
 </div>
 
@@ -711,53 +728,59 @@
   />
   <span class="beautify_switch" tabindex="0"></span>
   <div class="subOptionWrap" data-show="postDate">
-    <input
-      type="datetime-local"
-      name="postDateStart"
-      placeholder="yyyy-MM-dd HH:mm"
-      class="setinput_style postDate blue"
-      value="2009-01-01T00:00"
-    />
-    <button
-      type="button"
-      class="textButton grayButton mr0"
-      role="setDate"
-      data-for="postDateStart"
-      data-value="2009-01-01T00:00"
-      data-xztext="_过去"
-    ></button>
-    <button
-      type="button"
-      class="textButton grayButton"
-      role="setDate"
-      data-for="postDateStart"
-      data-value="now"
-      data-xztext="_现在"
-    ></button>
-    -&nbsp;
-    <input
-      type="datetime-local"
-      name="postDateEnd"
-      placeholder="yyyy-MM-dd HH:mm"
-      class="setinput_style postDate blue"
-      value="2100-01-01T00:00"
-    />
-    <button
-      type="button"
-      class="textButton grayButton mr0"
-      role="setDate"
-      data-for="postDateEnd"
-      data-value="now"
-      data-xztext="_现在"
-    ></button>
-    <button
-      type="button"
-      class="textButton grayButton"
-      role="setDate"
-      data-for="postDateEnd"
-      data-value="2100-01-01T00:00"
-      data-xztext="_未来"
-    ></button>
+    <div class="optionLine">
+      <span class="pr4" data-xztext="_起始时间"></span>
+      <input
+        type="datetime-local"
+        name="postDateStart"
+        placeholder="yyyy-MM-dd HH:mm"
+        class="setinput_style postDate blue"
+        value="2009-01-01T00:00"
+      />
+      <button
+        type="button"
+        class="textButton grayButton mr0"
+        role="setDate"
+        data-for="postDateStart"
+        data-value="2009-01-01T00:00"
+        data-xztext="_过去"
+      ></button>
+      <button
+        type="button"
+        class="textButton grayButton"
+        role="setDate"
+        data-for="postDateStart"
+        data-value="now"
+        data-xztext="_现在"
+      ></button>
+    </div>
+
+    <div class="optionLine">
+      <span class="pr4" data-xztext="_截止时间"></span>
+      <input
+        type="datetime-local"
+        name="postDateEnd"
+        placeholder="yyyy-MM-dd HH:mm"
+        class="setinput_style postDate blue"
+        value="2100-01-01T00:00"
+      />
+      <button
+        type="button"
+        class="textButton grayButton mr0"
+        role="setDate"
+        data-for="postDateEnd"
+        data-value="now"
+        data-xztext="_现在"
+      ></button>
+      <button
+        type="button"
+        class="textButton grayButton"
+        role="setDate"
+        data-for="postDateEnd"
+        data-value="2100-01-01T00:00"
+        data-xztext="_未来"
+      ></button>
+    </div>
   </div>
 </div>
 
@@ -778,6 +801,7 @@
   />
   <span class="beautify_switch" tabindex="0"></span>
   <div class="subOptionWrap flexBasis100" data-show="needTagSwitch">
+    <span data-xztext="_匹配模式"></span>
     <input
       type="radio"
       name="needTagMode"
@@ -823,6 +847,7 @@
   />
   <span class="beautify_switch" tabindex="0"></span>
   <div class="subOptionWrap flexBasis100" data-show="notNeedTagSwitch">
+    <span data-xztext="_匹配模式"></span>
     <span class="gray1" data-xztext="_任一"></span>
     <span class="verticalSplit"></span>
     <input
@@ -1174,25 +1199,30 @@
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="slowCrawl">
-    <span data-xztext="_当作品数量大于"></span>
-    <input
-      type="text"
-      name="slowCrawlOnWorksNumber"
-      class="setinput_style blue"
-      value="100"
-    />
-    <span class="verticalSplit"></span>
-    <label for="slowCrawlDealy" data-xztext="_间隔时间"></label>
-    <input
-      type="text"
-      name="slowCrawlDealy"
-      id="slowCrawlDealy"
-      class="setinput_style blue"
-      value="1600"
-      placeholder="1600"
-    />
-    ms
+
+  <div class="subOptionWrap flexBasis100" data-show="slowCrawl">
+    <div class="optionLine">
+      <span data-xztext="_当作品数量超过指定数量时启用"></span>
+      <input
+        type="text"
+        name="slowCrawlOnWorksNumber"
+        class="setinput_style blue"
+        value="100"
+      />
+    </div>
+
+    <div class="optionLine">
+      <span data-xztext="_间隔时间"></span>
+      <input
+        type="text"
+        name="slowCrawlDealy"
+        id="slowCrawlDealy"
+        class="setinput_style blue"
+        value="1600"
+        placeholder="1600"
+      />
+      ms
+    </div>
   </div>
 </div>
 
@@ -1231,36 +1261,38 @@
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="autoExportResult">
-    <span data-xztext="_抓取结果"></span>
-    <span>&gt;</span>
-    <input
-      type="text"
-      name="autoExportResultNumber"
-      class="setinput_style blue"
-      value="1"
-      style="width: 50px; min-width: 50px"
-    />
-    <span class="verticalSplit"></span>
-    <span class="mr4" data-xztext="_文件格式"> </span>
-    <input
-      type="checkbox"
-      name="autoExportResultCSV"
-      id="autoExportResultCSV"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="autoExportResultCSV"> CSV </label>
-    <input
-      type="checkbox"
-      name="autoExportResultJSON"
-      id="autoExportResultJSON"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="autoExportResultJSON"> JSON </label>
+  <div class="subOptionWrap flexBasis100" data-show="autoExportResult">
+    <div class="optionLine">
+      <span data-xztext="_当抓取结果大于指定数量时启用"></span>
+      <input
+        type="text"
+        name="autoExportResultNumber"
+        class="setinput_style blue"
+        value="1"
+      />
+    </div>
+
+    <div class="optionLine">
+      <span data-xztext="_文件格式"> </span>
+      <input
+        type="checkbox"
+        name="autoExportResultCSV"
+        id="autoExportResultCSV"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="autoExportResultCSV"> CSV </label>
+      <input
+        type="checkbox"
+        name="autoExportResultJSON"
+        id="autoExportResultJSON"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="autoExportResultJSON"> JSON </label>
+    </div>
   </div>
 </div>
 
@@ -1618,50 +1650,58 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     data-xztext="_帮助"
   ></button>
 
-  <div class="subOptionWrap noGrow" data-show="noFolderSwitch">
-    <input
-      type="checkbox"
-      name="noFolderWhenDownload1Image"
-      id="noFolderWhenDownload1Image"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label
-      for="noFolderWhenDownload1Image"
-      data-xztext="_从插画漫画里下载1张图片时"
-    ></label>
+  <div class="subOptionWrap noGrow flexBasis100" data-show="noFolderSwitch">
+    <div class="optionLine">
+      <input
+        type="checkbox"
+        name="noFolderWhenDownload1Image"
+        id="noFolderWhenDownload1Image"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label
+        for="noFolderWhenDownload1Image"
+        data-xztext="_从插画漫画里下载1张图片时"
+      ></label>
+    </div>
 
-    <input
-      type="checkbox"
-      name="noFolderWhenDownloadMultipleImages"
-      id="noFolderWhenDownloadMultipleImages"
-      class="need_beautify checkbox_common"
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label
-      for="noFolderWhenDownloadMultipleImages"
-      data-xztext="_从插画漫画里下载多张图片时"
-    ></label>
+    <div class="optionLine">
+      <input
+        type="checkbox"
+        name="noFolderWhenDownloadMultipleImages"
+        id="noFolderWhenDownloadMultipleImages"
+        class="need_beautify checkbox_common"
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label
+        for="noFolderWhenDownloadMultipleImages"
+        data-xztext="_从插画漫画里下载多张图片时"
+      ></label>
+    </div>
 
-    <input
-      type="checkbox"
-      name="noFolderWhenUgoira"
-      id="noFolderWhenUgoira"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="noFolderWhenUgoira" data-xztext="_动图"></label>
+    <div class="optionLine">
+      <input
+        type="checkbox"
+        name="noFolderWhenUgoira"
+        id="noFolderWhenUgoira"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="noFolderWhenUgoira" data-xztext="_动图"></label>
+    </div>
 
-    <input
-      type="checkbox"
-      name="noFolderWhenNovel"
-      id="noFolderWhenNovel"
-      class="need_beautify checkbox_common"
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="noFolderWhenNovel" data-xztext="_小说"></label>
+    <div class="optionLine">
+      <input
+        type="checkbox"
+        name="noFolderWhenNovel"
+        id="noFolderWhenNovel"
+        class="need_beautify checkbox_common"
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="noFolderWhenNovel" data-xztext="_小说"></label>
+    </div>
   </div>
 </div>
 
@@ -1685,31 +1725,39 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     data-msg="_为多图作品添加一层文件夹的帮助"
     data-xztext="_帮助"
   ></button>
-  <div class="subOptionWrap" data-show="folderForMultiImageWorksSwitch">
-    <label
-      for="folderForMultiImageWorksImageNumber"
-      data-xztext="_图片数量2"
-    ></label>
-    >
-    <input
-      class="setinput_style blue w50 noGrow"
-      type="text"
-      name="folderForMultiImageWorksImageNumber"
-      id="folderForMultiImageWorksImageNumber"
-      value="1"
-    />
+  <div
+    class="subOptionWrap flexBasis100"
+    data-show="folderForMultiImageWorksSwitch"
+  >
+    <div class="optionLine">
+      <label
+        for="folderForMultiImageWorksImageNumber"
+        class="pr0"
+        data-xztext="_当作品里的图片大于指定数量时启用"
+      ></label>
+      <input
+        class="setinput_style blue w50 noGrow"
+        type="text"
+        name="folderForMultiImageWorksImageNumber"
+        id="folderForMultiImageWorksImageNumber"
+        value="1"
+      />
+    </div>
 
-    <label
-      for="folderForMultiImageWorksRule"
-      data-xztext="_要添加的这层文件夹的规则"
-    ></label>
-    <input
-      class="setinput_style blue w150 grow"
-      type="text"
-      name="folderForMultiImageWorksRule"
-      id="folderForMultiImageWorksRule"
-      value="{pid}"
-    />
+    <div class="optionLine">
+      <label
+        for="folderForMultiImageWorksRule"
+        class="pr0"
+        data-xztext="_要添加的这层文件夹的规则"
+      ></label>
+      <input
+        class="setinput_style blue w150 grow"
+        type="text"
+        name="folderForMultiImageWorksRule"
+        id="folderForMultiImageWorksRule"
+        value="{pid}"
+      />
+    </div>
   </div>
 </div>
 
@@ -1726,8 +1774,19 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="r18Folder">
-    <label for="r18FolderName" data-xztext="_要添加的这层文件夹的规则"></label>
+  <button
+    type="button"
+    class="gray1 textButton showMsgBtn"
+    data-title="_为r18作品添加一层文件夹"
+    data-msg="_为r18作品添加一层文件夹的帮助"
+    data-xztext="_帮助"
+  ></button>
+  <div class="subOptionWrap flexBasis100" data-show="r18Folder">
+    <label
+      for="r18FolderName"
+      class="pr0"
+      data-xztext="_要添加的这层文件夹的规则"
+    ></label>
     <input
       type="text"
       name="r18FolderName"
@@ -1736,13 +1795,6 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
       value="[R-18&R-18G]"
     />
   </div>
-  <button
-    type="button"
-    class="gray1 textButton showMsgBtn"
-    data-title="_为r18作品添加一层文件夹"
-    data-msg="_为r18作品添加一层文件夹的帮助"
-    data-xztext="_帮助"
-  ></button>
 </div>
 
 <div class="option" data-no="43">
@@ -1925,7 +1977,6 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
       name="zeroPaddingLength"
       class="setinput_style blue"
       value="3"
-      style="width: 30px; min-width: 30px"
     />
   </div>
 </div>
@@ -2045,22 +2096,35 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     <span data-xztext="_下载间隔"></span>
     <span class="gray1"> ? </span>
   </a>
-  <span data-xztext="_当文件数量大于"></span>
   <input
-    type="text"
-    name="downloadIntervalOnWorksNumber"
-    class="setinput_style blue"
-    value="150"
+    type="checkbox"
+    name="downloadIntervalSwitch"
+    class="need_beautify checkbox_switch"
   />
-  <span class="verticalSplit"></span>
-  <span data-xztext="_间隔时间"></span>
-  <input
-    type="text"
-    name="downloadInterval"
-    class="setinput_style blue"
-    value="0"
-  />
-  <span data-xztext="_秒"></span>
+  <span class="beautify_switch" tabindex="0"></span>
+
+  <div class="subOptionWrap flexBasis100" data-show="downloadIntervalSwitch">
+    <div class="optionLine">
+      <span data-xztext="_当文件数量大于"></span>
+      <input
+        type="text"
+        name="downloadIntervalOnWorksNumber"
+        class="setinput_style blue"
+        value="150"
+      />
+    </div>
+
+    <div class="optionLine">
+      <span data-xztext="_间隔时间"></span>
+      <input
+        type="text"
+        name="downloadInterval"
+        class="setinput_style blue"
+        value="0"
+      />
+      <span data-xztext="_秒"></span>
+    </div>
+  </div>
 </div>
 
 <div class="option" data-no="57">
@@ -2076,56 +2140,61 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="setFileDownloadOrder">
-    <span class="settingNameStyle" data-xztext="_排序依据"></span>
-    <input
-      type="radio"
-      name="downloadOrderSortBy"
-      id="downloadOrderSortBy1"
-      class="need_beautify radio"
-      value="ID"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="downloadOrderSortBy1" data-xztext="_作品ID"></label>
-    <input
-      type="radio"
-      name="downloadOrderSortBy"
-      id="downloadOrderSortBy2"
-      class="need_beautify radio"
-      value="bookmarkCount"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="downloadOrderSortBy2" data-xztext="_收藏数量2"></label>
-    <input
-      type="radio"
-      name="downloadOrderSortBy"
-      id="downloadOrderSortBy3"
-      class="need_beautify radio"
-      value="bookmarkID"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="downloadOrderSortBy3" data-xztext="_收藏时间"></label>
-    <span class="verticalSplit"></span>
-    <input
-      type="radio"
-      name="downloadOrder"
-      id="downloadOrder1"
-      class="need_beautify radio"
-      value="desc"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="downloadOrder1" data-xztext="_降序"></label>
-    <input
-      type="radio"
-      name="downloadOrder"
-      id="downloadOrder2"
-      class="need_beautify radio"
-      value="asc"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="downloadOrder2" data-xztext="_升序"></label>
+  <div class="subOptionWrap flexBasis100" data-show="setFileDownloadOrder">
+    <div class="optionLine">
+      <span class="settingNameStyle" data-xztext="_排序依据"></span>
+      <input
+        type="radio"
+        name="downloadOrderSortBy"
+        id="downloadOrderSortBy1"
+        class="need_beautify radio"
+        value="ID"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="downloadOrderSortBy1" data-xztext="_作品ID"></label>
+      <input
+        type="radio"
+        name="downloadOrderSortBy"
+        id="downloadOrderSortBy2"
+        class="need_beautify radio"
+        value="bookmarkCount"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="downloadOrderSortBy2" data-xztext="_收藏数量2"></label>
+      <input
+        type="radio"
+        name="downloadOrderSortBy"
+        id="downloadOrderSortBy3"
+        class="need_beautify radio"
+        value="bookmarkID"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="downloadOrderSortBy3" data-xztext="_收藏时间"></label>
+    </div>
+
+    <div class="optionLine">
+      <span class="settingNameStyle" data-xztext="_排序方式"></span>
+      <input
+        type="radio"
+        name="downloadOrder"
+        id="downloadOrder1"
+        class="need_beautify radio"
+        value="desc"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="downloadOrder1" data-xztext="_降序"></label>
+      <input
+        type="radio"
+        name="downloadOrder"
+        id="downloadOrder2"
+        class="need_beautify radio"
+        value="asc"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="downloadOrder2" data-xztext="_升序"></label>
+    </div>
   </div>
 </div>
 
@@ -2226,29 +2295,42 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
   ></a>
   <button
     type="button"
-    class="textButton"
-    id="exportDownloadRecord"
-    data-xztext="_导出"
-  ></button>
-  <button
-    type="button"
-    class="textButton"
-    id="importDownloadRecord"
-    data-xztext="_导入"
-  ></button>
-  <button
-    type="button"
-    class="textButton"
-    id="clearDownloadRecord"
-    data-xztext="_清除"
-  ></button>
-  <button
-    type="button"
     class="textButton gray1 showMsgBtn"
     data-title="_管理下载记录"
     data-msg="_管理下载记录的提示"
     data-xztext="_帮助"
   ></button>
+
+  <div class="optionLine">
+    <button
+      type="button"
+      class="textButton fireEvent"
+      id="exportDownloadRecord"
+      data-event="exportDownloadRecord"
+      data-xztext="_导出"
+    ></button>
+    <button
+      type="button"
+      class="textButton fireEvent"
+      id="importDownloadRecord"
+      data-event="importDownloadRecord"
+      data-xztext="_导入"
+    ></button>
+    <button
+      type="button"
+      class="textButton fireEvent"
+      id="importDownloadRecordTXT"
+      data-event="importDownloadRecordTXT"
+      data-xztext="_导入txt"
+    ></button>
+    <button
+      type="button"
+      class="textButton fireEvent"
+      id="clearDownloadRecord"
+      data-event="clearDownloadRecord"
+      data-xztext="_清除"
+    ></button>
+  </div>
 </div>
 
 <div class="option" data-no="63">
@@ -2310,7 +2392,7 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     href=""
     target="_blank"
     class="settingNameStyle"
-    data-xztext="_图片尺寸"
+    data-xztext="_下载图片时的尺寸"
   ></a>
   <input
     type="radio"
@@ -2368,98 +2450,100 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
   ></button>
 
   <div class="subOptionWrap flexBasis100" style="display: inline-flex">
-    <input
-      type="checkbox"
-      name="ugoiraSaveAsWebP"
-      id="ugoiraSaveAsWebP"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="ugoiraSaveAsWebP" data-xztext="_webp图片"></label>
+    <div class="optionLine">
+      <input
+        type="checkbox"
+        name="ugoiraSaveAsWebP"
+        id="ugoiraSaveAsWebP"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="ugoiraSaveAsWebP" data-xztext="_webp图片"></label>
 
-    <input
-      type="checkbox"
-      name="ugoiraSaveAsWebM"
-      id="ugoiraSaveAsWebM"
-      class="need_beautify checkbox_common"
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="ugoiraSaveAsWebM" data-xztext="_webmVideo"></label>
+      <input
+        type="checkbox"
+        name="ugoiraSaveAsWebM"
+        id="ugoiraSaveAsWebM"
+        class="need_beautify checkbox_common"
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="ugoiraSaveAsWebM" data-xztext="_webmVideo"></label>
 
-    <input
-      type="checkbox"
-      name="ugoiraSaveAsGIF"
-      id="ugoiraSaveAsGIF"
-      class="need_beautify checkbox_common"
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="ugoiraSaveAsGIF" data-xztext="_gif图片"></label>
+      <input
+        type="checkbox"
+        name="ugoiraSaveAsGIF"
+        id="ugoiraSaveAsGIF"
+        class="need_beautify checkbox_common"
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="ugoiraSaveAsGIF" data-xztext="_gif图片"></label>
 
-    <input
-      type="checkbox"
-      name="ugoiraSaveAsAPNG"
-      id="ugoiraSaveAsAPNG"
-      class="need_beautify checkbox_common"
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="ugoiraSaveAsAPNG" data-xztext="_apng图片"></label>
+      <input
+        type="checkbox"
+        name="ugoiraSaveAsAPNG"
+        id="ugoiraSaveAsAPNG"
+        class="need_beautify checkbox_common"
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="ugoiraSaveAsAPNG" data-xztext="_apng图片"></label>
 
-    <input
-      type="checkbox"
-      name="ugoiraSaveAsZIP"
-      id="ugoiraSaveAsZIP"
-      class="need_beautify checkbox_common"
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="ugoiraSaveAsZIP" data-xztext="_zip文件"></label>
+      <input
+        type="checkbox"
+        name="ugoiraSaveAsZIP"
+        id="ugoiraSaveAsZIP"
+        class="need_beautify checkbox_common"
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="ugoiraSaveAsZIP" data-xztext="_zip文件"></label>
 
-    <input
-      type="checkbox"
-      name="ugoiraSaveAsUgoira"
-      id="ugoiraSaveAsUgoira"
-      class="need_beautify checkbox_common"
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="ugoiraSaveAsUgoira" data-xztext="_Ugoira文件"></label>
+      <input
+        type="checkbox"
+        name="ugoiraSaveAsUgoira"
+        id="ugoiraSaveAsUgoira"
+        class="need_beautify checkbox_common"
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="ugoiraSaveAsUgoira" data-xztext="_Ugoira文件"></label>
+    </div>
 
-    <span class="verticalSplit"></span>
+    <div class="optionLine">
+      <span data-xztext="_WebP图像质量"></span>
+      <input
+        type="radio"
+        name="animatedWebPQuality"
+        id="webpUgoiraQuality0"
+        class="need_beautify radio"
+        value="lossy"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="webpUgoiraQuality0" data-xztext="_有损"></label>
 
-    <span data-xztext="_WebP图像质量"></span>
-    <input
-      type="radio"
-      name="animatedWebPQuality"
-      id="webpUgoiraQuality0"
-      class="need_beautify radio"
-      value="lossy"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="webpUgoiraQuality0" data-xztext="_有损"></label>
+      <input
+        type="radio"
+        name="animatedWebPQuality"
+        id="webpUgoiraQuality1"
+        class="need_beautify radio"
+        value="lossless"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="webpUgoiraQuality1" data-xztext="_无损"></label>
+    </div>
 
-    <input
-      type="radio"
-      name="animatedWebPQuality"
-      id="webpUgoiraQuality1"
-      class="need_beautify radio"
-      value="lossless"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="webpUgoiraQuality1" data-xztext="_无损"></label>
-
-    <span class="verticalSplit"></span>
-
-    <label
-      for="saveThumbnailForUgoira"
-      data-xztext="_为动图保存一张缩略图"
-    ></label>
-    <input
-      type="checkbox"
-      name="saveThumbnailForUgoira"
-      id="saveThumbnailForUgoira"
-      class="need_beautify checkbox_switch"
-    />
-    <span class="beautify_switch" tabindex="0"></span>
+    <div class="optionLine">
+      <label
+        for="saveThumbnailForUgoira"
+        data-xztext="_为动图保存一张缩略图"
+      ></label>
+      <input
+        type="checkbox"
+        name="saveThumbnailForUgoira"
+        id="saveThumbnailForUgoira"
+        class="need_beautify checkbox_switch"
+      />
+      <span class="beautify_switch" tabindex="0"></span>
+    </div>
   </div>
 </div>
 
@@ -2743,141 +2827,150 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
   />
   <span class="beautify_switch" tabindex="0"></span>
 
-  <div class="subOptionWrap" data-show="PreviewWork">
-    <input
-      type="checkbox"
-      name="previewSingleImageWork"
-      id="previewSingleImageWork"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="previewSingleImageWork" data-xztext="_单图作品"></label>
-    <input
-      type="checkbox"
-      name="previewMultiImageWork"
-      id="previewMultiImageWork"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="previewMultiImageWork" data-xztext="_多图作品"></label>
-    <input
-      type="checkbox"
-      name="previewUgoira"
-      id="previewUgoira"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="previewUgoira" data-xztext="_动图"></label>
+  <div class="subOptionWrap flexBasis100" data-show="PreviewWork">
+    <div class="optionLine">
+      <input
+        type="checkbox"
+        name="previewSingleImageWork"
+        id="previewSingleImageWork"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="previewSingleImageWork" data-xztext="_单图作品"></label>
+      <input
+        type="checkbox"
+        name="previewMultiImageWork"
+        id="previewMultiImageWork"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="previewMultiImageWork" data-xztext="_多图作品"></label>
+      <input
+        type="checkbox"
+        name="previewUgoira"
+        id="previewUgoira"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="previewUgoira" data-xztext="_动图"></label>
+    </div>
 
-    <span class="verticalSplit"></span>
+    <div class="optionLine">
+      <label
+        for="checkBlockTagsForPreviewWork"
+        data-xztext="_检查屏蔽的标签"
+      ></label>
+      <input
+        type="checkbox"
+        name="checkBlockTagsForPreviewWork"
+        id="checkBlockTagsForPreviewWork"
+        class="need_beautify checkbox_switch"
+      />
+      <span class="beautify_switch" tabindex="0"></span>
+      <button
+        type="button"
+        class="gray1 textButton showMsgBtn"
+        data-title="_检查屏蔽的标签"
+        data-msg="_检查屏蔽的标签的帮助"
+        data-xztext="_帮助"
+      >
+        帮助
+      </button>
+    </div>
 
-    <label
-      for="checkBlockTagsForPreviewWork"
-      data-xztext="_检查屏蔽的标签"
-    ></label>
-    <input
-      type="checkbox"
-      name="checkBlockTagsForPreviewWork"
-      id="checkBlockTagsForPreviewWork"
-      class="need_beautify checkbox_switch"
-    />
-    <span class="beautify_switch" tabindex="0"></span>
-    <button
-      type="button"
-      class="gray1 textButton showMsgBtn"
-      data-title="_检查屏蔽的标签"
-      data-msg="_检查屏蔽的标签的帮助"
-      data-xztext="_帮助"
-    >
-      帮助
-    </button>
+    <div class="optionLine">
+      <label
+        for="wheelScrollSwitchImageOnPreviewWork"
+        class="has_tip"
+        data-xztext="_使用鼠标滚轮切换作品里的图片"
+        data-xztip="_这可能会阻止页面滚动"
+      ></label>
+      <input
+        type="checkbox"
+        name="wheelScrollSwitchImageOnPreviewWork"
+        id="wheelScrollSwitchImageOnPreviewWork"
+        class="need_beautify checkbox_switch"
+        checked
+      />
+      <span class="beautify_switch" tabindex="0"></span>
+    </div>
 
-    <span class="verticalSplit"></span>
+    <div class="optionLine">
+      <label
+        for="swicthImageByKeyboard"
+        class="has_tip"
+        data-xztext="_使用方向键和空格键切换图片"
+        data-xztip="_使用方向键和空格键切换图片的提示"
+      ></label>
+      <input
+        type="checkbox"
+        name="swicthImageByKeyboard"
+        id="swicthImageByKeyboard"
+        class="need_beautify checkbox_switch"
+        checked
+      />
+      <span class="beautify_switch" tabindex="0"></span>
+    </div>
 
-    <label
-      for="wheelScrollSwitchImageOnPreviewWork"
-      class="has_tip"
-      data-xztext="_使用鼠标滚轮切换作品里的图片"
-      data-xztip="_这可能会阻止页面滚动"
-    ></label>
-    <input
-      type="checkbox"
-      name="wheelScrollSwitchImageOnPreviewWork"
-      id="wheelScrollSwitchImageOnPreviewWork"
-      class="need_beautify checkbox_switch"
-      checked
-    />
-    <span class="beautify_switch" tabindex="0"></span>
+    <div class="optionLine">
+      <label for="previewWorkWait" data-xztext="_等待时间"></label>
+      <input
+        type="text"
+        name="previewWorkWait"
+        id="previewWorkWait"
+        class="setinput_style blue"
+        value="400"
+      />
+      <span>ms</span>
+    </div>
 
-    <span class="verticalSplit"></span>
+    <div class="optionLine">
+      <label for="showPreviewWorkTip" data-xztext="_显示摘要信息"></label>
+      <input
+        type="checkbox"
+        name="showPreviewWorkTip"
+        id="showPreviewWorkTip"
+        class="need_beautify checkbox_switch"
+        checked
+      />
+      <span class="beautify_switch" tabindex="0"></span>
+    </div>
 
-    <label
-      for="swicthImageByKeyboard"
-      class="has_tip"
-      data-xztext="_使用方向键和空格键切换图片"
-      data-xztip="_使用方向键和空格键切换图片的提示"
-    ></label>
-    <input
-      type="checkbox"
-      name="swicthImageByKeyboard"
-      id="swicthImageByKeyboard"
-      class="need_beautify checkbox_switch"
-      checked
-    />
-    <span class="beautify_switch" tabindex="0"></span>
-    <span class="verticalSplit"></span>
-    <label for="previewWorkWait" data-xztext="_等待时间"></label>
-    <input
-      type="text"
-      name="previewWorkWait"
-      id="previewWorkWait"
-      class="setinput_style blue"
-      value="400"
-      style="width: 50px; min-width: 50px"
-    />
-    <span>ms</span>
-    <span class="verticalSplit"></span>
-    <label for="showPreviewWorkTip" data-xztext="_显示摘要信息"></label>
-    <input
-      type="checkbox"
-      name="showPreviewWorkTip"
-      id="showPreviewWorkTip"
-      class="need_beautify checkbox_switch"
-      checked
-    />
-    <span class="beautify_switch" tabindex="0"></span>
-    <span class="verticalSplit"></span>
-    <span class="settingNameStyle" data-xztext="_图片尺寸2"></span>
-    <input
-      type="radio"
-      name="prevWorkSize"
-      id="prevWorkSize1"
-      class="need_beautify radio"
-      value="original"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="prevWorkSize1" data-xztext="_原图"></label>
-    <input
-      type="radio"
-      name="prevWorkSize"
-      id="prevWorkSize2"
-      class="need_beautify radio"
-      value="regular"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="prevWorkSize2" data-xztext="_普通"></label>
-    <span class="verticalSplit"></span>
-    <button
-      type="button"
-      class="gray1 textButton toggleArea"
-      data-toggle-Target="#previewWorkShortcutTip"
-      data-for-no="75"
-      data-xztext="_快捷键列表"
-    ></button>
+    <div class="optionLine">
+      <span class="settingNameStyle" data-xztext="_查看的图片尺寸"></span>
+      <input
+        type="radio"
+        name="prevWorkSize"
+        id="prevWorkSize1"
+        class="need_beautify radio"
+        value="original"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="prevWorkSize1" data-xztext="_原图"></label>
+      <input
+        type="radio"
+        name="prevWorkSize"
+        id="prevWorkSize2"
+        class="need_beautify radio"
+        value="regular"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="prevWorkSize2" data-xztext="_普通"></label>
+    </div>
+
+    <div class="optionLine">
+      <button
+        type="button"
+        class="gray1 textButton toggleArea"
+        data-toggle-Target="#previewWorkShortcutTip"
+        data-for-no="75"
+        data-xztext="_快捷键列表"
+      ></button>
+    </div>
   </div>
 
   <p class="tip" id="previewWorkShortcutTip">
@@ -2899,35 +2992,39 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     checked
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="showOriginImage">
-    <span class="settingNameStyle" data-xztext="_图片尺寸2"></span>
-    <input
-      type="radio"
-      name="showOriginImageSize"
-      id="showOriginImageSize1"
-      class="need_beautify radio"
-      value="original"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="showOriginImageSize1" data-xztext="_原图"></label>
-    <input
-      type="radio"
-      name="showOriginImageSize"
-      id="showOriginImageSize2"
-      class="need_beautify radio"
-      value="regular"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="showOriginImageSize2" data-xztext="_普通"></label>
-    <span class="verticalSplit"></span>
-    <button
-      type="button"
-      class="gray1 textButton toggleArea"
-      data-toggle-Target="#showOriginImageShortcutTip"
-      data-for-no="76"
-      data-xztext="_快捷键列表"
-    ></button>
+  <div class="subOptionWrap flexBasis100" data-show="showOriginImage">
+    <div class="optionLine">
+      <span class="settingNameStyle" data-xztext="_查看的图片尺寸"></span>
+      <input
+        type="radio"
+        name="showOriginImageSize"
+        id="showOriginImageSize1"
+        class="need_beautify radio"
+        value="original"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="showOriginImageSize1" data-xztext="_原图"></label>
+      <input
+        type="radio"
+        name="showOriginImageSize"
+        id="showOriginImageSize2"
+        class="need_beautify radio"
+        value="regular"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="showOriginImageSize2" data-xztext="_普通"></label>
+    </div>
+
+    <div class="optionLine">
+      <button
+        type="button"
+        class="gray1 textButton toggleArea"
+        data-toggle-Target="#showOriginImageShortcutTip"
+        data-for-no="76"
+        data-xztext="_快捷键列表"
+      ></button>
+    </div>
   </div>
 
   <p class="tip" id="showOriginImageShortcutTip">
@@ -2951,14 +3048,13 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="PreviewWorkDetailInfo">
+  <div class="subOptionWrap flexBasis100" data-show="PreviewWorkDetailInfo">
     <span data-xztext="_显示区域宽度"></span>&nbsp;
     <input
       type="text"
       name="PreviewDetailInfoWidth"
       class="setinput_style blue"
       value="400"
-      style="width: 50px; min-width: 50px"
     />
     <span>&nbsp;px</span>
   </div>
@@ -3078,27 +3174,29 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="magnifier">
-    <span class="settingNameStyle" data-xztext="_查看的图片尺寸"></span>
-    <input
-      type="radio"
-      name="magnifierSize"
-      id="magnifierSize1"
-      class="need_beautify radio"
-      value="original"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="magnifierSize1" data-xztext="_原图"></label>
-    <input
-      type="radio"
-      name="magnifierSize"
-      id="magnifierSize2"
-      class="need_beautify radio"
-      value="regular"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="magnifierSize2" data-xztext="_普通"></label>
+  <div class="subOptionWrap flexBasis100" data-show="magnifier">
+    <div class="optionLine">
+      <span class="settingNameStyle" data-xztext="_查看的图片尺寸"></span>
+      <input
+        type="radio"
+        name="magnifierSize"
+        id="magnifierSize1"
+        class="need_beautify radio"
+        value="original"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="magnifierSize1" data-xztext="_原图"></label>
+      <input
+        type="radio"
+        name="magnifierSize"
+        id="magnifierSize2"
+        class="need_beautify radio"
+        value="regular"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="magnifierSize2" data-xztext="_普通"></label>
+    </div>
   </div>
 </div>
 
@@ -3166,24 +3264,31 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap noGrow" data-show="showBorderOnDownloadedWorks">
-    <span data-xztext="_宽度"></span>
-    <input
-      type="text"
-      name="borderWidth"
-      class="setinput_style blue w20"
-      value="3"
-    />
-    px
-    <span class="verticalSplit"></span>
-    <span data-xztext="_颜色"></span> (Hex)
-    <input
-      type="text"
-      name="borderColor"
-      class="setinput_style blue w80"
-      id="borderColor"
-      value="#ff4060"
-    />
+  <div
+    class="subOptionWrap flexBasis100"
+    data-show="showBorderOnDownloadedWorks"
+  >
+    <div class="optionLine">
+      <span data-xztext="_宽度" class="mr4"></span>
+      <input
+        type="text"
+        name="borderWidth"
+        class="setinput_style blue w30"
+        value="3"
+      />
+      px
+    </div>
+
+    <div class="optionLine">
+      <span data-xztext="_颜色" class="mr4"></span> (Hex)
+      <input
+        type="text"
+        name="borderColor"
+        class="setinput_style blue w80"
+        id="borderColor"
+        value="#ff4060"
+      />
+    </div>
   </div>
 </div>
 
@@ -3197,45 +3302,52 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     <span data-xztext="_收藏设置"></span>
     <span class="gray1"> ? </span>
   </a>
-  <input
-    type="radio"
-    name="widthTag"
-    id="widthTag1"
-    class="need_beautify radio"
-    value="yes"
-    checked
-  />
-  <span class="beautify_radio" tabindex="0"></span>
-  <label for="widthTag1" data-xztext="_添加tag"></label>
-  <input
-    type="radio"
-    name="widthTag"
-    id="widthTag2"
-    class="need_beautify radio"
-    value="no"
-  />
-  <span class="beautify_radio" tabindex="0"></span>
-  <label for="widthTag2" data-xztext="_不添加tag"></label>
-  <span class="verticalSplit"></span>
-  <input
-    type="radio"
-    name="restrict"
-    id="restrict1"
-    class="need_beautify radio"
-    value="no"
-    checked
-  />
-  <span class="beautify_radio" tabindex="0"></span>
-  <label for="restrict1" data-xztext="_公开"></label>
-  <input
-    type="radio"
-    name="restrict"
-    id="restrict2"
-    class="need_beautify radio"
-    value="yes"
-  />
-  <span class="beautify_radio" tabindex="0"></span>
-  <label for="restrict2" data-xztext="_不公开"></label>
+
+  <div class="optionLine">
+    <span data-xztext="_是否添加标签" class="mr4"></span>
+    <input
+      type="radio"
+      name="widthTag"
+      id="widthTag1"
+      class="need_beautify radio"
+      value="yes"
+      checked
+    />
+    <span class="beautify_radio" tabindex="0"></span>
+    <label for="widthTag1" data-xztext="_添加"></label>
+    <input
+      type="radio"
+      name="widthTag"
+      id="widthTag2"
+      class="need_beautify radio"
+      value="no"
+    />
+    <span class="beautify_radio" tabindex="0"></span>
+    <label for="widthTag2" data-xztext="_不添加"></label>
+  </div>
+
+  <div class="optionLine">
+    <span data-xztext="_是否公开" class="mr4"></span>
+    <input
+      type="radio"
+      name="restrict"
+      id="restrict1"
+      class="need_beautify radio"
+      value="no"
+      checked
+    />
+    <span class="beautify_radio" tabindex="0"></span>
+    <label for="restrict1" data-xztext="_公开"></label>
+    <input
+      type="radio"
+      name="restrict"
+      id="restrict2"
+      class="need_beautify radio"
+      value="yes"
+    />
+    <span class="beautify_radio" tabindex="0"></span>
+    <label for="restrict2" data-xztext="_不公开"></label>
+  </div>
 </div>
 
 <div class="option" data-no="89">
@@ -3249,7 +3361,7 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     <span class="gray1"> ? </span>
   </a>
 
-  <div class="optionLine nowrap">
+  <div class="optionLine">
     <span data-xztext="_复制内容" class="mr4"></span>
     <input
       type="checkbox"
@@ -3416,9 +3528,8 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     <input
       type="text"
       name="previewResultLimit"
-      class="setinput_style blue"
+      class="setinput_style blue w80"
       value="1000"
-      style="width: 80px; min-width: 80px"
     />
   </div>
 </div>
@@ -3609,44 +3720,51 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="bgDisplay">
-    <button
-      type="button"
-      class="textButton fireEvent"
-      data-event="selectBG"
-      id="selectBG"
-      data-xztext="_选择文件"
-    ></button>
-    <button
-      type="button"
-      class="textButton fireEvent"
-      data-event="clearBG"
-      id="clearBG"
-      data-xztext="_清除"
-    ></button>
-    &nbsp;
-    <span data-xztext="_对齐方式"></span>&nbsp;
-    <input
-      type="radio"
-      name="bgPositionY"
-      id="bgPosition1"
-      class="need_beautify radio"
-      value="center"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="bgPosition1" data-xztext="_居中"></label>
-    <input
-      type="radio"
-      name="bgPositionY"
-      id="bgPosition2"
-      class="need_beautify radio"
-      value="top"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="bgPosition2" data-xztext="_顶部"></label>
-    <span data-xztext="_不透明度"></span>&nbsp;
-    <input name="bgOpacity" type="range" />
+  <div class="subOptionWrap flexBasis100" data-show="bgDisplay">
+    <div class="optionLine">
+      <button
+        type="button"
+        class="textButton fireEvent"
+        data-event="selectBG"
+        id="selectBG"
+        data-xztext="_选择文件"
+      ></button>
+      <button
+        type="button"
+        class="textButton fireEvent"
+        data-event="clearBG"
+        id="clearBG"
+        data-xztext="_清除"
+      ></button>
+    </div>
+
+    <div class="optionLine">
+      <span data-xztext="_对齐方式"></span>&nbsp;
+      <input
+        type="radio"
+        name="bgPositionY"
+        id="bgPosition1"
+        class="need_beautify radio"
+        value="center"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="bgPosition1" data-xztext="_居中"></label>
+      <input
+        type="radio"
+        name="bgPositionY"
+        id="bgPosition2"
+        class="need_beautify radio"
+        value="top"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="bgPosition2" data-xztext="_顶部"></label>
+    </div>
+
+    <div class="optionLine">
+      <span data-xztext="_不透明度" class="mr4"></span>
+      <input name="bgOpacity" type="range" />
+    </div>
   </div>
 </div>
 
@@ -3712,54 +3830,60 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     class="need_beautify checkbox_switch"
   />
   <span class="beautify_switch" tabindex="0"></span>
-  <div class="subOptionWrap" data-show="exportLog">
-    <span class="settingNameStyle" data-xztext="_导出时机"></span>
-    <input
-      type="radio"
-      name="exportLogTiming"
-      id="exportLogTiming1"
-      class="need_beautify radio"
-      value="crawlComplete"
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="exportLogTiming1" data-xztext="_抓取完毕2"></label>
-    <input
-      type="radio"
-      name="exportLogTiming"
-      id="exportLogTiming2"
-      class="need_beautify radio"
-      value="downloadComplete"
-      checked
-    />
-    <span class="beautify_radio" tabindex="0"></span>
-    <label for="exportLogTiming2" data-xztext="_下载完毕"></label>
-    <span class="verticalSplit"></span>
-    <span class="settingNameStyle" data-xztext="_日志类型"></span>
-    <input
-      type="checkbox"
-      name="exportLogNormal"
-      id="exportLogNormal"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="exportLogNormal" data-xztext="_正常"></label>
-    <input
-      type="checkbox"
-      name="exportLogError"
-      id="exportLogError"
-      class="need_beautify checkbox_common"
-      checked
-    />
-    <span class="beautify_checkbox" tabindex="0"></span>
-    <label for="exportLogError" data-xztext="_错误"></label>
-    <span class="verticalSplit"></span>
-    <span data-xztext="_排除关键字"></span>&nbsp;
-    <input
-      type="text"
-      name="exportLogExclude"
-      class="setinput_style blue setinput_tag"
-    />
+  <div class="subOptionWrap flexBasis100" data-show="exportLog">
+    <div class="optionLine">
+      <span class="settingNameStyle" data-xztext="_导出时机"></span>
+      <input
+        type="radio"
+        name="exportLogTiming"
+        id="exportLogTiming1"
+        class="need_beautify radio"
+        value="crawlComplete"
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="exportLogTiming1" data-xztext="_抓取完毕2"></label>
+      <input
+        type="radio"
+        name="exportLogTiming"
+        id="exportLogTiming2"
+        class="need_beautify radio"
+        value="downloadComplete"
+        checked
+      />
+      <span class="beautify_radio" tabindex="0"></span>
+      <label for="exportLogTiming2" data-xztext="_下载完毕"></label>
+    </div>
+
+    <div class="optionLine">
+      <span class="settingNameStyle" data-xztext="_日志类型"></span>
+      <input
+        type="checkbox"
+        name="exportLogNormal"
+        id="exportLogNormal"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="exportLogNormal" data-xztext="_正常"></label>
+      <input
+        type="checkbox"
+        name="exportLogError"
+        id="exportLogError"
+        class="need_beautify checkbox_common"
+        checked
+      />
+      <span class="beautify_checkbox" tabindex="0"></span>
+      <label for="exportLogError" data-xztext="_错误"></label>
+    </div>
+
+    <div class="optionLine">
+      <span data-xztext="_排除关键字"></span>&nbsp;
+      <input
+        type="text"
+        name="exportLogExclude"
+        class="setinput_style blue setinput_tag"
+      />
+    </div>
   </div>
 </div>
 
@@ -3773,39 +3897,48 @@ __DEFAULT_NAME_RULE_FOR_NOVEL__</textarea
     <span data-xztext="_管理设置"></span>
     <span class="gray1"> ? </span>
   </a>
-  <button
-    type="button"
-    class="textButton fireEvent"
-    data-event="exportSettings"
-    id="exportSettings"
-    data-xztext="_导出设置"
-  ></button>
-  <button
-    type="button"
-    class="textButton fireEvent"
-    data-event="importSettings"
-    id="importSettings"
-    data-xztext="_导入设置"
-  ></button>
-  <button
-    type="button"
-    class="textButton fireEvent"
-    data-event="resetSettings"
-    id="resetSettings"
-    data-xztext="_重置设置"
-  ></button>
-  <button
-    type="button"
-    class="textButton fireEvent"
-    data-event="resetFollowingData"
-    id="resetFollowingData"
-    data-xztext="_清除下载器保存的关注数据"
-  ></button>
-  <button
-    type="button"
-    class="textButton fireEvent"
-    data-event="resetHelpTip"
-    id="resetHelpTip"
-    data-xztext="_重新显示帮助"
-  ></button>
+
+  <div class="optionLine">
+    <button
+      type="button"
+      class="textButton fireEvent"
+      data-event="exportSettings"
+      id="exportSettings"
+      data-xztext="_导出设置"
+    ></button>
+    <button
+      type="button"
+      class="textButton fireEvent"
+      data-event="importSettings"
+      id="importSettings"
+      data-xztext="_导入设置"
+    ></button>
+    <button
+      type="button"
+      class="textButton fireEvent"
+      data-event="resetSettings"
+      id="resetSettings"
+      data-xztext="_重置设置"
+    ></button>
+  </div>
+
+  <div class="optionLine">
+    <button
+      type="button"
+      class="textButton fireEvent"
+      data-event="resetFollowingData"
+      id="resetFollowingData"
+      data-xztext="_清除下载器保存的关注数据"
+    ></button>
+  </div>
+
+  <div class="optionLine">
+    <button
+      type="button"
+      class="textButton fireEvent"
+      data-event="resetHelpTip"
+      id="resetHelpTip"
+      data-xztext="_重新显示帮助"
+    ></button>
+  </div>
 </div>

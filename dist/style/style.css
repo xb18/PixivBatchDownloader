@@ -597,7 +597,7 @@ body.mobile #quickCrawlBtn {
   --settings-panel-help-action-text: #444;
   --settings-panel-help-action-icon: #666;
   --settings-panel-help-action-shadow: var(--settings-panel-card-shadow);
-  --settings-panel-help-action-hover-bg: #09a0f4;
+  --settings-panel-help-action-hover-bg: #26b1ff;
   --settings-panel-help-action-hover-text: #fff;
   --settings-panel-help-action-update-dot: #ff4060;
   --settings-panel-naming-list-bg: #fff;
@@ -1229,6 +1229,11 @@ body.mobile #quickCrawlBtn {
   padding: 0px 6px;
   cursor: pointer;
 }
+.centerWrap .textButton.fireEvent {
+  border: 1px solid var(--settings-panel-btn-secondary-border);
+  border-radius: 4px;
+  margin-right: 3px;
+}
 .centerWrap .grayButton {
   background: #eee;
   color: #333;
@@ -1525,6 +1530,7 @@ body.mobile #quickCrawlBtn {
   flex-shrink: 0;
   align-items: flex-start;
   column-gap: 4px;
+  padding: 2px 0;
   line-height: var(--line-height);
 }
 .centerWrap .centerWrap_con .settingForm .option .optionLine * {
@@ -1538,8 +1544,8 @@ body.mobile #quickCrawlBtn {
   flex-grow: 1;
 }
 .centerWrap .centerWrap_con .settingForm .option .setinput_style {
-  width: 50px;
-  min-width: 50px;
+  width: 60px;
+  min-width: 60px;
   height: 24px;
   line-height: 22px;
   margin: 1px 0;
@@ -1559,55 +1565,20 @@ body.mobile #quickCrawlBtn {
 .centerWrap .centerWrap_con .settingForm .option .setinput_style:focus {
   box-shadow: var(--settings-panel-input-focus-shadow);
 }
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w20 {
-  width: 20px;
-  min-width: 20px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w30 {
-  width: 30px;
-  min-width: 30px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w40 {
-  width: 40px;
-  min-width: 40px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w50 {
-  width: 50px;
-  min-width: 50px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w60 {
-  width: 60px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w70 {
-  width: 70px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w80 {
-  width: 80px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w90 {
-  width: 90px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w100 {
-  width: 100px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w150 {
-  width: 150px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w200 {
-  width: 200px;
-}
-.centerWrap .centerWrap_con .settingForm .option .setinput_style.w250 {
-  width: 250px;
-}
 .centerWrap .centerWrap_con .settingForm .option .setinput_style.postDate {
   width: 170px;
 }
 .centerWrap .centerWrap_con .settingForm .option .setinput_style.bmkNum {
-  width: 70px;
+  width: 76px;
 }
 .centerWrap .centerWrap_con .settingForm .option button[role='setMin'],
 .centerWrap .centerWrap_con .settingForm .option button[role='setMax'] {
   margin: 0 4px;
+}
+.centerWrap .centerWrap_con .settingForm .option[data-no='62'] .optionLine,
+.centerWrap .centerWrap_con .settingForm .option[data-no='99'] .optionLine,
+.centerWrap .centerWrap_con .settingForm .option[data-no='103'] .optionLine {
+  margin: 3px 0 !important;
 }
 .centerWrap .centerWrap_con .settingForm select {
   width: auto;
@@ -4101,6 +4072,58 @@ iframe[name='expandedFooter'] {
 .shrink1 {
   flex-shrink: 1;
 }
+.mr0 {
+  margin-right: 0 !important;
+}
+.mr4 {
+  margin-right: 4px !important;
+}
+.p0 {
+  padding: 0 !important;
+}
+.pr4 {
+  padding-right: 4px !important;
+}
+.w20 {
+  width: 20px !important;
+  min-width: 20px !important;
+}
+.w30 {
+  width: 30px !important;
+  min-width: 30px !important;
+}
+.w40 {
+  width: 40px !important;
+  min-width: 40px !important;
+}
+.w50 {
+  width: 50px !important;
+  min-width: 50px !important;
+}
+.w60 {
+  width: 60px !important;
+}
+.w70 {
+  width: 70px !important;
+}
+.w80 {
+  width: 80px !important;
+}
+.w90 {
+  width: 90px !important;
+}
+.w100 {
+  width: 100px !important;
+}
+.w150 {
+  width: 150px !important;
+}
+.w200 {
+  width: 200px !important;
+}
+.w250 {
+  width: 250px !important;
+}
 .icon {
   width: 1em;
   height: 1em;
@@ -4112,12 +4135,6 @@ iframe[name='expandedFooter'] {
   transform-box: fill-box;
   transform-origin: center;
   transform: scale(var(--icon-scale, 1));
-}
-.mr0 {
-  margin-right: 0 !important;
-}
-.mr4 {
-  margin-right: 4px !important;
 }
 .beautify_scrollbar::-webkit-scrollbar {
   width: 10px;

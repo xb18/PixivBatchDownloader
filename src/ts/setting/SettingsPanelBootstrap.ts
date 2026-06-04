@@ -177,7 +177,11 @@ class SettingsPanelBootstrap {
         // 1. 点击了卡片本身，说明点击在了卡片的空白区域上
         // 2. 点击了子选项容器，这表示该设置已经启用，所以子选项容器显示了出来。此时点击空白处，大概率是点击到了子选项容器上。
         // PS: 不管该设置是否启用，都可以点击到卡片上.只不过子选项容器显示之后，可点击到卡片的区域很小.
-        if (target === option || target.matches('.subOptionWrap')) {
+        if (
+          target === option ||
+          target.matches('.subOptionWrap') ||
+          target.matches('.optionLine')
+        ) {
           // 只查找第一个开关，因为设置的总开关始终是第一个
           const switchEl = option.querySelector(
             'input.need_beautify.checkbox_switch'

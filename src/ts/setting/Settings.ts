@@ -399,6 +399,7 @@ interface XzSetting {
   expandedCards: ExpandedCards
   clickOptionCardToToggleSwitch: boolean
   clickSettingNameOpenWiki: boolean
+  downloadIntervalSwitch: boolean
 }
 
 type SettingKeys = keyof XzSetting
@@ -1007,6 +1008,7 @@ class Settings {
       },
     },
     clickSettingNameOpenWiki: true,
+    downloadIntervalSwitch: true,
   }
 
   private allSettingKeys = Object.keys(this.defaultSettings)

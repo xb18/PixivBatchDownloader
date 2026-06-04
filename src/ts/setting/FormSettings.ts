@@ -160,6 +160,7 @@ class FormSettings {
       'clickOptionCardToToggleSwitch',
       'downloadUgoiraFirst',
       'clickSettingNameOpenWiki',
+      'downloadIntervalSwitch',
     ],
     text: [
       'onlyCrawlFirstFewImagesCount',

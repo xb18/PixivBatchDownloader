@@ -115,6 +115,8 @@ class EVENT {
     exportDownloadRecord: 'exportDownloadRecord',
     /** 当需要导入下载记录时触发 */
     importDownloadRecord: 'importDownloadRecord',
+    // 导入含有 id 列表的 TXT 文件
+    importDownloadRecordTXT: 'importDownloadRecordTXT',
     /** 当需要清空断点续传的数据时触发 */
     clearSavedCrawl: 'clearSavedCrawl',
     /** 当从断点续传数据恢复了下载时触发 */
@@ -224,6 +226,7 @@ class EVENT {
       | 'clearDownloadRecord'
       | 'exportDownloadRecord'
       | 'importDownloadRecord'
+      | 'importDownloadRecordTXT'
       | 'clearSavedCrawl'
       | 'resume'
       | 'exportCSV'

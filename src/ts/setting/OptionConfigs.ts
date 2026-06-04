@@ -998,7 +998,7 @@ class OptionConfigs {
     },
     {
       no: 64,
-      nameKey: '_图片尺寸',
+      nameKey: '_下载图片时的尺寸',
       name: '',
       categoryLevel1: 'download',
       categoryLevel2: 'imageSize',
@@ -1221,7 +1221,7 @@ class OptionConfigs {
       pinned: false,
       hideOnPixivision: true,
       hideOnMobile: true,
-      searchWordKeys: ['_放大镜'],
+      searchWordKeys: ['_放大镜', '_图片查看器'],
       searchWords: [],
     },
     {
