@@ -109,6 +109,20 @@ function generateSprite(symbols) {
 function build() {
   const symbols = getSvgFiles().map(getSymbol)
   const sprite = generateSprite(symbols)
+  
+  // 检查两个路径，如果对应的文件夹不存在（注意不要包含文件名），就创建它们
+  const dir1 = path.dirname(outputPath1)
+  const dir2 = path.dirname(outputPath2)
+
+  if (!fs.existsSync(dir1)) {
+    fs.mkdirSync(dir1, { recursive: true })
+  }
+
+  if (!fs.existsSync(dir2)) {
+    fs.mkdirSync(dir2, { recursive: true })
+  }
+
+  // 写入文件
   fs.writeFileSync(outputPath1, sprite, 'utf8')
   fs.writeFileSync(outputPath2, sprite, 'utf8')
   console.log(`Generated icon sprite with ${symbols.length} icons`)
